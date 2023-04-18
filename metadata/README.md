@@ -40,6 +40,7 @@ For each product in `product_list`:
 | `prod_desc`| Description of DPM/FPM product, scrapred from txt|
 | `prod_rfp_file`| Radar footprint geojson file url of product extracted from kmz |
 | `prod_rfp_geojson`| Radar footprint in geojson format extracted from kmz, contents should be same as `prod_rfp_file` |
+|`prod_tiles`| TMS tile url for rendered products, extracted from kmz|
 | `prod_date`| Product date tagged to product extracted from `prod_title`|
     
 
