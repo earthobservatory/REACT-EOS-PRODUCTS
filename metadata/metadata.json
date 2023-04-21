@@ -71,7 +71,12 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202301_Indonesia_Earthquake_20230404_124749/EOS-RS_20230110_DPM_S1_Indonesia_Earthquake_v0.9/",
-        "prod_date": "2023-01-10"
+        "prod_date": "2023-01-10",
+        "prod_type": "DPM",
+        "prod_sat": "S1",
+        "prod_version": "0.9",
+        "prod_cvd": false,
+        "isLatest": true
       },
       {
         "prod_name": "EOS-RS_20230110_DPM_S1_Indonesia_Earthquake_v0.9_cvd",
@@ -129,7 +134,12 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202301_Indonesia_Earthquake_20230404_124851/EOS-RS_20230110_DPM_S1_Indonesia_Earthquake_v0.9_cvd/",
-        "prod_date": "2023-01-10"
+        "prod_date": "2023-01-10",
+        "prod_type": "DPM",
+        "prod_sat": "S1",
+        "prod_version": "0.9",
+        "prod_cvd": true,
+        "isLatest": true
       },
       {
         "prod_name": "EOS-RS_20230110_DPM_S1_Indonesia_Earthquake_v0.9_cvd_wbd",
@@ -187,7 +197,12 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202301_Indonesia_Earthquake_20230404_124954/EOS-RS_20230110_DPM_S1_Indonesia_Earthquake_v0.9_cvd_wbd/",
-        "prod_date": ""
+        "prod_date": "",
+        "prod_type": "DPM",
+        "prod_sat": "S1",
+        "prod_version": "0.9",
+        "prod_cvd": true,
+        "isLatest": true
       },
       {
         "prod_name": "EOS-RS_20230110_DPM_S1_Indonesia_Earthquake_v0.9_wbd",
@@ -245,7 +260,12 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202301_Indonesia_Earthquake_20230404_125058/EOS-RS_20230110_DPM_S1_Indonesia_Earthquake_v0.9_wbd/",
-        "prod_date": ""
+        "prod_date": "",
+        "prod_type": "DPM",
+        "prod_sat": "S1",
+        "prod_version": "0.9",
+        "prod_cvd": false,
+        "isLatest": true
       }
     ]
   },
@@ -321,7 +341,12 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202301_Indonesia_Floods_20230404_124529/EOS-RS_20230104_FPM_S1_Indonesia_Floods_v0.3/",
-        "prod_date": "2023-01-04"
+        "prod_date": "2023-01-04",
+        "prod_type": "FPM",
+        "prod_sat": "S1",
+        "prod_version": "0.3",
+        "prod_cvd": false,
+        "isLatest": false
       },
       {
         "prod_name": "EOS-RS_20230104_FPM_S1_Indonesia_Floods_v0.7",
@@ -379,7 +404,12 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202301_Indonesia_Floods_20230404_124607/EOS-RS_20230104_FPM_S1_Indonesia_Floods_v0.7/",
-        "prod_date": "2023-01-04"
+        "prod_date": "2023-01-04",
+        "prod_type": "FPM",
+        "prod_sat": "S1",
+        "prod_version": "0.7",
+        "prod_cvd": false,
+        "isLatest": true
       }
     ]
   },
@@ -2323,7 +2353,12 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS_RS_202302_Turkiye_Syria_Earthquake_20230331_114019/EOS-RS_20230208_DPM_A2_Tu\u0308rkiye_Syria_Earthquake_v0.5/",
-        "prod_date": "2023-02-08"
+        "prod_date": "2023-02-08",
+        "prod_type": "DPM",
+        "prod_sat": "A2",
+        "prod_version": "0.5",
+        "prod_cvd": false,
+        "isLatest": false
       },
       {
         "prod_name": "EOS-RS_20230208_DPM_A2_Tu\u0308rkiye_Syria_Earthquake_v0.5_cvd",
@@ -4249,7 +4284,12 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS_RS_202302_Turkiye_Syria_Earthquake_20230331_114131/EOS-RS_20230208_DPM_A2_Tu\u0308rkiye_Syria_Earthquake_v0.5_cvd/",
-        "prod_date": "2023-02-08"
+        "prod_date": "2023-02-08",
+        "prod_type": "DPM",
+        "prod_sat": "A2",
+        "prod_version": "0.5",
+        "prod_cvd": true,
+        "isLatest": false
       },
       {
         "prod_name": "EOS-RS_20230208_DPM_A2_Tu\u0308rkiye_Syria_Earthquake_v1.2",
@@ -6175,7 +6215,12 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS_RS_202302_Turkiye_Syria_Earthquake_20230331_114248/EOS-RS_20230208_DPM_A2_Tu\u0308rkiye_Syria_Earthquake_v1.2/",
-        "prod_date": "2023-02-08"
+        "prod_date": "2023-02-08",
+        "prod_type": "DPM",
+        "prod_sat": "A2",
+        "prod_version": "1.2",
+        "prod_cvd": false,
+        "isLatest": true
       },
       {
         "prod_name": "EOS-RS_20230208_DPM_A2_Tu\u0308rkiye_Syria_Earthquake_v1.2_cvd",
@@ -8101,7 +8146,12 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS_RS_202302_Turkiye_Syria_Earthquake_20230331_114412/EOS-RS_20230208_DPM_A2_Tu\u0308rkiye_Syria_Earthquake_v1.2_cvd/",
-        "prod_date": "2023-02-08"
+        "prod_date": "2023-02-08",
+        "prod_type": "DPM",
+        "prod_sat": "A2",
+        "prod_version": "1.2",
+        "prod_cvd": true,
+        "isLatest": true
       },
       {
         "prod_name": "EOS-RS_20230209_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v0.9",
@@ -8179,7 +8229,12 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_160132/EOS-RS_20230209_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v0.9/",
-        "prod_date": "2023-02-09"
+        "prod_date": "2023-02-09",
+        "prod_type": "DPM",
+        "prod_sat": "S1",
+        "prod_version": "0.9",
+        "prod_cvd": false,
+        "isLatest": false
       },
       {
         "prod_name": "EOS-RS_20230209_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v0.9_cvd",
@@ -8257,7 +8312,12 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_160821/EOS-RS_20230209_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v0.9_cvd/",
-        "prod_date": "2023-02-09"
+        "prod_date": "2023-02-09",
+        "prod_type": "DPM",
+        "prod_sat": "S1",
+        "prod_version": "0.9",
+        "prod_cvd": true,
+        "isLatest": false
       },
       {
         "prod_name": "EOS-RS_20230209_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2",
@@ -8335,7 +8395,12 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_161510/EOS-RS_20230209_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2/",
-        "prod_date": "2023-02-09"
+        "prod_date": "2023-02-09",
+        "prod_type": "DPM",
+        "prod_sat": "S1",
+        "prod_version": "1.2",
+        "prod_cvd": false,
+        "isLatest": true
       },
       {
         "prod_name": "EOS-RS_20230209_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2_cvd",
@@ -8413,7 +8478,12 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_162118/EOS-RS_20230209_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2_cvd/",
-        "prod_date": "2023-02-09"
+        "prod_date": "2023-02-09",
+        "prod_type": "DPM",
+        "prod_sat": "S1",
+        "prod_version": "1.2",
+        "prod_cvd": true,
+        "isLatest": true
       },
       {
         "prod_name": "EOS-RS_20230210_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v0.9",
@@ -8496,7 +8566,12 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_162725/EOS-RS_20230210_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v0.9/",
-        "prod_date": "2023-02-10"
+        "prod_date": "2023-02-10",
+        "prod_type": "DPM",
+        "prod_sat": "S1",
+        "prod_version": "0.9",
+        "prod_cvd": false,
+        "isLatest": false
       },
       {
         "prod_name": "EOS-RS_20230210_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v0.9_cvd",
@@ -8579,7 +8654,12 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_163220/EOS-RS_20230210_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v0.9_cvd/",
-        "prod_date": "2023-02-10"
+        "prod_date": "2023-02-10",
+        "prod_type": "DPM",
+        "prod_sat": "S1",
+        "prod_version": "0.9",
+        "prod_cvd": true,
+        "isLatest": false
       },
       {
         "prod_name": "EOS-RS_20230210_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2",
@@ -8677,7 +8757,12 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_163719/EOS-RS_20230210_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2/",
-        "prod_date": "2023-02-10"
+        "prod_date": "2023-02-10",
+        "prod_type": "DPM",
+        "prod_sat": "S1",
+        "prod_version": "1.2",
+        "prod_cvd": false,
+        "isLatest": true
       },
       {
         "prod_name": "EOS-RS_20230210_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2_cvd",
@@ -8775,7 +8860,12 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_164255/EOS-RS_20230210_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2_cvd/",
-        "prod_date": "2023-02-10"
+        "prod_date": "2023-02-10",
+        "prod_type": "DPM",
+        "prod_sat": "S1",
+        "prod_version": "1.2",
+        "prod_cvd": true,
+        "isLatest": true
       },
       {
         "prod_name": "EOS-RS_20230211-20230210-20230209_DPM_merged_S1_Turkiye_Syria_Earthquake_v1.2",
@@ -8958,7 +9048,12 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230410_060606/EOS-RS_20230211-20230210-20230209_DPM_merged_S1_Turkiye_Syria_Earthquake_v1.2/",
-        "prod_date": "2023-02"
+        "prod_date": "2023-02",
+        "prod_type": "DPM",
+        "prod_sat": "S1",
+        "prod_version": "1.2",
+        "prod_cvd": false,
+        "isLatest": true
       },
       {
         "prod_name": "EOS-RS_20230211-20230210-20230209_DPM_merged_S1_Turkiye_Syria_Earthquake_v1.2_cvd",
@@ -9141,7 +9236,12 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230410_062342/EOS-RS_20230211-20230210-20230209_DPM_merged_S1_Turkiye_Syria_Earthquake_v1.2_cvd/",
-        "prod_date": "2023-02"
+        "prod_date": "2023-02",
+        "prod_type": "DPM",
+        "prod_sat": "S1",
+        "prod_version": "1.2",
+        "prod_cvd": true,
+        "isLatest": true
       },
       {
         "prod_name": "EOS-RS_20230211_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2",
@@ -9239,7 +9339,12 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_164827/EOS-RS_20230211_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2/",
-        "prod_date": "2023-02-11"
+        "prod_date": "2023-02-11",
+        "prod_type": "DPM",
+        "prod_sat": "S1",
+        "prod_version": "1.2",
+        "prod_cvd": false,
+        "isLatest": true
       },
       {
         "prod_name": "EOS-RS_20230211_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2_cvd",
@@ -9337,7 +9442,12 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_165250/EOS-RS_20230211_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2_cvd/",
-        "prod_date": "2023-02-11"
+        "prod_date": "2023-02-11",
+        "prod_type": "DPM",
+        "prod_sat": "S1",
+        "prod_version": "1.2",
+        "prod_cvd": true,
+        "isLatest": true
       },
       {
         "prod_name": "EOS-RS_20230221_DPM_S1_Turkiye_Syria_Earthquake_v0.4",
@@ -10805,7 +10915,12 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS_RS_202302_Turkiye_Syria_Earthquake_20230331_085838/EOS-RS_20230221_DPM_S1_Turkiye_Syria_Earthquake_v0.4/",
-        "prod_date": "2023-02-21"
+        "prod_date": "2023-02-21",
+        "prod_type": "DPM",
+        "prod_sat": "S1",
+        "prod_version": "0.4",
+        "prod_cvd": false,
+        "isLatest": true
       },
       {
         "prod_name": "EOS-RS_20230221_DPM_S1_Turkiye_Syria_Earthquake_v0.4_cvd",
@@ -12273,7 +12388,12 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS_RS_202302_Turkiye_Syria_Earthquake_20230331_090350/EOS-RS_20230221_DPM_S1_Turkiye_Syria_Earthquake_v0.4_cvd/",
-        "prod_date": "2023-02-21"
+        "prod_date": "2023-02-21",
+        "prod_type": "DPM",
+        "prod_sat": "S1",
+        "prod_version": "0.4",
+        "prod_cvd": true,
+        "isLatest": true
       }
     ]
   },
@@ -12412,7 +12532,12 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/EOS-RS_20230322_DPM_S1_Afghanistan_Earthquake_v0.4_20230327_040404/EOS-RS_20230322_DPM_S1_Afghanistan_Earthquake_v0.4/",
-        "prod_date": "2023-03-22"
+        "prod_date": "2023-03-22",
+        "prod_type": "DPM",
+        "prod_sat": "S1",
+        "prod_version": "0.4",
+        "prod_cvd": false,
+        "isLatest": true
       }
     ]
   },
@@ -12558,7 +12683,12 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_20230326-20230322-20230319_DPM_S1_Ecuador_Earthquake_v0.8_20230406_070727/EOS-RS_20230326-20230322-20230319_DPM_S1_Ecuador_Earthquake_v0.8/",
-        "prod_date": "2023-03"
+        "prod_date": "2023-03",
+        "prod_type": "DPM",
+        "prod_sat": "S1",
+        "prod_version": "0.8",
+        "prod_cvd": false,
+        "isLatest": true
       }
     ]
   },
@@ -12634,7 +12764,12 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202303_Indonesia_Landslides_20230404_123551/EOS-RS_20230307_DPM_S1_Indonesia_Landslides_v0.8/",
-        "prod_date": "2023-03-07"
+        "prod_date": "2023-03-07",
+        "prod_type": "DPM",
+        "prod_sat": "S1",
+        "prod_version": "0.8",
+        "prod_cvd": false,
+        "isLatest": false
       },
       {
         "prod_name": "EOS-RS_20230307_DPM_S1_Indonesia_Landslides_v0.8_cvd",
@@ -12692,7 +12827,12 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202303_Indonesia_Landslides_20230404_123553/EOS-RS_20230307_DPM_S1_Indonesia_Landslides_v0.8_cvd/",
-        "prod_date": "2023-03-07"
+        "prod_date": "2023-03-07",
+        "prod_type": "DPM",
+        "prod_sat": "S1",
+        "prod_version": "0.8",
+        "prod_cvd": true,
+        "isLatest": false
       },
       {
         "prod_name": "EOS-RS_20230307_DPM_S1_Indonesia_Landslides_v1.1",
@@ -12750,7 +12890,12 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202303_Indonesia_Landslides_20230404_123554/EOS-RS_20230307_DPM_S1_Indonesia_Landslides_v1.1/",
-        "prod_date": "2023-03-07"
+        "prod_date": "2023-03-07",
+        "prod_type": "DPM",
+        "prod_sat": "S1",
+        "prod_version": "1.1",
+        "prod_cvd": false,
+        "isLatest": true
       },
       {
         "prod_name": "EOS-RS_20230307_DPM_S1_Indonesia_Landslides_v1.1_cvd",
@@ -12808,7 +12953,12 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202303_Indonesia_Landslides_20230404_123557/EOS-RS_20230307_DPM_S1_Indonesia_Landslides_v1.1_cvd/",
-        "prod_date": "2023-03-07"
+        "prod_date": "2023-03-07",
+        "prod_type": "DPM",
+        "prod_sat": "S1",
+        "prod_version": "1.1",
+        "prod_cvd": true,
+        "isLatest": true
       }
     ]
   },
@@ -12819,12 +12969,12 @@
     "event_end": "2023-03-03",
     "event_bbox": [
       [
-        -17.1441184309435,
+        -20.5513598913725,
         166.011988565304
       ],
       [
         -14.1294736452963,
-        168.116339609491
+        170.311227671303
       ]
     ],
     "product_list": [
@@ -12884,7 +13034,12 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202303_Vanuatu_Cyclone_Judy_Cyclone_Kevin_20230404_123925/EOS-RS_20230303_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.7/",
-        "prod_date": "2023-03-03"
+        "prod_date": "2023-03-03",
+        "prod_type": "DPM",
+        "prod_sat": "S1",
+        "prod_version": "0.7",
+        "prod_cvd": false,
+        "isLatest": true
       },
       {
         "prod_name": "EOS-RS_20230303_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.7_cvd",
@@ -12942,7 +13097,158 @@
           ]
         },
         "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202303_Vanuatu_Cyclone_Judy_Cyclone_Kevin_20230404_124119/EOS-RS_20230303_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.7_cvd/",
-        "prod_date": "2023-03-03"
+        "prod_date": "2023-03-03",
+        "prod_type": "DPM",
+        "prod_sat": "S1",
+        "prod_version": "0.7",
+        "prod_cvd": true,
+        "isLatest": true
+      },
+      {
+        "prod_name": "EOS-RS_20230310_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.8",
+        "prod_title": "EOS-RS Damage Proxy Map: Vanuatu, Cyclone Judy and Cyclone Kevin, 10 Mar 2023, v0.8",
+        "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting that are likely damaged in Vanuatu due to Cyclone Judy and Cyclone Kevin. This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (29 Oct 2022 to 26 Feb 2023) and after (10 Mar 2023) the cyclones.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 meters across. The colour variation from yellow to red indicates increasingly more significant surface change. Preliminary validation was done using media reports and optical imagery. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage.\n\nThe product contains modified Copernicus Sentinel data (2022-2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS). \n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202303_Vanuatu_Cyclone_Judy_Cyclone_Kevin/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Contains modified Copernicus Sentinel data (2022-2023)",
+        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_20230310_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.8_20230419_085618/EOS-RS_20230310_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.8/rfp_20230310_footprint.json",
+        "prod_rfp_geojson": {
+          "type": "FeatureCollection",
+          "name": "0",
+          "crs": {
+            "type": "name",
+            "properties": {
+              "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+            }
+          },
+          "features": [
+            {
+              "type": "Feature",
+              "properties": {},
+              "geometry": {
+                "type": "MultiPolygon",
+                "coordinates": [
+                  [
+                    [
+                      [
+                        168.712419095029,
+                        -20.5513598913725,
+                        0.0
+                      ],
+                      [
+                        167.357115160111,
+                        -15.0732640202661,
+                        0.0
+                      ],
+                      [
+                        168.126981212548,
+                        -14.9009027815534,
+                        0.0
+                      ],
+                      [
+                        168.153758207858,
+                        -15.0135508307856,
+                        0.0
+                      ],
+                      [
+                        168.948913880729,
+                        -14.824320063229,
+                        0.0
+                      ],
+                      [
+                        170.311227671303,
+                        -20.1841888274489,
+                        0.0
+                      ],
+                      [
+                        168.712419095029,
+                        -20.5513598913725,
+                        0.0
+                      ]
+                    ]
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_20230310_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.8_20230419_085618/EOS-RS_20230310_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.8/",
+        "prod_date": "2023-03-10",
+        "prod_type": "DPM",
+        "prod_sat": "S1",
+        "prod_version": "0.8",
+        "prod_cvd": false,
+        "isLatest": true
+      },
+      {
+        "prod_name": "EOS-RS_20230310_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.8_cvd",
+        "prod_title": "EOS-RS Damage Proxy Map: Vanuatu, Cyclone Judy and Cyclone Kevin, 10 Mar 2023, v0.8",
+        "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting that are likely damaged in Vanuatu due to Cyclone Judy and Cyclone Kevin. This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (29 Oct 2022 to 26 Feb 2023) and after (10 Mar 2023) the cyclones.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 meters across. The colour variation from light blue to dark blue indicates increasingly more significant surface change. Preliminary validation was done using media reports and optical imagery. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage.\n\nThe product contains modified Copernicus Sentinel data (2022-2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS). \n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202303_Vanuatu_Cyclone_Judy_Cyclone_Kevin/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Contains modified Copernicus Sentinel data (2022-2023)",
+        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_20230310_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.8_cvd_20230419_091850/EOS-RS_20230310_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.8_cvd/rfp_20230310_footprint.json",
+        "prod_rfp_geojson": {
+          "type": "FeatureCollection",
+          "name": "0",
+          "crs": {
+            "type": "name",
+            "properties": {
+              "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+            }
+          },
+          "features": [
+            {
+              "type": "Feature",
+              "properties": {},
+              "geometry": {
+                "type": "MultiPolygon",
+                "coordinates": [
+                  [
+                    [
+                      [
+                        168.712419095029,
+                        -20.5513598913725,
+                        0.0
+                      ],
+                      [
+                        167.357115160111,
+                        -15.0732640202661,
+                        0.0
+                      ],
+                      [
+                        168.126981212548,
+                        -14.9009027815534,
+                        0.0
+                      ],
+                      [
+                        168.153758207858,
+                        -15.0135508307856,
+                        0.0
+                      ],
+                      [
+                        168.948913880729,
+                        -14.824320063229,
+                        0.0
+                      ],
+                      [
+                        170.311227671303,
+                        -20.1841888274489,
+                        0.0
+                      ],
+                      [
+                        168.712419095029,
+                        -20.5513598913725,
+                        0.0
+                      ]
+                    ]
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_20230310_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.8_cvd_20230419_091850/EOS-RS_20230310_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.8_cvd/",
+        "prod_date": "2023-03-10",
+        "prod_type": "DPM",
+        "prod_sat": "S1",
+        "prod_version": "0.8",
+        "prod_cvd": true,
+        "isLatest": true
       }
     ]
   }

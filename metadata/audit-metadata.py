@@ -112,6 +112,29 @@ def get_bbox(prod_list):
     bbox = [[min_lat, min_lon], [max_lat, max_lon]]
     return bbox
 
+def mark_latest_products(prod_list):
+    latest_versions = {}
+
+    # Find the latest version for each group of items with the same prod_date, prod_type, and prod_cvd
+    for product in prod_list:
+        key = (product['prod_date'], product['prod_type'], product['prod_cvd'])
+        if key not in latest_versions or product['prod_version'] > latest_versions[key]['prod_version']:
+            latest_versions[key] = product
+
+    # Mark each item that is the latest version in its group
+    for product in prod_list:
+        key = (product['prod_date'], product['prod_type'], product['prod_cvd'])
+        if product == latest_versions[key]:
+            product['isLatest'] = True
+        else:
+            product['isLatest'] = False
+
+    return prod_list
+
+
+
+
+
 
 if __name__ == '__main__':
     bucket = 'eos-rs-products'
@@ -123,6 +146,7 @@ if __name__ == '__main__':
     metadata_list=[]
 
     for o in result_folder.get('CommonPrefixes'):
+        # EVENT LOOP
         response_folder = o.get('Prefix')
         this_event_md = {"event_name": response_folder.split("/")[0],
                          "event_url": os.path.join(static_url, response_folder),
@@ -135,6 +159,7 @@ if __name__ == '__main__':
         result_files = client.list_objects(Bucket=bucket, Prefix=response_folder)
 
         for file in result_files.get('Contents'):
+            # PRODUCT LOOP
             filepath = file['Key']
             print(filepath)
             kmz_file = os.path.basename(filepath)
@@ -146,8 +171,25 @@ if __name__ == '__main__':
                                    "prod_rfp_file": '',
                                    "prod_rfp_geojson": '',
                                    "prod_tiles": '',
-                                   "prod_date": ''}
+                                   "prod_date": '',
+                                   "prod_type": '',
+                                   "prod_sat": '',
+                                   "prod_version": 0,
+                                   "prod_cvd": False,
+                                   }
+                # extract product details with prod_name
+                match = re.search(r'EOS-RS_\d{8}.*_([A-Z]{3})_.*([A-Z][0-9])_.*?v(\d\.\d)(?:.*?(cvd))?',
+                                  this_product_md["prod_name"])
+                if match:
+                    date_string = match.group(1)
+                    this_product_md["prod_type"] = match.group(1)
+                    this_product_md["prod_sat"] = match.group(2)
+                    this_product_md["prod_version"] = match.group(3)
+                    this_product_md["prod_cvd"] = True if match.group(4) else False
+
+                # GET THE RFP
                 client.download_file(bucket, filepath, kmz_file)
+
 
                 # unzip kmz
                 runCmd(f'unzip "{kmz_file}"')
@@ -192,27 +234,30 @@ if __name__ == '__main__':
 
                 this_event_md["product_list"].append(this_product_md)
 
-            #create event bbox
-            max_date = datetime.datetime(1970, 1, 1)
-            min_date = datetime.datetime(2050, 1, 1)
+        # mark each item in list if it's the latest or not:
+        this_event_md["product_list"] = mark_latest_products(this_event_md["product_list"])
 
-            is_ym_only = False
+        #create event bbox
+        max_date = datetime.datetime(1970, 1, 1)
+        min_date = datetime.datetime(2050, 1, 1)
 
-            for prod in this_event_md["product_list"]:
-                # find min and max date
-                if bool(re.match(r'^\d{4}-\d{2}?$', prod["prod_date"])):
-                    is_ym_only = True
-                prod_event_date = dateparser.parse(prod['prod_date'])
-                if prod_event_date:
-                    max_date = prod_event_date if prod_event_date > max_date else max_date
-                    min_date = prod_event_date if prod_event_date < min_date else min_date
+        is_ym_only = False
 
-            datestr_format = "%Y-%m" if is_ym_only else "%Y-%m-%d"
-            this_event_md.update({"event_start": min_date.strftime(datestr_format)})
-            this_event_md.update({"event_end": min_date.strftime(datestr_format)})
+        for prod in this_event_md["product_list"]:
+            # find min and max date
+            if bool(re.match(r'^\d{4}-\d{2}?$', prod["prod_date"])):
+                is_ym_only = True
+            prod_event_date = dateparser.parse(prod['prod_date'])
+            if prod_event_date:
+                max_date = prod_event_date if prod_event_date > max_date else max_date
+                min_date = prod_event_date if prod_event_date < min_date else min_date
 
-            event_bbox = get_bbox(this_event_md['product_list'])
-            this_event_md.update({"event_bbox": event_bbox})
+        datestr_format = "%Y-%m" if is_ym_only else "%Y-%m-%d"
+        this_event_md.update({"event_start": min_date.strftime(datestr_format)})
+        this_event_md.update({"event_end": min_date.strftime(datestr_format)})
+
+        event_bbox = get_bbox(this_event_md['product_list'])
+        this_event_md.update({"event_bbox": event_bbox})
 
 
         metadata_list.append(this_event_md)
