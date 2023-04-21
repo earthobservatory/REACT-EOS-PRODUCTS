@@ -38,15 +38,16 @@ For each product in `product_list`:
 | `prod_name`        |                       Name of DPM/FPM product with accompanying tif / kmz                        |
 | `prod_title`       |                           Title of DPM/FPM product, scrapred from txt                            |
 | `prod_desc`        |                        Description of DPM/FPM product, scrapred from txt                         |
+| `prod_main_png`    |                                   URL of main PNG of product.                                    |
 | `prod_rfp_file`    |                  Radar footprint geojson file url of product extracted from kmz                  |
 | `prod_rfp_geojson` | Radar footprint in geojson format extracted from kmz, contents should be same as `prod_rfp_file` |
 | `prod_tiles`       |                      TMS tile url for rendered products, extracted from kmz                      |
 | `prod_date`        |                    Product date tagged to product extracted from `prod_title`                    |
 | `prod_type`        |                         Product map type, damage or flood etc. (DPM/FPM)                         |
-| `prod_sat`        |                            Satellite product is derived from (S1/A2)                             |
-| `prod_version`        |                               `float` indicating product version.                                |
-| `prod_cvd`        |              Boolean flag to tag if product is Colour Vision Deficiency - friendly.              |
-| `prod_isLatest`        |        Boolean flag to show if product is latest version for the swath. Display if true.         |
+| `prod_sat`         |                            Satellite product is derived from (S1/A2)                             |
+| `prod_version`     |                               `float` indicating product version.                                |
+| `prod_cvd`         |              Boolean flag to tag if product is Colour Vision Deficiency - friendly.              |
+| `prod_isLatest`    |        Boolean flag to show if product is latest version for the swath. Display if true.         |
 
 
 #### Demo

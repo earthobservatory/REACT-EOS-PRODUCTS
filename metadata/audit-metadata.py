@@ -6,10 +6,7 @@ from __future__ import absolute_import
 from builtins import range
 import os
 import glob
-import argparse
 import json
-# from utilities.util_methods import runCmd, create_mask, get_bounding_polygon, gdal_warp_stitch, gtfwrt, \
-#     create_xml_metadata, tif2shpzip, polyshp2kml, getFootprintShp, checkProjectionWGS84, filter_glob
 import numpy as np
 from osgeo import gdal, osr, ogr
 import urllib.parse
@@ -22,6 +19,7 @@ import requests
 import dateparser
 import calendar
 import re
+
 
 KMLDIR = "final_kml"
 
@@ -157,82 +155,98 @@ if __name__ == '__main__':
 
         print(f"sub folder :  {response_folder}")
         result_files = client.list_objects(Bucket=bucket, Prefix=response_folder)
+        # fileList = result_files.get('Contents')
+        fileList = [d['Key'] for d in result_files.get('Contents')]
 
-        for file in result_files.get('Contents'):
+        for filepath in fileList:
             # PRODUCT LOOP
-            filepath = file['Key']
+            # filepath = file['Key']
             print(filepath)
-            kmz_file = os.path.basename(filepath)
-            filename_base = os.path.splitext(kmz_file)[0]
-            if filepath.endswith('.kmz'):
-                this_product_md = {"prod_name": filename_base,
-                                   "prod_title": '',
-                                   "prod_desc": '',
-                                   "prod_rfp_file": '',
-                                   "prod_rfp_geojson": '',
-                                   "prod_tiles": '',
-                                   "prod_date": '',
-                                   "prod_type": '',
-                                   "prod_sat": '',
-                                   "prod_version": 0,
-                                   "prod_cvd": False,
-                                   }
-                # extract product details with prod_name
-                match = re.search(r'EOS-RS_\d{8}.*_([A-Z]{3})_.*([A-Z][0-9])_.*?v(\d\.\d)(?:.*?(cvd))?',
-                                  this_product_md["prod_name"])
-                if match:
-                    date_string = match.group(1)
-                    this_product_md["prod_type"] = match.group(1)
-                    this_product_md["prod_sat"] = match.group(2)
-                    this_product_md["prod_version"] = match.group(3)
-                    this_product_md["prod_cvd"] = True if match.group(4) else False
-
-                # GET THE RFP
-                client.download_file(bucket, filepath, kmz_file)
+            # kmz_file = os.path.basename(filepath)
+            filename_base = os.path.splitext(os.path.basename(filepath))[0]
 
 
-                # unzip kmz
-                runCmd(f'unzip "{kmz_file}"')
-                file_kml = os.path.join(os.getcwd(), 'doc.kml')
+            if filepath.endswith('.txt'):
+                r_png = re.compile(f".*{filename_base}.*MAIN.*png")
+                r_kmz = re.compile(fr".*{filename_base}.*kmz")
+                list_png = list(filter(r_png.match, fileList))
+                list_kmz = list(filter(r_kmz.match, fileList))
+                if list_png and list_kmz:
+                    kmz_filepath = list_kmz[0]
+                    kmz_file = os.path.basename(kmz_filepath)
+                    png_file = os.path.basename(list_png[0])
 
-                # find the tiles url and get the radarfootprint?
-                try:
-                    feat_dict = get_radar_footprint(file_kml)
-                except:
-                    print(f"KML ISSUE FOR: {kmz_file}")
-                    continue
+                    # if newlist:
+                    #     this_product_md["prod_main_png"] = urllib.parse.urljoin(this_event_md['event_url'], newlist[0])
 
-                for rfp_filename, geojson in feat_dict.items():
-                    this_product_md.update({"prod_rfp_geojson": geojson})
-                    with open(file_kml, 'r') as content_file:
-                        content_orig = content_file.read()
-                        http_result = re.search("\<href\>(http.*\/)[\d]*\/[\d]*\/.*.kml\<\/href\>", content_orig)
-                    if http_result:
-                        real_url = http_result.group(1)
-                        this_product_md.update({"prod_tiles": real_url})
-                        s3_result = re.search('http\:\/\/(.*)\.s3.*com\/(.*)', real_url)
-                        s3_url = "s3://" + s3_result.group(1) + "/" + s3_result.group(2)
-                        runCmd(f"aws s3 cp '{rfp_filename}' '{s3_url}'")
-                        this_product_md.update({"prod_rfp_file": os.path.join(real_url,rfp_filename)})
+                    this_product_md = {"prod_name": filename_base,
+                                       "prod_title": '',
+                                       "prod_desc": '',
+                                       "prod_main_png": urllib.parse.urljoin(this_event_md['event_url'], png_file),
+                                       "prod_rfp_file": '',
+                                       "prod_rfp_geojson": '',
+                                       "prod_tiles": '',
+                                       "prod_date": '',
+                                       "prod_type": '',
+                                       "prod_sat": '',
+                                       "prod_version": 0,
+                                       "prod_cvd": False
+                                       }
 
-                runCmd(f"rm -rf doc.kml files rfp_*.json {kmz_file}")
+                    # get text file
+                    text_url = os.path.join(static_url, filepath)
+                    r = requests.get(text_url)
+                    if r.status_code == 200:
+                        text_str_list = r.text.split("\n")
 
-                # get text file
-                text_url = os.path.join(static_url, filepath.replace("kmz", "txt"))
-                r = requests.get(text_url)
-                if r.status_code == 200:
-                    text_str_list = r.text.split("\n")
+                        if len(text_str_list) > 1:
+                            this_product_md.update({"prod_title": text_str_list[0]})
+                            this_product_md.update({"prod_desc": "\n".join(text_str_list[2:])})
 
-                    if len(text_str_list)>1:
-                        this_product_md.update({"prod_title": text_str_list[0]})
-                        this_product_md.update({"prod_desc": "\n".join(text_str_list[2:])})
+                    if this_product_md['prod_title']:
+                        print(this_product_md['prod_title'])
+                        prod_date = parseDate(this_product_md['prod_title'])
+                        this_product_md.update({"prod_date": prod_date})
 
-                if this_product_md['prod_title']:
-                    print(this_product_md['prod_title'])
-                    prod_date = parseDate(this_product_md['prod_title'])
-                    this_product_md.update({"prod_date": prod_date})
+                    # extract product details with prod_name
+                    match = re.search(r'EOS-RS_\d{8}.*_([A-Z]{3})_.*([A-Z][0-9])_.*?v(\d\.\d)(?:.*?(cvd))?',
+                                      this_product_md["prod_name"])
+                    if match:
+                        date_string = match.group(1)
+                        this_product_md["prod_type"] = match.group(1)
+                        this_product_md["prod_sat"] = match.group(2)
+                        this_product_md["prod_version"] = match.group(3)
+                        this_product_md["prod_cvd"] = True if match.group(4) else False
 
-                this_event_md["product_list"].append(this_product_md)
+                    # GET THE RFP
+                    client.download_file(bucket, kmz_filepath, kmz_file)
+
+                    # unzip kmz
+                    runCmd(f'unzip "{kmz_file}"')
+                    file_kml = os.path.join(os.getcwd(), 'doc.kml')
+
+                    # find the tiles url and get the radarfootprint?
+                    try:
+                        feat_dict = get_radar_footprint(file_kml)
+                    except:
+                        print(f"KML ISSUE FOR: {kmz_file}")
+                        continue
+
+                    for rfp_filename, geojson in feat_dict.items():
+                        this_product_md.update({"prod_rfp_geojson": geojson})
+                        with open(file_kml, 'r') as content_file:
+                            content_orig = content_file.read()
+                            http_result = re.search("\<href\>(http.*\/)[\d]*\/[\d]*\/.*.kml\<\/href\>", content_orig)
+                        if http_result:
+                            real_url = http_result.group(1)
+                            this_product_md.update({"prod_tiles": real_url})
+                            s3_result = re.search('http\:\/\/(.*)\.s3.*com\/(.*)', real_url)
+                            s3_url = "s3://" + s3_result.group(1) + "/" + s3_result.group(2)
+                            runCmd(f"aws s3 cp '{rfp_filename}' '{s3_url}'")
+                            this_product_md.update({"prod_rfp_file": os.path.join(real_url,rfp_filename)})
+
+                    runCmd(f"rm -rf doc.kml files rfp_*.json {kmz_file}")
+                    this_event_md["product_list"].append(this_product_md)
 
         # mark each item in list if it's the latest or not:
         this_event_md["product_list"] = mark_latest_products(this_event_md["product_list"])
