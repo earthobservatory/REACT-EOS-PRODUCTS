@@ -7,6 +7,7 @@ import NavBar from "../Reusables/NavBar";
 import { Box, Button, Toolbar, Typography, AppBar } from "@mui/material";
 import { HEADER_HEIGHT } from "utils/constants";
 import logo from "assets/EOS Logo.png";
+import Noise from "assets/noise.svg";
 
 const AppHeader = () => {
   const Navigate = useNavigate();
@@ -31,7 +32,24 @@ const AppHeader = () => {
         right: 0,
       }}
     >
-      <AppBar position="static" sx={{ height: HEADER_HEIGHT }}>
+      <AppBar
+        position="static"
+        sx={{
+          height: HEADER_HEIGHT,
+          backdropFilter: "blur(16px)",
+          "&:after": {
+            content: "''",
+            background: `url(${Noise})`,
+            position: "absolute",
+            top: "0px",
+            left: "0px",
+            width: "100%",
+            height: "100%",
+            zIndex: -1,
+            opacity: 0.3 /* Here is your opacity */,
+          },
+        }}
+      >
         <Toolbar>
           <Button href="/">
             <EOSIcon size={54} />

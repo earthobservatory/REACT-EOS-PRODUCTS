@@ -2,7 +2,7 @@ import React from "react";
 import { API, HEADER_HEIGHT } from "../../utils/constants";
 import { useState, useEffect } from "react";
 import STOCK_IMG from "assets/EOS_PRODUCT.png";
-import Noise from "assets/noise.svg";
+
 import {
   Card,
   CardMedia,
@@ -13,7 +13,7 @@ import {
   Stack,
 } from "@mui/material";
 
-const EventCard = ({
+const ProductCard = ({
   Title,
   Image,
   Date,
@@ -47,22 +47,6 @@ const EventCard = ({
           display: "flex",
           flexDirection: "column",
           boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.1)",
-          background: "rgba(255, 255, 255, 0.85)",
-          borderRadius: "16px",
-          boxShadow: " 0 4px 30px rgba(0, 0, 0, 0.1)",
-          backdropFilter: "blur(16px)",
-          border: "1px solid rgba(180, 240, 255, 0.29)",
-          "&:after": {
-            content: "''",
-            background: `url(${Noise})`,
-            position: "absolute",
-            top: "0px",
-            left: "0px",
-            width: "100%",
-            height: "100%",
-            zIndex: -1,
-            opacity: 0.2 /* Here is your opacity */,
-          },
         }}
       >
         <CardMedia
@@ -106,4 +90,4 @@ const EventCard = ({
   );
 };
 
-export default EventCard;
+export default ProductCard;
