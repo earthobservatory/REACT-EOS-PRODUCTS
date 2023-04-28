@@ -46,11 +46,11 @@ const FloatingSidePeekPopup = ({ children, isOpen, onClose }) => {
         top: "50%",
         right: 0,
         zIndex: 9999,
-        width: "50vh",
+        width: "40vw",
         // transform: "translateY(-50%)",
         transform: isOpen ? "translate(0, -50%)" : "translate(100%, -50%)",
         transition: "transform 0.3s ease-in-out",
-        height: "40vh",
+        height: "60vh",
         background: "rgba(235, 253, 255, 0.55)",
         borderRadius: "16px",
         boxShadow: " 0 4px 30px rgba(0, 0, 0, 0.1)",
@@ -167,10 +167,39 @@ const getCenterPoint = (event_bbox) => {
 function LeafletPage(props) {
   const Navigate = useNavigate();
   const { state } = useLocation();
-  const [checked, setChecked] = React.useState([1]);
+  const [checked, setChecked] = useState([]);
+  const [cvd, setcvd] = useState([]);
+  const [products, setProducts] = useState([]);
 
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    var productList = state?.product_list;
+    if (productList) {
+      var finalList = [];
+      productList
+        .filter((filter) => {
+          return filter.prod_cvd === false;
+        })
+        .forEach((item) => {
+          var cvd = productList.filter((filter) => {
+            return filter.prod_name === `${item.prod_name}_cvd`;
+          });
+          if (cvd.length) {
+            finalList.push({
+              ...item,
+              cvd_prod_tiles: cvd[0].prod_tiles,
+              cvd_selected: false,
+            });
+          } else {
+            finalList.push({ ...item, cvd_selected: false });
+          }
+        });
+
+      setProducts(finalList);
+    }
+  }, [state]);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -189,6 +218,24 @@ function LeafletPage(props) {
     } else {
       newChecked.splice(currentIndex, 1);
     }
+
+    setChecked(newChecked);
+  };
+
+  const handleSwitch = (value, newVal) => {
+    const currentIndex = checked.indexOf(value);
+    const newChecked = [...checked];
+    console.log(checked);
+
+    if (currentIndex === -1) {
+      var productIndex = products.indexOf(value);
+      products[productIndex].cvd_selected = newVal.target.checked;
+      // setProducts()
+    } else {
+      newChecked[currentIndex].cvd_selected = newVal.target.checked;
+    }
+
+    console.log(newChecked);
 
     setChecked(newChecked);
   };
@@ -217,16 +264,29 @@ function LeafletPage(props) {
           </Box>
 
           <List dense sx={{ width: "100%" }}>
-            {state?.product_list
+            {products
               .filter((item) => {
                 return item.isLatest;
               })
-              .map((value) => {
-                const labelId = `checkbox-list-secondary-label-${value}`;
+              .map((value, index) => {
+                const labelId = `checkbox-list-${value}-${index}`;
+                console.log(value?.cvd_prod_tiles);
                 return (
                   <ListItem
-                    key={value}
-                    secondaryAction={<CVDSwitch edge="end" />}
+                    key={labelId}
+                    secondaryAction={
+                      value?.cvd_prod_tiles ? (
+                        <CVDSwitch
+                          onChange={(newVal) => {
+                            handleSwitch(value, newVal);
+                          }}
+                          checked={value.cvd_selected}
+                          edge="end"
+                        />
+                      ) : (
+                        <></>
+                      )
+                    }
                     disablePadding
                   >
                     <ListItemButton onClick={handleToggle(value)}>
@@ -367,7 +427,23 @@ function LeafletPage(props) {
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <LayersControl position="topright">
+
+            {checked.map((item) => {
+              return (
+                <TileLayer
+                  tms={true}
+                  url={
+                    item?.cvd_selected
+                      ? `${item?.cvd_prod_tiles}{z}/{x}/{y}.png`
+                      : `${item?.prod_tiles}{z}/{x}/{y}.png`
+                  }
+                  maxNativeZoom={14}
+                  minNativeZoom={6}
+                />
+              );
+            })}
+
+            {/* <LayersControl position="topright">
               <LayersControl.Overlay name="Afghanistan Earthquake">
                 <TileLayer
                   name="Afghanistan Earthquake"
@@ -377,7 +453,7 @@ function LeafletPage(props) {
                   minNativeZoom={6}
                 />
               </LayersControl.Overlay>
-            </LayersControl>
+            </LayersControl> */}
 
             <Rectangle
               bounds={state.event.event_bbox}
