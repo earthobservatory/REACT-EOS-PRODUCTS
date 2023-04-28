@@ -46,7 +46,7 @@ const FloatingSidePeekPopup = ({ children, isOpen, onClose }) => {
         top: "50%",
         right: 0,
         zIndex: 9999,
-        width: "40vw",
+        width: "35vw",
         // transform: "translateY(-50%)",
         transform: isOpen ? "translate(0, -50%)" : "translate(100%, -50%)",
         transition: "transform 0.3s ease-in-out",
@@ -83,6 +83,46 @@ const FloatingSidePeekPopup = ({ children, isOpen, onClose }) => {
         <ArrowForwardIcon />
       </Fab> */}
       {children}
+    </Box>
+  );
+};
+
+const FloatingSideButton = ({ children, isOpen, onClick }) => {
+  return (
+    <Box
+      sx={{
+        position: "fixed",
+        top: "50%",
+        right: -10,
+        zIndex: 9999,
+        // width: "",
+        // transform: "translateY(-50%)",
+        transform: isOpen ? "translate(100%, -50%)" : "translate(0, -50%)",
+        transition: "transform 0.3s ease-in-out",
+        // height: "60vh",
+        background: "rgba(235, 253, 255, 0.55)",
+        borderRadius: "16px",
+        boxShadow: " 0 4px 30px rgba(0, 0, 0, 0.1)",
+        backdropFilter: "blur(16px)",
+        border: "1px solid rgba(109, 240, 255, 0.29)",
+
+        padding: "1rem",
+        "&:after": {
+          content: "''",
+          background: `url(${Noise})`,
+          position: "absolute",
+          top: "0px",
+          left: "0px",
+          width: "100%",
+          height: "100%",
+          zIndex: -1,
+          opacity: 0.2 /* Here is your opacity */,
+        },
+      }}
+    >
+      <IconButton onClick={onClick}>
+        <ChevronLeftIcon />
+      </IconButton>
     </Box>
   );
 };
@@ -168,11 +208,12 @@ function LeafletPage(props) {
   const Navigate = useNavigate();
   const { state } = useLocation();
   const [checked, setChecked] = useState([]);
-  const [cvd, setcvd] = useState([]);
+
   const [products, setProducts] = useState([]);
 
   const theme = useTheme();
   const [open, setOpen] = useState(false);
+  const [openLayers, setOpenLayers] = useState(false);
 
   useEffect(() => {
     var productList = state?.product_list;
@@ -254,10 +295,20 @@ function LeafletPage(props) {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <FloatingSidePeekPopup isOpen={open}>
+      <FloatingSideButton
+        isOpen={openLayers}
+        onClick={() => {
+          setOpenLayers(!openLayers);
+        }}
+      />
+      <FloatingSidePeekPopup isOpen={openLayers}>
         <Stack sx={{ padding: "0.5rem", gap: "1rem" }}>
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <IconButton onClick={handleDrawerClose}>
+            <IconButton
+              onClick={() => {
+                setOpenLayers(!openLayers);
+              }}
+            >
               <ChevronRightIcon />
             </IconButton>
             <Typography variant="h5">Products</Typography>
@@ -272,23 +323,7 @@ function LeafletPage(props) {
                 const labelId = `checkbox-list-${value}-${index}`;
                 console.log(value?.cvd_prod_tiles);
                 return (
-                  <ListItem
-                    key={labelId}
-                    secondaryAction={
-                      value?.cvd_prod_tiles ? (
-                        <CVDSwitch
-                          onChange={(newVal) => {
-                            handleSwitch(value, newVal);
-                          }}
-                          checked={value.cvd_selected}
-                          edge="end"
-                        />
-                      ) : (
-                        <></>
-                      )
-                    }
-                    disablePadding
-                  >
+                  <ListItem key={labelId} disablePadding>
                     <ListItemButton onClick={handleToggle(value)}>
                       <ListItemIcon>
                         <Checkbox
@@ -306,6 +341,17 @@ function LeafletPage(props) {
                         />
                       </ListItemAvatar> */}
                       <ListItemText id={labelId} primary={value.prod_title} />
+                      {value?.cvd_prod_tiles ? (
+                        <CVDSwitch
+                          onChange={(newVal) => {
+                            handleSwitch(value, newVal);
+                          }}
+                          checked={value.cvd_selected}
+                          edge="end"
+                        />
+                      ) : (
+                        <></>
+                      )}
                     </ListItemButton>
                   </ListItem>
                 );
