@@ -250,7 +250,7 @@ if __name__ == '__main__':
                         if http_result:
                             # get http path of prod tiles
                             real_url = http_result.group(1)
-                            this_product_md.update({"prod_tiles": real_url})
+                            this_product_md.update({"prod_tiles": real_url.replace('http', 'https').replace('website-','')})
                             # get s3 path of prod tiles
                             s3_result = re.search('http\:\/\/(.*)\.s3.*com\/(.*)', real_url)
                             tile_bucket = s3_result.group(1)
@@ -258,7 +258,7 @@ if __name__ == '__main__':
                             s3_url = "s3://" + tile_bucket + "/" + tile_prefix
                             # upload rfp
                             runCmd(f"aws s3 cp '{rfp_filename}' '{s3_url}'")
-                            this_product_md.update({"prod_rfp_file": os.path.join(real_url,rfp_filename)})
+                            this_product_md.update({"prod_rfp_file": os.path.join(this_product_md['prod_tiles'],rfp_filename)})
 
                             # get min/max zoom
                             tile_ls = client.list_objects(Bucket=tile_bucket, Prefix=tile_prefix, Delimiter='/')
