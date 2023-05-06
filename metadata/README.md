@@ -19,6 +19,7 @@ For each event:
 | Event Field        | Description  | 
 | ------------- |:-------------:| 
 | `event_name`   | Name of event folder in eos-rs-products.earthobservatory.sg | 
+| `event_display_name`   | Display name for the event. Derived from `event_name` |
 | `event_url`    | Event folder URL      | 
 | `event_start`|  Start of event, based on all products in `product_list`      | 
 | `event_end`|  End of event, based on all products in `product_list`      | 
@@ -42,6 +43,8 @@ For each product in `product_list`:
 | `prod_rfp_file`    |                  Radar footprint geojson file url of product extracted from kmz                  |
 | `prod_rfp_geojson` | Radar footprint in geojson format extracted from kmz, contents should be same as `prod_rfp_file` |
 | `prod_tiles`       |                      TMS tile url for rendered products, extracted from kmz                      |
+| `prod_min_zoom`       |                      Minimum zoom for the product tiles                      |
+| `prod_max_zoom`       |                      Maximum zoom for the product tiles                      |
 | `prod_date`        |                    Product date tagged to product extracted from `prod_title`                    |
 | `prod_type`        |                         Product map type, damage or flood etc. (DPM/FPM)                         |
 | `prod_sat`         |                            Satellite product is derived from (S1/A2)                             |

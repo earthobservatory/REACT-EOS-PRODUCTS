@@ -147,11 +147,19 @@ if __name__ == '__main__':
         # EVENT LOOP
         response_folder = o.get('Prefix')
         this_event_md = {"event_name": response_folder.split("/")[0],
+                         "event_display_name": '',
                          "event_url": os.path.join(static_url, response_folder),
                          "event_start": '',
                          "event_end": '',
                          "event_bbox": '',
                          "product_list": []}
+
+        # get event display name
+        # Split the filename into a list of strings using "_" as the separator
+        event_name_parts = this_event_md['event_name'].split("_")
+        date_string = datetime.datetime.strptime(event_name_parts[1], '%Y%m').strftime('%b %Y')
+        # Create the final string
+        this_event_md["event_display_name"] = f"{event_name_parts[0]} {' '.join(event_name_parts[2:])}, {date_string}"
 
         print(f"sub folder :  {response_folder}")
         result_files = client.list_objects(Bucket=bucket, Prefix=response_folder)
@@ -164,7 +172,6 @@ if __name__ == '__main__':
             print(filepath)
             # kmz_file = os.path.basename(filepath)
             filename_base = os.path.splitext(os.path.basename(filepath))[0]
-
 
             if filepath.endswith('.txt'):
                 r_png = re.compile(f".*{filename_base}.*MAIN.*png")
@@ -186,6 +193,8 @@ if __name__ == '__main__':
                                        "prod_rfp_file": '',
                                        "prod_rfp_geojson": '',
                                        "prod_tiles": '',
+                                       "prod_min_zoom": '',
+                                       "prod_max_zoom": '',
                                        "prod_date": '',
                                        "prod_type": '',
                                        "prod_sat": '',
@@ -237,13 +246,37 @@ if __name__ == '__main__':
                         with open(file_kml, 'r') as content_file:
                             content_orig = content_file.read()
                             http_result = re.search("\<href\>(http.*\/)[\d]*\/[\d]*\/.*.kml\<\/href\>", content_orig)
+
                         if http_result:
+                            # get http path of prod tiles
                             real_url = http_result.group(1)
                             this_product_md.update({"prod_tiles": real_url})
+                            # get s3 path of prod tiles
                             s3_result = re.search('http\:\/\/(.*)\.s3.*com\/(.*)', real_url)
-                            s3_url = "s3://" + s3_result.group(1) + "/" + s3_result.group(2)
+                            tile_bucket = s3_result.group(1)
+                            tile_prefix = s3_result.group(2)
+                            s3_url = "s3://" + tile_bucket + "/" + tile_prefix
+                            # upload rfp
                             runCmd(f"aws s3 cp '{rfp_filename}' '{s3_url}'")
                             this_product_md.update({"prod_rfp_file": os.path.join(real_url,rfp_filename)})
+
+                            # get min/max zoom
+                            tile_ls = client.list_objects(Bucket=tile_bucket, Prefix=tile_prefix, Delimiter='/')
+                            # import pdb; pdb.set_trace()
+                            tileFolderList = [d['Prefix'].split('/')[-2] for d in tile_ls.get('CommonPrefixes')]
+                            prod_tile_min = 99
+                            prod_tile_max = 0
+                            for zoom in tileFolderList:
+                                # check if folder is an integer
+                                try:
+                                    this_zoom = int(zoom)
+                                    prod_tile_max = this_zoom if this_zoom > prod_tile_max else prod_tile_max
+                                    prod_tile_min = this_zoom if this_zoom < prod_tile_min else prod_tile_min
+                                except ValueError:
+                                    continue
+                            # import pdb; pdb.set_trace()
+                            this_product_md.update({"prod_min_zoom": str(prod_tile_min)})
+                            this_product_md.update({"prod_max_zoom": str(prod_tile_max)})
 
                     runCmd(f"rm -rf doc.kml files rfp_*.json {kmz_file}")
                     this_event_md["product_list"].append(this_product_md)
