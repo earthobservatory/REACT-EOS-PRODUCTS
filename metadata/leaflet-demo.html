@@ -175,7 +175,7 @@
             if (node.layer) {
                 console.log(node)
                 popup_txt = node.title + "<br><br>" + node.desc.replace(/\n/g, "<br />")
-                node.layer.bindPopup(popup_txt);
+                node.layer.bindPopup(decodeURIComponent(escape(popup_txt)));
             }
             if (node.children) {
                 node.children.forEach(function(element) { makePopups(element); });
