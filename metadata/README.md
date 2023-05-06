@@ -8,7 +8,7 @@ python audit-metadata.py
 
 
 #### Metadata format
-Source: http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/metadata.json
+Source: https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/metadata.json
 
 #### Event metadata format
 Format:
@@ -55,7 +55,7 @@ For each product in `product_list`:
 
 #### Demo
 
-http://aria-sg-products.s3-ap-southeast-1.amazonaws.com/leaflet-demo.html
+https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/leaflet-demo.html
 
 <img width="1030" alt="image" src="https://user-images.githubusercontent.com/6346909/232744830-aebdd3cd-c04c-4777-8ea6-180d8040a573.png">
 
