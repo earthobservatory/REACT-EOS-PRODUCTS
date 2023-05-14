@@ -8,8 +8,17 @@ import { METADATA_API } from "utils/constants";
 const MetadataProvider = ({ children }) => {
   const [metadata, setMetadata] = useState();
 
+  const headers = {
+    "Content-Type": "application/json; charset=utf-8",
+  };
+
+  const requestOptions = {
+    method: "GET",
+    headers: headers,
+  };
+
   useEffect(() => {
-    const response = fetch(METADATA_API)
+    const response = fetch(METADATA_API, requestOptions)
       .then((response) => {
         return response.json();
       })

@@ -340,7 +340,10 @@ function LeafletPage(props) {
                           src={value.prod_main_png}
                         />
                       </ListItemAvatar> */}
-                      <ListItemText id={labelId} primary={value.prod_title} />
+                      <ListItemText
+                        id={labelId}
+                        primary={decodeURIComponent(escape(value.prod_title))}
+                      />
                       {value?.cvd_prod_tiles ? (
                         <CVDSwitch
                           onChange={(newVal) => {
@@ -384,7 +387,11 @@ function LeafletPage(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Button href="/">
+          <Button
+            onClick={() => {
+              Navigate(getRoute("landing"));
+            }}
+          >
             <EOSIcon size={54} />
           </Button>
           <Typography
@@ -438,7 +445,9 @@ function LeafletPage(props) {
         <Divider />
         <Stack sx={{ padding: "1rem", gap: "1rem" }}>
           <Typography variant="h5">Description</Typography>
-          <Typography>{state?.product_list[0].prod_desc}</Typography>
+          <Typography>
+            {decodeURIComponent(escape(state?.product_list[0].prod_desc))}
+          </Typography>
         </Stack>
         {/* <List>
 
