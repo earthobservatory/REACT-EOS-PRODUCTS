@@ -3,14 +3,22 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { MetadataContext } from "context/MetadataContext";
+import { METADATA_API } from "utils/constants";
 
 const MetadataProvider = ({ children }) => {
   const [metadata, setMetadata] = useState();
 
+  const headers = {
+    "Content-Type": "application/json; charset=utf-8",
+  };
+
+  const requestOptions = {
+    method: "GET",
+    headers: headers,
+  };
+
   useEffect(() => {
-    const response = fetch(
-      "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/metadata.json"
-    )
+    const response = fetch(METADATA_API, requestOptions)
       .then((response) => {
         return response.json();
       })

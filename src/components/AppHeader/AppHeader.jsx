@@ -51,7 +51,11 @@ const AppHeader = () => {
         }}
       >
         <Toolbar>
-          <Button href="/">
+          <Button
+            onClick={() => {
+              Navigate(getRoute("landing"));
+            }}
+          >
             <EOSIcon size={54} />
           </Button>
           <Typography

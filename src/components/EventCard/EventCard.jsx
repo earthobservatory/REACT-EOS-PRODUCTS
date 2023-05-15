@@ -93,7 +93,7 @@ const EventCard = ({
               }}
               variant="body1"
             >
-              {Description}
+              {decodeURIComponent(escape(Description))}
             </Typography>
           </Stack>
 
