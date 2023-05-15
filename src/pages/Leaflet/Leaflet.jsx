@@ -239,6 +239,7 @@ function LeafletPage(props) {
         });
 
       setProducts(finalList);
+      setOpenLayers(true);
     }
   }, [state]);
 
@@ -476,7 +477,7 @@ function LeafletPage(props) {
 
             bounds={state.event.event_bbox}
             zoom={10}
-            scrollWheelZoom={false}
+            scrollWheelZoom={true}
           >
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
