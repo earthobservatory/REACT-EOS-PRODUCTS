@@ -1,6 +1,7 @@
 [
   {
     "event_name": "EOS-RS_202301_Indonesia_Earthquake",
+    "event_display_name": "EOS-RS Indonesia Earthquake, Jan 2023",
     "event_url": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202301_Indonesia_Earthquake/",
     "event_start": "2023-01-10",
     "event_end": "2023-01-10",
@@ -20,7 +21,7 @@
         "prod_title": "EOS-RS Damage Proxy Map: Indonesia, Earthquake, 10 Jan 2023, v0.9 ",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting areas that are likely damaged in Tanimbar Islands, Indonesia due to the Mw 7.6 earthquake that occurred on 9 Jan 2023 (UTC). This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (12 Sep 2022 to 17 Dec 2022) and after (10 Jan 2023) the event.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 meters across. The colour variation from yellow to red indicates increasingly more significant surface change. Preliminary validation was done by comparing with media reports. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage.\n\nThe product contains modified Copernicus Sentinel data (2022-2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), using the Advanced Rapid Imaging and Analysis (ARIA) system originally developed at NASA's Jet Propulsion Laboratory, California Institute of Technology, and modified at EOS-RS. Data processing used an AWS Open Dataset of Copernicus Sentinel-1 data for the Asia region (https://registry.opendata.aws/sentinel1-slc-seasia-pds).\n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202301_Indonesia_Earthquake/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Advanced Rapid Imaging and Analysis (ARIA), NASA-JPL/Caltech, Contains modified Copernicus Sentinel data (2022-2023)\n",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202301_Indonesia_Earthquake/EOS-RS_20230110_DPM_S1_Indonesia_Earthquake_v0.9_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202301_Indonesia_Earthquake_20230404_124749/EOS-RS_20230110_DPM_S1_Indonesia_Earthquake_v0.9/rfp_dpm2_footprint.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202301_Indonesia_Earthquake_20230404_124749/EOS-RS_20230110_DPM_S1_Indonesia_Earthquake_v0.9/rfp_dpm2_footprint.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -71,7 +72,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202301_Indonesia_Earthquake_20230404_124749/EOS-RS_20230110_DPM_S1_Indonesia_Earthquake_v0.9/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202301_Indonesia_Earthquake_20230404_124749/EOS-RS_20230110_DPM_S1_Indonesia_Earthquake_v0.9/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "13",
         "prod_date": "2023-01-10",
         "prod_type": "DPM",
         "prod_sat": "S1",
@@ -84,7 +87,7 @@
         "prod_title": "EOS-RS Damage Proxy Map: Indonesia, Earthquake, 10 Jan 2023, v0.9 ",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting areas that are likely damaged in Tanimbar Islands, Indonesia due to the Mw 7.6 earthquake that occurred on 9 Jan 2023 (UTC). This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (12 Sep 2022 to 17 Dec 2022) and after (10 Jan 2023) the event.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 meters across. The colour variation from light blue to dark blue indicates increasingly more significant surface change. Preliminary validation was done by comparing with media reports. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage.\n\nThe product contains modified Copernicus Sentinel data (2022-2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), using the Advanced Rapid Imaging and Analysis (ARIA) system originally developed at NASA's Jet Propulsion Laboratory, California Institute of Technology, and modified at EOS-RS. Data processing used an AWS Open Dataset of Copernicus Sentinel-1 data for the Asia region (https://registry.opendata.aws/sentinel1-slc-seasia-pds).\n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202301_Indonesia_Earthquake/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Advanced Rapid Imaging and Analysis (ARIA), NASA-JPL/Caltech, Contains modified Copernicus Sentinel data (2022-2023)\n",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202301_Indonesia_Earthquake/EOS-RS_20230110_DPM_S1_Indonesia_Earthquake_v0.9_cvd_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202301_Indonesia_Earthquake_20230404_124851/EOS-RS_20230110_DPM_S1_Indonesia_Earthquake_v0.9_cvd/rfp_dpm2_footprint.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202301_Indonesia_Earthquake_20230404_124851/EOS-RS_20230110_DPM_S1_Indonesia_Earthquake_v0.9_cvd/rfp_dpm2_footprint.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -135,7 +138,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202301_Indonesia_Earthquake_20230404_124851/EOS-RS_20230110_DPM_S1_Indonesia_Earthquake_v0.9_cvd/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202301_Indonesia_Earthquake_20230404_124851/EOS-RS_20230110_DPM_S1_Indonesia_Earthquake_v0.9_cvd/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "13",
         "prod_date": "2023-01-10",
         "prod_type": "DPM",
         "prod_sat": "S1",
@@ -147,6 +152,7 @@
   },
   {
     "event_name": "EOS-RS_202301_Indonesia_Floods",
+    "event_display_name": "EOS-RS Indonesia Floods, Jan 2023",
     "event_url": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202301_Indonesia_Floods/",
     "event_start": "2023-01-04",
     "event_end": "2023-01-04",
@@ -166,7 +172,7 @@
         "prod_title": "EOS-RS Flood Proxy Map: South Sulawesi, Indonesia, Floods, 4 Jan 2023, v0.3",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Flood Proxy Map (FPM) depicting areas that are likely flooded in Makassar, South Sulawesi. This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (23 Dec 2022) and during (4 Jan 2023) the event.\n\nThe image covers an area indicated by the large white polygon. Each light blue pixel measures about 30 m across. This flood proxy map should be used as a guide to identify areas that are likely flooded, and is be less reliable over urban and vegetated areas.\n\nThe product contains modified Copernicus Sentinel data (2022-2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), using the Advanced Rapid Imaging and Analysis (ARIA) system originally developed at NASA's Jet Propulsion Laboratory, California Institute of Technology, and modified at EOS-RS. Data processing used an AWS Open Dataset of Copernicus Sentinel-1 data for the Asia region (https://registry.opendata.aws/sentinel1-slc-seasia-pds).\n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202301_Indonesia_Floods/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Advanced Rapid Imaging and Analysis (ARIA), NASA-JPL/Caltech, Contains modified Copernicus Sentinel data (2022-2023)",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202301_Indonesia_Floods/EOS-RS_20230104_FPM_S1_Indonesia_Floods_v0.3_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202301_Indonesia_Floods_20230404_124529/EOS-RS_20230104_FPM_S1_Indonesia_Floods_v0.3/rfp_footprint_fpm1.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202301_Indonesia_Floods_20230404_124529/EOS-RS_20230104_FPM_S1_Indonesia_Floods_v0.3/rfp_footprint_fpm1.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -217,7 +223,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202301_Indonesia_Floods_20230404_124529/EOS-RS_20230104_FPM_S1_Indonesia_Floods_v0.3/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202301_Indonesia_Floods_20230404_124529/EOS-RS_20230104_FPM_S1_Indonesia_Floods_v0.3/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "13",
         "prod_date": "2023-01-04",
         "prod_type": "FPM",
         "prod_sat": "S1",
@@ -230,7 +238,7 @@
         "prod_title": "EOS-RS Flood Proxy Map: South Sulawesi, Indonesia, Floods, 4 Jan 2023, v0.7",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Flood Proxy Map (FPM) depicting areas that are likely flooded in Makassar, South Sulawesi. This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (14 Feb to 23 Dec 2022) and during (4 Jan 2023) the event.\n\nThe image covers an area indicated by the large white polygon. Each light blue pixel measures about 30 m across. This flood proxy map should be used as a guide to identify areas that are likely flooded, and may be less reliable over urban and vegetated areas.\n\nThe product contains modified Copernicus Sentinel data (2022-2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS). Data processing used an AWS Open Dataset of Copernicus Sentinel-1 data for the Asia region (https://registry.opendata.aws/sentinel1-slc-seasia-pds).\n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202301_Indonesia_Floods/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Contains modified Copernicus Sentinel data (2022-2023)",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202301_Indonesia_Floods/EOS-RS_20230104_FPM_S1_Indonesia_Floods_v0.7_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202301_Indonesia_Floods_20230404_124607/EOS-RS_20230104_FPM_S1_Indonesia_Floods_v0.7/rfp_footprint_fpm2.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202301_Indonesia_Floods_20230404_124607/EOS-RS_20230104_FPM_S1_Indonesia_Floods_v0.7/rfp_footprint_fpm2.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -281,7 +289,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202301_Indonesia_Floods_20230404_124607/EOS-RS_20230104_FPM_S1_Indonesia_Floods_v0.7/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202301_Indonesia_Floods_20230404_124607/EOS-RS_20230104_FPM_S1_Indonesia_Floods_v0.7/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "13",
         "prod_date": "2023-01-04",
         "prod_type": "FPM",
         "prod_sat": "S1",
@@ -293,6 +303,7 @@
   },
   {
     "event_name": "EOS-RS_202302_Turkiye_Syria_Earthquake",
+    "event_display_name": "EOS-RS Turkiye Syria Earthquake, Feb 2023",
     "event_url": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/",
     "event_start": "2023-02",
     "event_end": "2023-02",
@@ -312,7 +323,7 @@
         "prod_title": "EOS-RS Damage Proxy Map: T\u00c3\u00bcrkiye (Turkey) and Syria, Earthquake, 8 Feb 2023, v0.5",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting areas that are likely damaged in T\u00c3\u00bcrkiye (Turkey) and Syria due to the M7.8 and M7.5 earthquakes that occurred on 6 Feb 2023. This map was derived from synthetic aperture radar (SAR) images acquired by the ALOS-2 satellite operated by the Japan Aerospace Exploration Agency (JAXA) before (7 Apr 2021 and 6 Apr 2022) and after (8 Feb 2023) the event.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 meters across. The colour variation from yellow to red indicates increasingly more significant surface change. Preliminary validation was done by comparing with high-resolution optical imagery and media reports. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage.\n\nData were provided by Sentinel Asia and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) in collaboration with NASA-JPL and Caltech.\n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Original data ALOS-2 PALSAR-2 Product - JAXA (2021-2023), Validated with FirstLook Imagery \u00c2\u00a9 2023 Maxar",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/EOS-RS_20230208_DPM_A2_Tu\u0308rkiye_Syria_Earthquake_v0.5_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS_RS_202302_Turkiye_Syria_Earthquake_20230331_114019/EOS-RS_20230208_DPM_A2_Tu\u0308rkiye_Syria_Earthquake_v0.5/rfp_final.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS_RS_202302_Turkiye_Syria_Earthquake_20230331_114019/EOS-RS_20230208_DPM_A2_Tu\u0308rkiye_Syria_Earthquake_v0.5/rfp_final.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -2231,7 +2242,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS_RS_202302_Turkiye_Syria_Earthquake_20230331_114019/EOS-RS_20230208_DPM_A2_Tu\u0308rkiye_Syria_Earthquake_v0.5/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS_RS_202302_Turkiye_Syria_Earthquake_20230331_114019/EOS-RS_20230208_DPM_A2_Tu\u0308rkiye_Syria_Earthquake_v0.5/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "13",
         "prod_date": "2023-02-08",
         "prod_type": "DPM",
         "prod_sat": "A2",
@@ -2244,7 +2257,7 @@
         "prod_title": "EOS-RS Damage Proxy Map: T\u00c3\u00bcrkiye (Turkey) and Syria, Earthquake, 8 Feb 2023, v0.5",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting areas that are likely damaged in T\u00c3\u00bcrkiye (Turkey) and Syria due to the M7.8 and M7.5 earthquakes that occurred on 6 Feb 2023. This map was derived from synthetic aperture radar (SAR) images acquired by the ALOS-2 satellite operated by the Japan Aerospace Exploration Agency (JAXA) before (7 Apr 2021 and 6 Apr 2022) and after (8 Feb 2023) the event.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 meters across. The colour variation from light blue to dark blue indicates increasingly more significant surface change. Preliminary validation was done by comparing with high-resolution optical imagery and media reports. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage.\n\nData were provided by Sentinel Asia and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) in collaboration with NASA-JPL and Caltech.\n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Original data ALOS-2 PALSAR-2 Product - JAXA (2021-2023), Validated with FirstLook Imagery \u00c2\u00a9 2023 Maxar",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/EOS-RS_20230208_DPM_A2_Tu\u0308rkiye_Syria_Earthquake_v0.5_cvd_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS_RS_202302_Turkiye_Syria_Earthquake_20230331_114131/EOS-RS_20230208_DPM_A2_Tu\u0308rkiye_Syria_Earthquake_v0.5_cvd/rfp_final.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS_RS_202302_Turkiye_Syria_Earthquake_20230331_114131/EOS-RS_20230208_DPM_A2_Tu\u0308rkiye_Syria_Earthquake_v0.5_cvd/rfp_final.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -4163,7 +4176,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS_RS_202302_Turkiye_Syria_Earthquake_20230331_114131/EOS-RS_20230208_DPM_A2_Tu\u0308rkiye_Syria_Earthquake_v0.5_cvd/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS_RS_202302_Turkiye_Syria_Earthquake_20230331_114131/EOS-RS_20230208_DPM_A2_Tu\u0308rkiye_Syria_Earthquake_v0.5_cvd/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "13",
         "prod_date": "2023-02-08",
         "prod_type": "DPM",
         "prod_sat": "A2",
@@ -4176,7 +4191,7 @@
         "prod_title": "EOS-RS Damage Proxy Map: T\u00c3\u00bcrkiye (Turkey) and Syria, Earthquake, 8 Feb 2023, v1.2",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting areas that are likely damaged in T\u00c3\u00bcrkiye (Turkey) and Syria due to the M7.8 and M7.5 earthquakes that occurred on 6 Feb 2023. This map was derived from synthetic aperture radar (SAR) images acquired by the ALOS-2 satellite operated by the Japan Aerospace Exploration Agency (JAXA) before (7 Apr 2021 and 6 Apr 2022) and after (8 Feb 2023) the event.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 meters across. The colour variation from yellow to red indicates increasingly more significant surface change. Preliminary validation was done by comparing with high-resolution optical imagery and media reports. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage. Some pixels in the north may be due to presence of snow cover.\n\nData were provided by Sentinel Asia and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) in collaboration with NASA-JPL and Caltech.\n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Original data ALOS-2 PALSAR-2 Product - JAXA (2021-2023), Validated with FirstLook Imagery \u00c2\u00a9 2023 Maxar",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/EOS-RS_20230208_DPM_A2_Tu\u0308rkiye_Syria_Earthquake_v1.2_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS_RS_202302_Turkiye_Syria_Earthquake_20230331_114248/EOS-RS_20230208_DPM_A2_Tu\u0308rkiye_Syria_Earthquake_v1.2/rfp_final.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS_RS_202302_Turkiye_Syria_Earthquake_20230331_114248/EOS-RS_20230208_DPM_A2_Tu\u0308rkiye_Syria_Earthquake_v1.2/rfp_final.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -6095,7 +6110,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS_RS_202302_Turkiye_Syria_Earthquake_20230331_114248/EOS-RS_20230208_DPM_A2_Tu\u0308rkiye_Syria_Earthquake_v1.2/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS_RS_202302_Turkiye_Syria_Earthquake_20230331_114248/EOS-RS_20230208_DPM_A2_Tu\u0308rkiye_Syria_Earthquake_v1.2/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "13",
         "prod_date": "2023-02-08",
         "prod_type": "DPM",
         "prod_sat": "A2",
@@ -6108,7 +6125,7 @@
         "prod_title": "EOS-RS Damage Proxy Map: T\u00c3\u00bcrkiye (Turkey) and Syria, Earthquake, 8 Feb 2023, v1.2",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting areas that are likely damaged in T\u00c3\u00bcrkiye (Turkey) and Syria due to the M7.8 and M7.5 earthquakes that occurred on 6 Feb 2023. This map was derived from synthetic aperture radar (SAR) images acquired by the ALOS-2 satellite operated by the Japan Aerospace Exploration Agency (JAXA) before (7 Apr 2021 and 6 Apr 2022) and after (8 Feb 2023) the event.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 meters across. The colour variation from light blue to dark blue indicates increasingly more significant surface change. Preliminary validation was done by comparing with high-resolution optical imagery and media reports. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage. Some pixels in the north may be due to presence of snow cover.\n\nData were provided by Sentinel Asia and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) in collaboration with NASA-JPL and Caltech.\n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Original data ALOS-2 PALSAR-2 Product - JAXA (2021-2023), Validated with FirstLook Imagery \u00c2\u00a9 2023 Maxar",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/EOS-RS_20230208_DPM_A2_Tu\u0308rkiye_Syria_Earthquake_v1.2_cvd_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS_RS_202302_Turkiye_Syria_Earthquake_20230331_114412/EOS-RS_20230208_DPM_A2_Tu\u0308rkiye_Syria_Earthquake_v1.2_cvd/rfp_final.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS_RS_202302_Turkiye_Syria_Earthquake_20230331_114412/EOS-RS_20230208_DPM_A2_Tu\u0308rkiye_Syria_Earthquake_v1.2_cvd/rfp_final.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -8027,7 +8044,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS_RS_202302_Turkiye_Syria_Earthquake_20230331_114412/EOS-RS_20230208_DPM_A2_Tu\u0308rkiye_Syria_Earthquake_v1.2_cvd/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS_RS_202302_Turkiye_Syria_Earthquake_20230331_114412/EOS-RS_20230208_DPM_A2_Tu\u0308rkiye_Syria_Earthquake_v1.2_cvd/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "13",
         "prod_date": "2023-02-08",
         "prod_type": "DPM",
         "prod_sat": "A2",
@@ -8040,7 +8059,7 @@
         "prod_title": "EOS-RS Damage Proxy Map: T\u00c3\u00bcrkiye (Turkey) and Syria, Earthquake, 9 Feb 2023, v0.9",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting areas that are likely damaged in T\u00c3\u00bcrkiye (Turkey) and Syria due to the M7.8 and M7.5 earthquakes that occurred on 6 Feb 2023. This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (12 Oct 2022 to 28 Jan 2023) and after (9 Feb 2023) the event.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 meters across. The colour variation from yellow to red indicates increasingly more significant surface change. Preliminary validation was done by comparing with high-resolution optical imagery and media reports. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage.\n\nThe product contains modified Copernicus Sentinel data (2022-2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) in collaboration with NASA-JPL and Caltech, using the Advanced Rapid Imaging and Analysis (ARIA) system originally developed at NASA's Jet Propulsion Laboratory, California Institute of Technology, and modified at EOS-RS. \n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Advanced Rapid Imaging and Analysis (ARIA), NASA-JPL/Caltech, Contains modified Copernicus Sentinel data (2022-2023),Validated with FirstLook Imagery \u00c2\u00a9 2023 Maxar",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/EOS-RS_20230209_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v0.9_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_160132/EOS-RS_20230209_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v0.9/rfp_dpm2_230209_footprint.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_160132/EOS-RS_20230209_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v0.9/rfp_dpm2_230209_footprint.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -8111,7 +8130,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_160132/EOS-RS_20230209_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v0.9/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_160132/EOS-RS_20230209_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v0.9/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "13",
         "prod_date": "2023-02-09",
         "prod_type": "DPM",
         "prod_sat": "S1",
@@ -8124,7 +8145,7 @@
         "prod_title": "EOS-RS Damage Proxy Map: T\u00c3\u00bcrkiye (Turkey) and Syria, Earthquake, 9 Feb 2023, v0.9",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting areas that are likely damaged in T\u00c3\u00bcrkiye (Turkey) and Syria due to the M7.8 and M7.5 earthquakes that occurred on 6 Feb 2023. This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (12 Oct 2022 to 28 Jan 2023) and after (9 Feb 2023) the event.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 meters across. The colour variation from light blue to dark blue indicates increasingly more significant surface change. Preliminary validation was done by comparing with high-resolution optical imagery and media reports. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage.\n\nThe product contains modified Copernicus Sentinel data (2022-2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) in collaboration with NASA-JPL and Caltech, using the Advanced Rapid Imaging and Analysis (ARIA) system originally developed at NASA's Jet Propulsion Laboratory, California Institute of Technology, and modified at EOS-RS. \n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Advanced Rapid Imaging and Analysis (ARIA), NASA-JPL/Caltech, Contains modified Copernicus Sentinel data (2022-2023),Validated with FirstLook Imagery \u00c2\u00a9 2023 Maxar",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/EOS-RS_20230209_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v0.9_cvd_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_160821/EOS-RS_20230209_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v0.9_cvd/rfp_dpm2_230209_footprint.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_160821/EOS-RS_20230209_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v0.9_cvd/rfp_dpm2_230209_footprint.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -8195,7 +8216,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_160821/EOS-RS_20230209_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v0.9_cvd/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_160821/EOS-RS_20230209_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v0.9_cvd/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "13",
         "prod_date": "2023-02-09",
         "prod_type": "DPM",
         "prod_sat": "S1",
@@ -8208,7 +8231,7 @@
         "prod_title": "EOS-RS Damage Proxy Map: T\u00c3\u00bcrkiye (Turkey) and Syria, Earthquake, 9 Feb 2023, v1.2",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting areas that are likely damaged in T\u00c3\u00bcrkiye (Turkey) and Syria due to the M7.8 and M7.5 earthquakes that occurred on 6 Feb 2023. This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (12 Oct 2022 to 28 Jan 2023) and after (9 Feb 2023) the event.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 meters across. The colour variation from yellow to red indicates increasingly more significant surface change. Preliminary validation was done by comparing with high-resolution optical imagery and media reports. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage. Some pixels in the north may be due to presence of snow cover.\n\nThe product contains modified Copernicus Sentinel data (2022-2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) in collaboration with NASA-JPL and Caltech, using the Advanced Rapid Imaging and Analysis (ARIA) system originally developed at NASA's Jet Propulsion Laboratory, California Institute of Technology, and modified at EOS-RS. \n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Advanced Rapid Imaging and Analysis (ARIA), NASA-JPL/Caltech, Contains modified Copernicus Sentinel data (2022-2023),Validated with FirstLook Imagery \u00c2\u00a9 2023 Maxar",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/EOS-RS_20230209_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_161510/EOS-RS_20230209_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2/rfp_dpm3_20230209_footprint.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_161510/EOS-RS_20230209_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2/rfp_dpm3_20230209_footprint.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -8279,7 +8302,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_161510/EOS-RS_20230209_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_161510/EOS-RS_20230209_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "13",
         "prod_date": "2023-02-09",
         "prod_type": "DPM",
         "prod_sat": "S1",
@@ -8292,7 +8317,7 @@
         "prod_title": "EOS-RS Damage Proxy Map: T\u00c3\u00bcrkiye (Turkey) and Syria, Earthquake, 9 Feb 2023, v1.2",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting areas that are likely damaged in T\u00c3\u00bcrkiye (Turkey) and Syria due to the M7.8 and M7.5 earthquakes that occurred on 6 Feb 2023. This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (12 Oct 2022 to 28 Jan 2023) and after (9 Feb 2023) the event.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 meters across. The colour variation from light blue to dark blue indicates increasingly more significant surface change. Preliminary validation was done by comparing with high-resolution optical imagery and media reports. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage. Some pixels in the north may be due to presence of snow cover.\n\nThe product contains modified Copernicus Sentinel data (2022-2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) in collaboration with NASA-JPL and Caltech, using the Advanced Rapid Imaging and Analysis (ARIA) system originally developed at NASA's Jet Propulsion Laboratory, California Institute of Technology, and modified at EOS-RS. \n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Advanced Rapid Imaging and Analysis (ARIA), NASA-JPL/Caltech, Contains modified Copernicus Sentinel data (2022-2023),Validated with FirstLook Imagery \u00c2\u00a9 2023 Maxar",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/EOS-RS_20230209_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2_cvd_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_162118/EOS-RS_20230209_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2_cvd/rfp_dpm3_20230209_footprint.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_162118/EOS-RS_20230209_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2_cvd/rfp_dpm3_20230209_footprint.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -8363,7 +8388,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_162118/EOS-RS_20230209_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2_cvd/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_162118/EOS-RS_20230209_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2_cvd/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "13",
         "prod_date": "2023-02-09",
         "prod_type": "DPM",
         "prod_sat": "S1",
@@ -8376,7 +8403,7 @@
         "prod_title": "EOS-RS Damage Proxy Map: T\u00c3\u00bcrkiye (Turkey) and Syria, Earthquake, 10 Feb 2023, v0.9",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting areas that are likely damaged in T\u00c3\u00bcrkiye (Turkey) and Syria due to the M7.8 and M7.5 earthquakes that occurred on 6 Feb 2023. This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (13 Oct 2022 to 29 Jan 2023) and after (10 Feb 2023) the event.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 meters across. The colour variation from yellow to red indicates increasingly more significant surface change. Preliminary validation was done by comparing with high-resolution optical imagery and media reports. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage. Some pixels in the north may be due to presence of snow cover.\n\nThe product contains modified Copernicus Sentinel data (2022-2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) in collaboration with NASA-JPL and Caltech, using the Advanced Rapid Imaging and Analysis (ARIA) system originally developed at NASA's Jet Propulsion Laboratory, California Institute of Technology, and modified at EOS-RS. \n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Advanced Rapid Imaging and Analysis (ARIA), NASA-JPL/Caltech, Contains modified Copernicus Sentinel data (2022-2023),Validated with FirstLook Imagery \u00c2\u00a9 2023 Maxar",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/EOS-RS_20230210_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v0.9_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_162725/EOS-RS_20230210_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v0.9/rfp_dpm2_230210_footprint.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_162725/EOS-RS_20230210_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v0.9/rfp_dpm2_230210_footprint.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -8452,7 +8479,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_162725/EOS-RS_20230210_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v0.9/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_162725/EOS-RS_20230210_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v0.9/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "13",
         "prod_date": "2023-02-10",
         "prod_type": "DPM",
         "prod_sat": "S1",
@@ -8465,7 +8494,7 @@
         "prod_title": "EOS-RS Damage Proxy Map: T\u00c3\u00bcrkiye (Turkey) and Syria, Earthquake, 10 Feb 2023, v0.9",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting areas that are likely damaged in T\u00c3\u00bcrkiye (Turkey) and Syria due to the M7.8 and M7.5 earthquakes that occurred on 6 Feb 2023. This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (13 Oct 2022 to 29 Jan 2023) and after (10 Feb 2023) the event.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 meters across. The colour variation from light blue to dark blue indicates increasingly more significant surface change. Preliminary validation was done by comparing with high-resolution optical imagery and media reports. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage. Some pixels in the north may be due to presence of snow cover.\n\nThe product contains modified Copernicus Sentinel data (2022-2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) in collaboration with NASA-JPL and Caltech, using the Advanced Rapid Imaging and Analysis (ARIA) system originally developed at NASA's Jet Propulsion Laboratory, California Institute of Technology, and modified at EOS-RS. \n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Advanced Rapid Imaging and Analysis (ARIA), NASA-JPL/Caltech, Contains modified Copernicus Sentinel data (2022-2023),Validated with FirstLook Imagery \u00c2\u00a9 2023 Maxar",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/EOS-RS_20230210_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v0.9_cvd_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_163220/EOS-RS_20230210_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v0.9_cvd/rfp_dpm2_230210_footprint.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_163220/EOS-RS_20230210_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v0.9_cvd/rfp_dpm2_230210_footprint.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -8541,7 +8570,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_163220/EOS-RS_20230210_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v0.9_cvd/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_163220/EOS-RS_20230210_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v0.9_cvd/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "13",
         "prod_date": "2023-02-10",
         "prod_type": "DPM",
         "prod_sat": "S1",
@@ -8554,7 +8585,7 @@
         "prod_title": "EOS-RS Damage Proxy Map: T\u00c3\u00bcrkiye (Turkey) and Syria, Earthquake, 10 Feb 2023, v1.2",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting areas that are likely damaged in T\u00c3\u00bcrkiye (Turkey) and Syria due to the M7.8 and M7.5 earthquakes that occurred on 6 Feb 2023. This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (13 Oct 2022 to 29 Jan 2023) and after (10 Feb 2023) the event.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 meters across. The colour variation from yellow to red indicates increasingly more significant surface change. Preliminary validation was done by comparing with high-resolution optical imagery and media reports. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage. Some pixels in the north may be due to presence of snow cover.\n\nThe product contains modified Copernicus Sentinel data (2022-2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) in collaboration with NASA-JPL and Caltech, using the Advanced Rapid Imaging and Analysis (ARIA) system originally developed at NASA's Jet Propulsion Laboratory, California Institute of Technology, and modified at EOS-RS. \n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Advanced Rapid Imaging and Analysis (ARIA), NASA-JPL/Caltech, Contains modified Copernicus Sentinel data (2022-2023),Validated with FirstLook Imagery \u00c2\u00a9 2023 Maxar",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/EOS-RS_20230210_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_163719/EOS-RS_20230210_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2/rfp_dpm2_230210_footprint.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_163719/EOS-RS_20230210_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2/rfp_dpm2_230210_footprint.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -8645,7 +8676,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_163719/EOS-RS_20230210_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_163719/EOS-RS_20230210_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "13",
         "prod_date": "2023-02-10",
         "prod_type": "DPM",
         "prod_sat": "S1",
@@ -8658,7 +8691,7 @@
         "prod_title": "EOS-RS Damage Proxy Map: T\u00c3\u00bcrkiye (Turkey) and Syria, Earthquake, 10 Feb 2023, v1.2",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting areas that are likely damaged in T\u00c3\u00bcrkiye (Turkey) and Syria due to the M7.8 and M7.5 earthquakes that occurred on 6 Feb 2023. This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (13 Oct 2022 to 29 Jan 2023) and after (10 Feb 2023) the event.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 meters across. The colour variation from light blue to dark blue indicates increasingly more significant surface change. Preliminary validation was done by comparing with high-resolution optical imagery and media reports. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage. Some pixels in the north may be due to presence of snow cover.\n\nThe product contains modified Copernicus Sentinel data (2022-2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) in collaboration with NASA-JPL and Caltech, using the Advanced Rapid Imaging and Analysis (ARIA) system originally developed at NASA's Jet Propulsion Laboratory, California Institute of Technology, and modified at EOS-RS. \n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Advanced Rapid Imaging and Analysis (ARIA), NASA-JPL/Caltech, Contains modified Copernicus Sentinel data (2022-2023),Validated with FirstLook Imagery \u00c2\u00a9 2023 Maxar",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/EOS-RS_20230210_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2_cvd_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_164255/EOS-RS_20230210_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2_cvd/rfp_dpm2_230210_footprint.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_164255/EOS-RS_20230210_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2_cvd/rfp_dpm2_230210_footprint.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -8749,7 +8782,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_164255/EOS-RS_20230210_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2_cvd/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_164255/EOS-RS_20230210_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2_cvd/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "13",
         "prod_date": "2023-02-10",
         "prod_type": "DPM",
         "prod_sat": "S1",
@@ -8762,7 +8797,7 @@
         "prod_title": "EOS-RS Damage Proxy Map: T\u00c3\u00bcrkiye (Turkey) and Syria, Earthquake, 9-11 Feb 2023, v1.2",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting areas that are likely damaged in T\u00c3\u00bcrkiye (Turkey) and Syria due to the M7.8 and M7.5 earthquakes that occurred on 6 Feb 2023. This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (12 Oct 2022 to 30 Jan 2023) and after (9-11 Feb 2023) the event.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 20 meters across. The colour variation from yellow to red indicates increasingly more significant surface change. Preliminary validation was done by comparing with high-resolution optical imagery and media reports. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage. Some pixels may be due to presence of snow cover.\n\nThe product contains modified Copernicus Sentinel data (2022-2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) in collaboration with NASA-JPL and Caltech, using the Advanced Rapid Imaging and Analysis (ARIA) system originally developed at NASA's Jet Propulsion Laboratory, California Institute of Technology, and modified at EOS-RS. \n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Advanced Rapid Imaging and Analysis (ARIA), NASA-JPL/Caltech, Contains modified Copernicus Sentinel data (2022-2023)",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/EOS-RS_20230211-20230210-20230209_DPM_merged_S1_Turkiye_Syria_Earthquake_v1.2_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230410_060606/EOS-RS_20230211-20230210-20230209_DPM_merged_S1_Turkiye_Syria_Earthquake_v1.2/rfp_230209_230210_230211_footprint.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230410_060606/EOS-RS_20230211-20230210-20230209_DPM_merged_S1_Turkiye_Syria_Earthquake_v1.2/rfp_230209_230210_230211_footprint.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -8938,7 +8973,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230410_060606/EOS-RS_20230211-20230210-20230209_DPM_merged_S1_Turkiye_Syria_Earthquake_v1.2/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230410_060606/EOS-RS_20230211-20230210-20230209_DPM_merged_S1_Turkiye_Syria_Earthquake_v1.2/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "13",
         "prod_date": "2023-02",
         "prod_type": "DPM",
         "prod_sat": "S1",
@@ -8951,7 +8988,7 @@
         "prod_title": "EOS-RS Damage Proxy Map: T\u00c3\u00bcrkiye (Turkey) and Syria, Earthquake, 9-11 Feb 2023, v1.2",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting areas that are likely damaged in T\u00c3\u00bcrkiye (Turkey) and Syria due to the M7.8 and M7.5 earthquakes that occurred on 6 Feb 2023. This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (12 Oct 2022 to 30 Jan 2023) and after (9-11 Feb 2023) the event.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 20 meters across. The colour variation from light blue to dark blues indicates increasingly more significant surface change. Preliminary validation was done by comparing with high-resolution optical imagery and media reports. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage. Some pixels may be due to presence of snow cover.\n\nThe product contains modified Copernicus Sentinel data (2022-2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) in collaboration with NASA-JPL and Caltech, using the Advanced Rapid Imaging and Analysis (ARIA) system originally developed at NASA's Jet Propulsion Laboratory, California Institute of Technology, and modified at EOS-RS. \n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Advanced Rapid Imaging and Analysis (ARIA), NASA-JPL/Caltech, Contains modified Copernicus Sentinel data (2022-2023)",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/EOS-RS_20230211-20230210-20230209_DPM_merged_S1_Turkiye_Syria_Earthquake_v1.2_cvd_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230410_062342/EOS-RS_20230211-20230210-20230209_DPM_merged_S1_Turkiye_Syria_Earthquake_v1.2_cvd/rfp_230209_230210_230211_footprint.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230410_062342/EOS-RS_20230211-20230210-20230209_DPM_merged_S1_Turkiye_Syria_Earthquake_v1.2_cvd/rfp_230209_230210_230211_footprint.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -9127,7 +9164,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230410_062342/EOS-RS_20230211-20230210-20230209_DPM_merged_S1_Turkiye_Syria_Earthquake_v1.2_cvd/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230410_062342/EOS-RS_20230211-20230210-20230209_DPM_merged_S1_Turkiye_Syria_Earthquake_v1.2_cvd/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "13",
         "prod_date": "2023-02",
         "prod_type": "DPM",
         "prod_sat": "S1",
@@ -9140,7 +9179,7 @@
         "prod_title": "EOS-RS Damage Proxy Map: T\u00c3\u00bcrkiye (Turkey) and Syria, Earthquake, 11 Feb 2023, v1.2",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting areas that are likely damaged in T\u00c3\u00bcrkiye (Turkey) and Syria due to the M7.8 and M7.5 earthquakes that occurred on 6 Feb 2023. This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (14 Oct 2022 to 30 Jan 2023) and after (11 Feb 2023) the event.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 meters across. The colour variation from yellow to red indicates increasingly more significant surface change. Preliminary validation was done by comparing with high-resolution optical imagery and media reports. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage. Some pixels may be due to presence of snow cover.\n\nThe product contains modified Copernicus Sentinel data (2022-2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) in collaboration with NASA-JPL and Caltech, using the Advanced Rapid Imaging and Analysis (ARIA) system originally developed at NASA's Jet Propulsion Laboratory, California Institute of Technology, and modified at EOS-RS. \n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Advanced Rapid Imaging and Analysis (ARIA), NASA-JPL/Caltech, Contains modified Copernicus Sentinel data (2022-2023)",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/EOS-RS_20230211_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_164827/EOS-RS_20230211_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2/rfp_dpm2_230211_footprint.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_164827/EOS-RS_20230211_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2/rfp_dpm2_230211_footprint.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -9231,7 +9270,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_164827/EOS-RS_20230211_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_164827/EOS-RS_20230211_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "13",
         "prod_date": "2023-02-11",
         "prod_type": "DPM",
         "prod_sat": "S1",
@@ -9244,7 +9285,7 @@
         "prod_title": "EOS-RS Damage Proxy Map: T\u00c3\u00bcrkiye (Turkey) and Syria, Earthquake, 11 Feb 2023, v1.2",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting areas that are likely damaged in T\u00c3\u00bcrkiye (Turkey) and Syria due to the M7.8 and M7.5 earthquakes that occurred on 6 Feb 2023. This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (14 Oct 2022 to 30 Jan 2023) and after (11 Feb 2023) the event.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 meters across. The colour variation from light blue to dark blue indicates increasingly more significant surface change. Preliminary validation was done by comparing with high-resolution optical imagery and media reports. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage. Some pixels may be due to presence of snow cover.\n\nThe product contains modified Copernicus Sentinel data (2022-2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) in collaboration with NASA-JPL and Caltech, using the Advanced Rapid Imaging and Analysis (ARIA) system originally developed at NASA's Jet Propulsion Laboratory, California Institute of Technology, and modified at EOS-RS. \n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Advanced Rapid Imaging and Analysis (ARIA), NASA-JPL/Caltech, Contains modified Copernicus Sentinel data (2022-2023)",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/EOS-RS_20230211_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2_cvd_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_165250/EOS-RS_20230211_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2_cvd/rfp_dpm2_230211_footprint.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_165250/EOS-RS_20230211_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2_cvd/rfp_dpm2_230211_footprint.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -9335,7 +9376,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_165250/EOS-RS_20230211_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2_cvd/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202302_Turkiye_Syria_Earthquake_20230407_165250/EOS-RS_20230211_DPM_S1_Tu\u0308rkiye_Syria_Earthquake_v1.2_cvd/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "13",
         "prod_date": "2023-02-11",
         "prod_type": "DPM",
         "prod_sat": "S1",
@@ -9348,7 +9391,7 @@
         "prod_title": "EOS-RS Damage Proxy Map: T\u00c3\u00bcrkiye (Turkey) and Syria, Earthquake, 21 Feb 2023, v0.4",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting areas in T\u00c3\u00bcrkiye (Turkey) and Syria where significant changes occurred between 9 Feb 2023 and 21 Feb 2023, including the impact of the M6.3 aftershock (20 Feb 2023) but not including the direct impact of the M7.8 main shock (6 Feb 2023). This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (12 Oct 2022 to 9 Feb 2023) and after (21 Feb 2023) the aftershock.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 meters across. The colour variation from yellow to red indicates increasingly more significant surface change. Preliminary validation was done by comparing with high-resolution optical imagery and media reports. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage.\n\nThe product contains modified Copernicus Sentinel data (2022-2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) in collaboration with NASA-JPL and Caltech, using the Advanced Rapid Imaging and Analysis (ARIA) system originally developed at NASA's Jet Propulsion Laboratory, California Institute of Technology, and modified at EOS-RS. \n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Advanced Rapid Imaging and Analysis (ARIA), NASA-JPL/Caltech, Contains modified Copernicus Sentinel data (2022-2023)",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/EOS-RS_20230221_DPM_S1_Turkiye_Syria_Earthquake_v0.4_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS_RS_202302_Turkiye_Syria_Earthquake_20230331_085838/EOS-RS_20230221_DPM_S1_Turkiye_Syria_Earthquake_v0.4/rfp_final.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS_RS_202302_Turkiye_Syria_Earthquake_20230331_085838/EOS-RS_20230221_DPM_S1_Turkiye_Syria_Earthquake_v0.4/rfp_final.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -10809,7 +10852,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS_RS_202302_Turkiye_Syria_Earthquake_20230331_085838/EOS-RS_20230221_DPM_S1_Turkiye_Syria_Earthquake_v0.4/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS_RS_202302_Turkiye_Syria_Earthquake_20230331_085838/EOS-RS_20230221_DPM_S1_Turkiye_Syria_Earthquake_v0.4/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "13",
         "prod_date": "2023-02-21",
         "prod_type": "DPM",
         "prod_sat": "S1",
@@ -10822,7 +10867,7 @@
         "prod_title": "EOS-RS Damage Proxy Map: T\u00c3\u00bcrkiye (Turkey) and Syria, Earthquake, 21 Feb 2023, v0.4",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting areas in T\u00c3\u00bcrkiye (Turkey) and Syria where significant changes occurred between 9 Feb 2023 and 21 Feb 2023, including the impact of the M6.3 aftershock (20 Feb 2023) but not including the direct impact of the M7.8 main shock (6 Feb 2023). This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (12 Oct 2022 to 9 Feb 2023) and after (21 Feb 2023) the aftershock.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 meters across. The colour variation from light blue to dark blue indicates increasingly more significant surface change. Preliminary validation was done by comparing with high-resolution optical imagery and media reports. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage.\n\nThe product contains modified Copernicus Sentinel data (2022-2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) in collaboration with NASA-JPL and Caltech, using the Advanced Rapid Imaging and Analysis (ARIA) system originally developed at NASA's Jet Propulsion Laboratory, California Institute of Technology, and modified at EOS-RS. \n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Advanced Rapid Imaging and Analysis (ARIA), NASA-JPL/Caltech, Contains modified Copernicus Sentinel data (2022-2023)",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202302_Turkiye_Syria_Earthquake/EOS-RS_20230221_DPM_S1_Turkiye_Syria_Earthquake_v0.4_cvd_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS_RS_202302_Turkiye_Syria_Earthquake_20230331_090350/EOS-RS_20230221_DPM_S1_Turkiye_Syria_Earthquake_v0.4_cvd/rfp_final.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS_RS_202302_Turkiye_Syria_Earthquake_20230331_090350/EOS-RS_20230221_DPM_S1_Turkiye_Syria_Earthquake_v0.4_cvd/rfp_final.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -12283,7 +12328,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS_RS_202302_Turkiye_Syria_Earthquake_20230331_090350/EOS-RS_20230221_DPM_S1_Turkiye_Syria_Earthquake_v0.4_cvd/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS_RS_202302_Turkiye_Syria_Earthquake_20230331_090350/EOS-RS_20230221_DPM_S1_Turkiye_Syria_Earthquake_v0.4_cvd/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "13",
         "prod_date": "2023-02-21",
         "prod_type": "DPM",
         "prod_sat": "S1",
@@ -12295,6 +12342,7 @@
   },
   {
     "event_name": "EOS-RS_202303_Afghanistan_Earthquake",
+    "event_display_name": "EOS-RS Afghanistan Earthquake, Mar 2023",
     "event_url": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202303_Afghanistan_Earthquake/",
     "event_start": "2023-03-22",
     "event_end": "2023-03-22",
@@ -12314,7 +12362,7 @@
         "prod_title": "EOS-RS Damage Proxy Map: Afghanistan, Earthquake, 22 Mar 2023, v0.4",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting areas in Afghanistan where significant changes occurred due to the M6.5 earthquake that occurred on 21 Mar 2023. This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (22 Nov 2022 to 10 Mar 2023) and after (22 Mar 2023) the event.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 meters across. The colour variation from yellow to red indicates increasingly more significant surface change. Preliminary validation was done by comparing with high-resolution optical imagery and media reports. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage.\n\nThe product contains modified Copernicus Sentinel data (2022-2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) in collaboration with NASA-JPL and Caltech, using the Advanced Rapid Imaging and Analysis (ARIA) system originally developed at NASA's Jet Propulsion Laboratory, California Institute of Technology, and modified at EOS-RS. \n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202303_Afghanistan_Earthquake\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Advanced Rapid Imaging and Analysis (ARIA), NASA-JPL/Caltech, Contains modified Copernicus Sentinel data (2022-2023)\n",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202303_Afghanistan_Earthquake/EOS-RS_20230322_DPM_S1_Afghanistan_Earthquake_v0.4_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/EOS-RS_20230322_DPM_S1_Afghanistan_Earthquake_v0.4_20230327_040404/EOS-RS_20230322_DPM_S1_Afghanistan_Earthquake_v0.4/rfp_final.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/EOS-RS_20230322_DPM_S1_Afghanistan_Earthquake_v0.4_20230327_040404/EOS-RS_20230322_DPM_S1_Afghanistan_Earthquake_v0.4/rfp_final.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -12428,7 +12476,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/EOS-RS_20230322_DPM_S1_Afghanistan_Earthquake_v0.4_20230327_040404/EOS-RS_20230322_DPM_S1_Afghanistan_Earthquake_v0.4/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/EOS-RS_20230322_DPM_S1_Afghanistan_Earthquake_v0.4_20230327_040404/EOS-RS_20230322_DPM_S1_Afghanistan_Earthquake_v0.4/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "14",
         "prod_date": "2023-03-22",
         "prod_type": "DPM",
         "prod_sat": "S1",
@@ -12440,6 +12490,7 @@
   },
   {
     "event_name": "EOS-RS_202303_Ecuador_Earthquake",
+    "event_display_name": "EOS-RS Ecuador Earthquake, Mar 2023",
     "event_url": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202303_Ecuador_Earthquake/",
     "event_start": "2023-03",
     "event_end": "2023-03",
@@ -12459,7 +12510,7 @@
         "prod_title": "EOS-RS Damage Proxy Map: Ecuador, Earthquake, 19-26 Mar 2023, v0.8",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting areas that are likely damaged in southern Ecuador and northern Peru due to the M6.8 earthquake that occurred on 18 Mar 2023. This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (7 Nov 2022 to 14 Mar 2023) and after (19-26 Mar 2023) the event.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 meters across. The colour variation from yellow to red indicates increasingly more significant surface change. Preliminary validation was done by comparing with media reports. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage. Some pixels may be due to changes in vegetation cover.\n\nThe product contains modified Copernicus Sentinel data (2022-2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS).\n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202303_Ecuador_Earthquake/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Contains modified Copernicus Sentinel data (2022-2023).",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202303_Ecuador_Earthquake/EOS-RS_20230326-20230322-20230319_DPM_S1_Ecuador_Earthquake_v0.8_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_20230326-20230322-20230319_DPM_S1_Ecuador_Earthquake_v0.8_20230406_070727/EOS-RS_20230326-20230322-20230319_DPM_S1_Ecuador_Earthquake_v0.8/rfp_ecuador_footprints.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_20230326-20230322-20230319_DPM_S1_Ecuador_Earthquake_v0.8_20230406_070727/EOS-RS_20230326-20230322-20230319_DPM_S1_Ecuador_Earthquake_v0.8/rfp_ecuador_footprints.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -12580,7 +12631,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_20230326-20230322-20230319_DPM_S1_Ecuador_Earthquake_v0.8_20230406_070727/EOS-RS_20230326-20230322-20230319_DPM_S1_Ecuador_Earthquake_v0.8/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_20230326-20230322-20230319_DPM_S1_Ecuador_Earthquake_v0.8_20230406_070727/EOS-RS_20230326-20230322-20230319_DPM_S1_Ecuador_Earthquake_v0.8/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "14",
         "prod_date": "2023-03",
         "prod_type": "DPM",
         "prod_sat": "S1",
@@ -12592,6 +12645,7 @@
   },
   {
     "event_name": "EOS-RS_202303_Indonesia_Landslides",
+    "event_display_name": "EOS-RS Indonesia Landslides, Mar 2023",
     "event_url": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202303_Indonesia_Landslides/",
     "event_start": "2023-03-07",
     "event_end": "2023-03-07",
@@ -12611,7 +12665,7 @@
         "prod_title": "EOS-RS Damage Proxy Map: Indonesia, Landslides, 7 Mar 2023, v0.8",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting areas that are likely damaged in Natuna Regency, Riau Islands in Indonesia due to landslides. This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (7 Nov 2022 to 23 Feb 2023) and after (7 Mar 2023) the event.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 meters across. The colour variation from yellow to red indicates increasingly more significant surface change. This map has not been validated. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage.\n\nThe product contains modified Copernicus Sentinel data (2022-2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), using the Advanced Rapid Imaging and Analysis (ARIA) system originally developed at NASA's Jet Propulsion Laboratory, California Institute of Technology, and modified at EOS-RS. Data processing used an AWS Open Dataset of Copernicus Sentinel-1 data for the Asia region (https://registry.opendata.aws/sentinel1-slc-seasia-pds).\n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202303_Indonesia_Landslides/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Advanced Rapid Imaging and Analysis (ARIA), NASA-JPL/Caltech, Contains modified Copernicus Sentinel data (2022-2023)",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202303_Indonesia_Landslides/EOS-RS_20230307_DPM_S1_Indonesia_Landslides_v0.8_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202303_Indonesia_Landslides_20230404_123551/EOS-RS_20230307_DPM_S1_Indonesia_Landslides_v0.8/rfp_20230307_footprint.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202303_Indonesia_Landslides_20230404_123551/EOS-RS_20230307_DPM_S1_Indonesia_Landslides_v0.8/rfp_20230307_footprint.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -12662,7 +12716,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202303_Indonesia_Landslides_20230404_123551/EOS-RS_20230307_DPM_S1_Indonesia_Landslides_v0.8/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202303_Indonesia_Landslides_20230404_123551/EOS-RS_20230307_DPM_S1_Indonesia_Landslides_v0.8/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "13",
         "prod_date": "2023-03-07",
         "prod_type": "DPM",
         "prod_sat": "S1",
@@ -12675,7 +12731,7 @@
         "prod_title": "EOS-RS Damage Proxy Map: Indonesia, Landslides, 7 Mar 2023, v0.8",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting areas that are likely damaged in Natuna Regency, Riau Islands in Indonesia due to landslides. This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (7 Nov 2022 to 23 Feb 2023) and after (7 Mar 2023) the event.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 meters across. The colour variation from light blue to dark blue indicates increasingly more significant surface change. This map has not been validated. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage.\n\nThe product contains modified Copernicus Sentinel data (2022-2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), using the Advanced Rapid Imaging and Analysis (ARIA) system originally developed at NASA's Jet Propulsion Laboratory, California Institute of Technology, and modified at EOS-RS. Data processing used an AWS Open Dataset of Copernicus Sentinel-1 data for the Asia region (https://registry.opendata.aws/sentinel1-slc-seasia-pds).\n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202303_Indonesia_Landslides/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Advanced Rapid Imaging and Analysis (ARIA), NASA-JPL/Caltech, Contains modified Copernicus Sentinel data (2022-2023)",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202303_Indonesia_Landslides/EOS-RS_20230307_DPM_S1_Indonesia_Landslides_v0.8_cvd_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202303_Indonesia_Landslides_20230404_123553/EOS-RS_20230307_DPM_S1_Indonesia_Landslides_v0.8_cvd/rfp_20230307_footprint.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202303_Indonesia_Landslides_20230404_123553/EOS-RS_20230307_DPM_S1_Indonesia_Landslides_v0.8_cvd/rfp_20230307_footprint.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -12726,7 +12782,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202303_Indonesia_Landslides_20230404_123553/EOS-RS_20230307_DPM_S1_Indonesia_Landslides_v0.8_cvd/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202303_Indonesia_Landslides_20230404_123553/EOS-RS_20230307_DPM_S1_Indonesia_Landslides_v0.8_cvd/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "13",
         "prod_date": "2023-03-07",
         "prod_type": "DPM",
         "prod_sat": "S1",
@@ -12739,7 +12797,7 @@
         "prod_title": "EOS-RS Damage Proxy Map: Indonesia, Landslides, 7 Mar 2023, v1.1",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting areas that are likely damaged in Natuna Regency, Riau Islands in Indonesia due to landslides. This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (7 Nov 2022 to 23 Feb 2023) and after (7 Mar 2023) the event.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 meters across. The colour variation from yellow to red indicates increasingly more significant surface change. This map has not been validated. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage.\n\nThe product contains modified Copernicus Sentinel data (2022-2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), using the Advanced Rapid Imaging and Analysis (ARIA) system originally developed at NASA's Jet Propulsion Laboratory, California Institute of Technology, and modified at EOS-RS. Data processing used an AWS Open Dataset of Copernicus Sentinel-1 data for the Asia region (https://registry.opendata.aws/sentinel1-slc-seasia-pds).\n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202303_Indonesia_Landslides/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Advanced Rapid Imaging and Analysis (ARIA), NASA-JPL/Caltech, Contains modified Copernicus Sentinel data (2022-2023)",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202303_Indonesia_Landslides/EOS-RS_20230307_DPM_S1_Indonesia_Landslides_v1.1_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202303_Indonesia_Landslides_20230404_123554/EOS-RS_20230307_DPM_S1_Indonesia_Landslides_v1.1/rfp_20230307_footprint.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202303_Indonesia_Landslides_20230404_123554/EOS-RS_20230307_DPM_S1_Indonesia_Landslides_v1.1/rfp_20230307_footprint.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -12790,7 +12848,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202303_Indonesia_Landslides_20230404_123554/EOS-RS_20230307_DPM_S1_Indonesia_Landslides_v1.1/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202303_Indonesia_Landslides_20230404_123554/EOS-RS_20230307_DPM_S1_Indonesia_Landslides_v1.1/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "13",
         "prod_date": "2023-03-07",
         "prod_type": "DPM",
         "prod_sat": "S1",
@@ -12803,7 +12863,7 @@
         "prod_title": "EOS-RS Damage Proxy Map: Indonesia, Landslides, 7 Mar 2023, v1.1",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting areas that are likely damaged in Natuna Regency, Riau Islands in Indonesia due to landslides. This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (7 Nov 2022 to 23 Feb 2023) and after (7 Mar 2023) the event.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 meters across. The colour variation from light blue to dark blue indicates increasingly more significant surface change. This map has not been validated. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage.\n\nThe product contains modified Copernicus Sentinel data (2022-2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), using the Advanced Rapid Imaging and Analysis (ARIA) system originally developed at NASA's Jet Propulsion Laboratory, California Institute of Technology, and modified at EOS-RS. Data processing used an AWS Open Dataset of Copernicus Sentinel-1 data for the Asia region (https://registry.opendata.aws/sentinel1-slc-seasia-pds).\n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202303_Indonesia_Landslides/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Advanced Rapid Imaging and Analysis (ARIA), NASA-JPL/Caltech, Contains modified Copernicus Sentinel data (2022-2023)",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202303_Indonesia_Landslides/EOS-RS_20230307_DPM_S1_Indonesia_Landslides_v1.1_cvd_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202303_Indonesia_Landslides_20230404_123557/EOS-RS_20230307_DPM_S1_Indonesia_Landslides_v1.1_cvd/rfp_20230307_footprint.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202303_Indonesia_Landslides_20230404_123557/EOS-RS_20230307_DPM_S1_Indonesia_Landslides_v1.1_cvd/rfp_20230307_footprint.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -12854,7 +12914,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202303_Indonesia_Landslides_20230404_123557/EOS-RS_20230307_DPM_S1_Indonesia_Landslides_v1.1_cvd/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202303_Indonesia_Landslides_20230404_123557/EOS-RS_20230307_DPM_S1_Indonesia_Landslides_v1.1_cvd/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "13",
         "prod_date": "2023-03-07",
         "prod_type": "DPM",
         "prod_sat": "S1",
@@ -12866,6 +12928,7 @@
   },
   {
     "event_name": "EOS-RS_202303_Vanuatu_Cyclone_Judy_Cyclone_Kevin",
+    "event_display_name": "EOS-RS Vanuatu Cyclone Judy Cyclone Kevin, Mar 2023",
     "event_url": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202303_Vanuatu_Cyclone_Judy_Cyclone_Kevin/",
     "event_start": "2023-03-03",
     "event_end": "2023-03-03",
@@ -12885,7 +12948,7 @@
         "prod_title": "EOS-RS Damage Proxy Map: Vanuatu, Cyclone Judy and Cyclone Kevin, 3 Mar 2023, v0.7",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting that are likely damaged in Vanuatu due to Cyclone Judy and Cyclone Kevin. This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (3 Nov 2022 to 19 Feb 2023) and during (3 Mar 2023) the cyclones.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 meters across. The colour variation from yellow to red indicates increasingly more significant surface change. This map has not been validated. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage.\n\nThe product contains modified Copernicus Sentinel data (2022-2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), using the Advanced Rapid Imaging and Analysis (ARIA) system originally developed at NASA's Jet Propulsion Laboratory, California Institute of Technology, and modified at EOS-RS. \n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202303_Vanuatu_Cyclone_Judy_Cyclone_Kevin/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Advanced Rapid Imaging and Analysis (ARIA), NASA-JPL/Caltech, Contains modified Copernicus Sentinel data (2022-2023)",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202303_Vanuatu_Cyclone_Judy_Cyclone_Kevin/EOS-RS_20230303_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.7_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202303_Vanuatu_Cyclone_Judy_Cyclone_Kevin_20230404_123925/EOS-RS_20230303_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.7/rfp_20230303_footprint.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202303_Vanuatu_Cyclone_Judy_Cyclone_Kevin_20230404_123925/EOS-RS_20230303_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.7/rfp_20230303_footprint.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -12936,7 +12999,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202303_Vanuatu_Cyclone_Judy_Cyclone_Kevin_20230404_123925/EOS-RS_20230303_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.7/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202303_Vanuatu_Cyclone_Judy_Cyclone_Kevin_20230404_123925/EOS-RS_20230303_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.7/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "13",
         "prod_date": "2023-03-03",
         "prod_type": "DPM",
         "prod_sat": "S1",
@@ -12949,7 +13014,7 @@
         "prod_title": "EOS-RS Damage Proxy Map: Vanuatu, Cyclone Judy and Cyclone Kevin, 3 Mar 2023, v0.7",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting that are likely damaged in Vanuatu due to Cyclone Judy and Cyclone Kevin. This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (3 Nov 2022 to 19 Feb 2023) and during (3 Mar 2023) the cyclones.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 meters across. The colour variation from light blue to dark blue indicates increasingly more significant surface change. This map has not been validated. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage.\n\nThe product contains modified Copernicus Sentinel data (2022-2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), using the Advanced Rapid Imaging and Analysis (ARIA) system originally developed at NASA's Jet Propulsion Laboratory, California Institute of Technology, and modified at EOS-RS. \n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202303_Vanuatu_Cyclone_Judy_Cyclone_Kevin/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Advanced Rapid Imaging and Analysis (ARIA), NASA-JPL/Caltech, Contains modified Copernicus Sentinel data (2022-2023)",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202303_Vanuatu_Cyclone_Judy_Cyclone_Kevin/EOS-RS_20230303_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.7_cvd_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202303_Vanuatu_Cyclone_Judy_Cyclone_Kevin_20230404_124119/EOS-RS_20230303_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.7_cvd/rfp_20230303_footprint.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202303_Vanuatu_Cyclone_Judy_Cyclone_Kevin_20230404_124119/EOS-RS_20230303_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.7_cvd/rfp_20230303_footprint.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -13000,7 +13065,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202303_Vanuatu_Cyclone_Judy_Cyclone_Kevin_20230404_124119/EOS-RS_20230303_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.7_cvd/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_202303_Vanuatu_Cyclone_Judy_Cyclone_Kevin_20230404_124119/EOS-RS_20230303_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.7_cvd/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "13",
         "prod_date": "2023-03-03",
         "prod_type": "DPM",
         "prod_sat": "S1",
@@ -13013,7 +13080,7 @@
         "prod_title": "EOS-RS Damage Proxy Map: Vanuatu, Cyclone Judy and Cyclone Kevin, 10 Mar 2023, v0.8",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting that are likely damaged in Vanuatu due to Cyclone Judy and Cyclone Kevin. This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (29 Oct 2022 to 26 Feb 2023) and after (10 Mar 2023) the cyclones.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 meters across. The colour variation from yellow to red indicates increasingly more significant surface change. Preliminary validation was done using media reports and optical imagery. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage.\n\nThe product contains modified Copernicus Sentinel data (2022-2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS). \n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202303_Vanuatu_Cyclone_Judy_Cyclone_Kevin/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Contains modified Copernicus Sentinel data (2022-2023)",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202303_Vanuatu_Cyclone_Judy_Cyclone_Kevin/EOS-RS_20230310_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.8_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_20230310_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.8_20230419_085618/EOS-RS_20230310_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.8/rfp_20230310_footprint.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_20230310_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.8_20230419_085618/EOS-RS_20230310_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.8/rfp_20230310_footprint.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -13074,7 +13141,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_20230310_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.8_20230419_085618/EOS-RS_20230310_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.8/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_20230310_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.8_20230419_085618/EOS-RS_20230310_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.8/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "14",
         "prod_date": "2023-03-10",
         "prod_type": "DPM",
         "prod_sat": "S1",
@@ -13087,7 +13156,7 @@
         "prod_title": "EOS-RS Damage Proxy Map: Vanuatu, Cyclone Judy and Cyclone Kevin, 10 Mar 2023, v0.8",
         "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting that are likely damaged in Vanuatu due to Cyclone Judy and Cyclone Kevin. This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (29 Oct 2022 to 26 Feb 2023) and after (10 Mar 2023) the cyclones.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 meters across. The colour variation from light blue to dark blue indicates increasingly more significant surface change. Preliminary validation was done using media reports and optical imagery. This map could be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage.\n\nThe product contains modified Copernicus Sentinel data (2022-2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS). \n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202303_Vanuatu_Cyclone_Judy_Cyclone_Kevin/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Contains modified Copernicus Sentinel data (2022-2023)",
         "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202303_Vanuatu_Cyclone_Judy_Cyclone_Kevin/EOS-RS_20230310_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.8_cvd_MAIN.png",
-        "prod_rfp_file": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_20230310_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.8_cvd_20230419_091850/EOS-RS_20230310_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.8_cvd/rfp_20230310_footprint.json",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_20230310_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.8_cvd_20230419_091850/EOS-RS_20230310_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.8_cvd/rfp_20230310_footprint.json",
         "prod_rfp_geojson": {
           "type": "FeatureCollection",
           "name": "0",
@@ -13148,7 +13217,9 @@
             }
           ]
         },
-        "prod_tiles": "http://aria-sg-products.s3-website-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_20230310_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.8_cvd_20230419_091850/EOS-RS_20230310_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.8_cvd/",
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_20230310_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.8_cvd_20230419_091850/EOS-RS_20230310_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.8_cvd/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "14",
         "prod_date": "2023-03-10",
         "prod_type": "DPM",
         "prod_sat": "S1",
