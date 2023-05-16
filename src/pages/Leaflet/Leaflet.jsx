@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import {
   MapContainer,
   TileLayer,
+  GeoJSON,
   useMap,
   Marker,
   Popup,
@@ -433,7 +434,7 @@ function LeafletPage(props) {
       >
         <DrawerHeader>
           <Typography variant="h5" sx={{ overflowWrap: "anywhere" }}>
-            {state.event.event_name}
+            {state.event.event_display_name}
           </Typography>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "ltr" ? (
@@ -486,16 +487,19 @@ function LeafletPage(props) {
 
             {checked.map((item) => {
               return (
-                <TileLayer
-                  tms={true}
-                  url={
-                    item?.cvd_selected
-                      ? `${item?.cvd_prod_tiles}{z}/{x}/{y}.png`
-                      : `${item?.prod_tiles}{z}/{x}/{y}.png`
-                  }
-                  maxNativeZoom={14}
-                  minNativeZoom={6}
-                />
+                <>
+                  <TileLayer
+                    tms={true}
+                    url={
+                      item?.cvd_selected
+                        ? `${item?.cvd_prod_tiles}{z}/{x}/{y}.png`
+                        : `${item?.prod_tiles}{z}/{x}/{y}.png`
+                    }
+                    maxNativeZoom={14}
+                    minNativeZoom={6}
+                  />
+                  {/* <GeoJSON key={item?.prod_tiles} data={geojson} /> */}
+                </>
               );
             })}
 

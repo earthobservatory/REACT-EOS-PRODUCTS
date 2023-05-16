@@ -201,7 +201,7 @@ const HomePage = () => {
                 // if (versionNumber) {
                 return (
                   <EventCard
-                    Title={item.event_name}
+                    Title={item.event_display_name}
                     Image={latestProduct.prod_main_png}
                     Description={latestProduct.prod_desc}
                     Date={`${item.event_start} | ${item.event_end}`}
