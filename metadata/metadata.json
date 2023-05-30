@@ -15,6 +15,12 @@
         132.362693271404
       ]
     ],
+    "event_location_tags": [
+      "Indonesia"
+    ],
+    "event_type_tags": [
+      "earthquake"
+    ],
     "product_list": [
       {
         "prod_name": "EOS-RS_20230110_DPM_S1_Indonesia_Earthquake_v0.9",
@@ -166,6 +172,12 @@
         120.205510731833
       ]
     ],
+    "event_location_tags": [
+      "Indonesia"
+    ],
+    "event_type_tags": [
+      "flood"
+    ],
     "product_list": [
       {
         "prod_name": "EOS-RS_20230104_FPM_S1_Indonesia_Floods_v0.3",
@@ -316,6 +328,12 @@
         39.2571291589502,
         41.7277406079833
       ]
+    ],
+    "event_location_tags": [
+      "Turkey"
+    ],
+    "event_type_tags": [
+      "earthquake"
     ],
     "product_list": [
       {
@@ -12356,6 +12374,12 @@
         71.5409277614152
       ]
     ],
+    "event_location_tags": [
+      "Afghanistan"
+    ],
+    "event_type_tags": [
+      "earthquake"
+    ],
     "product_list": [
       {
         "prod_name": "EOS-RS_20230322_DPM_S1_Afghanistan_Earthquake_v0.4",
@@ -12503,6 +12527,13 @@
         -1.48238648224143,
         -78.3703978088319
       ]
+    ],
+    "event_location_tags": [
+      "Ecuador",
+      "Peru"
+    ],
+    "event_type_tags": [
+      "earthquake"
     ],
     "product_list": [
       {
@@ -12658,6 +12689,12 @@
         2.56137824185263,
         109.122992869525
       ]
+    ],
+    "event_location_tags": [
+      "Indonesia"
+    ],
+    "event_type_tags": [
+      "landslides"
     ],
     "product_list": [
       {
@@ -12942,6 +12979,12 @@
         170.311227671303
       ]
     ],
+    "event_location_tags": [
+      "Vanuatu"
+    ],
+    "event_type_tags": [
+      "cyclone"
+    ],
     "product_list": [
       {
         "prod_name": "EOS-RS_20230303_DPM_S1_Vanuatu_Cyclone_Judy_Cyclone_Kevin_v0.7",
@@ -13224,6 +13267,311 @@
         "prod_type": "DPM",
         "prod_sat": "S1",
         "prod_version": "0.8",
+        "prod_cvd": true,
+        "isLatest": true
+      }
+    ]
+  },
+  {
+    "event_name": "EOS-RS_202305_Myanmar_Cyclone_Mocha",
+    "event_display_name": "EOS-RS Myanmar Cyclone Mocha, May 2023",
+    "event_url": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202305_Myanmar_Cyclone_Mocha/",
+    "event_start": "2023-05-14",
+    "event_end": "2023-05-14",
+    "event_bbox": [
+      [
+        19.386508595844,
+        91.72008131793008
+      ],
+      [
+        22.3717972084281,
+        94.5928185873444
+      ]
+    ],
+    "event_location_tags": [
+      "Myanmar"
+    ],
+    "event_type_tags": [
+      "flood",
+      "cyclone"
+    ],
+    "product_list": [
+      {
+        "prod_name": "EOS-RS_20230514_FPM_A2_Myanmar_Cyclone_Mocha_v0.3",
+        "prod_title": "EOS-RS Flood Proxy Map: Myanmar, Cyclone Mocha, 14 May 2023, v0.3",
+        "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Flood Proxy Map (FPM) depicting areas that are likely flooded in northern Rakhine, Myanmar due to Cyclone Mocha which made landfall on 14 May 2023. This map was derived from synthetic aperture radar (SAR) images acquired by the ALOS-2 satellite operated by the Japan Aerospace Exploration Agency (JAXA) before (19 Feb 2023) and during (14 May 2023) the event.\n\nThe image covers an area indicated by the large white polygon. Each light blue pixel measures about 25 m across. This flood proxy map should be used as a guide to identify areas that are likely flooded, and is be less reliable over urban and vegetated areas.\n\nData were provided by Sentinel Asia and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS).\n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202305_Myanmar_Cyclone_Mocha/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Original data ALOS-2 PALSAR-2 Product - JAXA (2023)",
+        "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202305_Myanmar_Cyclone_Mocha/EOS-RS_20230514_FPM_A2_Myanmar_Cyclone_Mocha_v0.3_MAIN.png",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_20230514_FPM_A2_Myanmar_Cyclone_Mocha_v0.3_20230515_080441/EOS-RS_20230514_FPM_A2_Myanmar_Cyclone_Mocha_v0.3/rfp_230514_footprint.json",
+        "prod_rfp_geojson": {
+          "type": "FeatureCollection",
+          "name": "0",
+          "crs": {
+            "type": "name",
+            "properties": {
+              "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+            }
+          },
+          "features": [
+            {
+              "type": "Feature",
+              "properties": {},
+              "geometry": {
+                "type": "MultiPolygon",
+                "coordinates": [
+                  [
+                    [
+                      [
+                        92.70811209796871,
+                        19.6196821799387,
+                        0.0
+                      ],
+                      [
+                        92.45214728037442,
+                        20.7784897041691,
+                        0.0
+                      ],
+                      [
+                        93.1018683708051,
+                        20.9167724507823,
+                        0.0
+                      ],
+                      [
+                        93.36638116647632,
+                        19.7647290148801,
+                        0.0
+                      ],
+                      [
+                        92.70811209796871,
+                        19.6196821799387,
+                        0.0
+                      ]
+                    ]
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_20230514_FPM_A2_Myanmar_Cyclone_Mocha_v0.3_20230515_080441/EOS-RS_20230514_FPM_A2_Myanmar_Cyclone_Mocha_v0.3/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "13",
+        "prod_date": "2023-05-14",
+        "prod_type": "FPM",
+        "prod_sat": "A2",
+        "prod_version": "0.3",
+        "prod_cvd": false,
+        "isLatest": false
+      },
+      {
+        "prod_name": "EOS-RS_20230514_FPM_A2_Myanmar_Cyclone_Mocha_v0.4",
+        "prod_title": "EOS-RS Flood Proxy Map: Myanmar, Cyclone Mocha, 14 May 2023, v0.4",
+        "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Flood Proxy Map (FPM) depicting areas that are likely flooded in northern Rakhine, Myanmar due to Cyclone Mocha which made landfall on 14 May 2023. This map was derived from synthetic aperture radar (SAR) images acquired by the ALOS-2 satellite operated by the Japan Aerospace Exploration Agency (JAXA) before (11 Dec 2022) and during (14 May 2023) the event.\n\nThe image covers an area indicated by the large white polygon. Each light blue pixel measures about 25 m across. This map has not been validated. This flood proxy map should be used as a guide to identify areas that are likely flooded, and is be less reliable over urban and vegetated areas.\n\nData were provided by Sentinel Asia and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS).\n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202305_Myanmar_Cyclone_Mocha/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Original data ALOS-2 PALSAR-2 Product - JAXA (2022-2023)",
+        "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202305_Myanmar_Cyclone_Mocha/EOS-RS_20230514_FPM_A2_Myanmar_Cyclone_Mocha_v0.4_MAIN.png",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_20230514_FPM_A2_Myanmar_Cyclone_Mocha_v0.4.tif_20230516_090829/EOS-RS_20230514_FPM_A2_Myanmar_Cyclone_Mocha_v0.4/rfp_230514_221211_footprint.json",
+        "prod_rfp_geojson": {
+          "type": "FeatureCollection",
+          "name": "0",
+          "crs": {
+            "type": "name",
+            "properties": {
+              "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+            }
+          },
+          "features": [
+            {
+              "type": "Feature",
+              "properties": {},
+              "geometry": {
+                "type": "MultiPolygon",
+                "coordinates": [
+                  [
+                    [
+                      [
+                        92.1807919184811,
+                        22.0202686580332,
+                        0.0
+                      ],
+                      [
+                        94.01414851207902,
+                        22.3717972084281,
+                        0.0
+                      ],
+                      [
+                        94.5928185873444,
+                        19.7488534093279,
+                        0.0
+                      ],
+                      [
+                        92.7324213360238,
+                        19.386508595844,
+                        0.0
+                      ],
+                      [
+                        92.1753837869366,
+                        22.0256767895778,
+                        0.0
+                      ],
+                      [
+                        92.1807919184811,
+                        22.0202686580332,
+                        0.0
+                      ]
+                    ]
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_20230514_FPM_A2_Myanmar_Cyclone_Mocha_v0.4.tif_20230516_090829/EOS-RS_20230514_FPM_A2_Myanmar_Cyclone_Mocha_v0.4/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "13",
+        "prod_date": "2023-05-14",
+        "prod_type": "FPM",
+        "prod_sat": "A2",
+        "prod_version": "0.4",
+        "prod_cvd": false,
+        "isLatest": true
+      },
+      {
+        "prod_name": "EOS-RS_20230518_DPM_S1_Myanmar_Cyclone_Mocha_v0.9",
+        "prod_title": "EOS-RS Damage Proxy Map: Myanmar, Cyclone Mocha, 18 May 2023, v0.9",
+        "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting areas that are likely damaged in west Myanmar due to Cyclone Mocha which made landfall on 14 May 2023. This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (18 Jan 2023 to 6 May 2023) and after (18 May 2023) the event.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 m across. The colour variation from yellow to red indicates increasingly more significant surface change. Preliminary validation was done using media reports and optical imagery. This map should be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage.\n\nThe product contains modified Copernicus Sentinel data (2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), using the Advanced Rapid Imaging and Analysis (ARIA) system originally developed at NASA's Jet Propulsion Laboratory, California Institute of Technology, and modified at EOS-RS. Data processing used an AWS Open Dataset of Copernicus Sentinel-1 data for the Asia region (https://registry.opendata.aws/sentinel1-slc-seasia-pds).\n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202305_Myanmar_Cyclone_Mocha/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Advanced Rapid Imaging and Analysis (ARIA), NASA-JPL/Caltech, Contains modified Copernicus Sentinel data (2023)",
+        "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202305_Myanmar_Cyclone_Mocha/EOS-RS_20230518_DPM_S1_Myanmar_Cyclone_Mocha_v0.9_MAIN.png",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_20230518_DPM_S1_Myanmar_Cyclone_Mocha_v0.9_20230519_074105/EOS-RS_20230518_DPM_S1_Myanmar_Cyclone_Mocha_v0.9/rfp_20230518_footprint.json",
+        "prod_rfp_geojson": {
+          "type": "FeatureCollection",
+          "name": "0",
+          "crs": {
+            "type": "name",
+            "properties": {
+              "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+            }
+          },
+          "features": [
+            {
+              "type": "Feature",
+              "properties": {},
+              "geometry": {
+                "type": "MultiPolygon",
+                "coordinates": [
+                  [
+                    [
+                      [
+                        93.9379426658338,
+                        22.2831577532177,
+                        0.0
+                      ],
+                      [
+                        94.3807523055211,
+                        20.0306440538336,
+                        0.0
+                      ],
+                      [
+                        94.3517853165753,
+                        20.0257819799272,
+                        0.0
+                      ],
+                      [
+                        92.1631465039519,
+                        19.6050002218542,
+                        0.0
+                      ],
+                      [
+                        91.72008131793008,
+                        21.8937294068274,
+                        0.0
+                      ],
+                      [
+                        93.9379426658338,
+                        22.2831577532177,
+                        0.0
+                      ]
+                    ]
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_20230518_DPM_S1_Myanmar_Cyclone_Mocha_v0.9_20230519_074105/EOS-RS_20230518_DPM_S1_Myanmar_Cyclone_Mocha_v0.9/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "14",
+        "prod_date": "2023-05-18",
+        "prod_type": "DPM",
+        "prod_sat": "S1",
+        "prod_version": "0.9",
+        "prod_cvd": false,
+        "isLatest": true
+      },
+      {
+        "prod_name": "EOS-RS_20230518_DPM_S1_Myanmar_Cyclone_Mocha_v0.9_cvd",
+        "prod_title": "EOS-RS Damage Proxy Map: Myanmar, Cyclone Mocha, 18 May 2023, v0.9",
+        "prod_desc": "The Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS) created this preliminary Damage Proxy Map (DPM) depicting areas that are likely damaged in west Myanmar due to Cyclone Mocha which made landfall on 14 May 2023. This map was derived from synthetic aperture radar (SAR) images acquired by the Copernicus Sentinel-1 satellite operated by the European Space Agency (ESA) before (18 Jan 2023 to 6 May 2023) and after (18 May 2023) the event.\n\nThe image covers an area indicated by the large white polygon. Each pixel measures about 30 m across. The colour variation from light blue to dark blue indicates increasingly more significant surface change. Preliminary validation was done using media reports and optical imagery. This map should be used as a guidance to identify damaged areas, and may be less reliable over vegetated areas. Scattered pixels over vegetated areas may be false positives, and a lack of colored pixels over vegetated areas may not mean no damage.\n\nThe product contains modified Copernicus Sentinel data (2023), processed by ESA and analyzed by the Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), using the Advanced Rapid Imaging and Analysis (ARIA) system originally developed at NASA's Jet Propulsion Laboratory, California Institute of Technology, and modified at EOS-RS. Data processing used an AWS Open Dataset of Copernicus Sentinel-1 data for the Asia region (https://registry.opendata.aws/sentinel1-slc-seasia-pds).\n\nMore map details and files at: http://eos-rs-products.earthobservatory.sg/EOS-RS_202305_Myanmar_Cyclone_Mocha/\n\nCredits: Earth Observatory of Singapore - Remote Sensing Lab (EOS-RS), Advanced Rapid Imaging and Analysis (ARIA), NASA-JPL/Caltech, Contains modified Copernicus Sentinel data (2023)",
+        "prod_main_png": "https://eos-rs-products.earthobservatory.sg/EOS-RS_202305_Myanmar_Cyclone_Mocha/EOS-RS_20230518_DPM_S1_Myanmar_Cyclone_Mocha_v0.9_cvd_MAIN.png",
+        "prod_rfp_file": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_20230518_DPM_S1_Myanmar_Cyclone_Mocha_v0.9_cvd_20230519_075749/EOS-RS_20230518_DPM_S1_Myanmar_Cyclone_Mocha_v0.9_cvd/rfp_20230518_footprint.json",
+        "prod_rfp_geojson": {
+          "type": "FeatureCollection",
+          "name": "0",
+          "crs": {
+            "type": "name",
+            "properties": {
+              "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+            }
+          },
+          "features": [
+            {
+              "type": "Feature",
+              "properties": {},
+              "geometry": {
+                "type": "MultiPolygon",
+                "coordinates": [
+                  [
+                    [
+                      [
+                        93.9379426658338,
+                        22.2831577532177,
+                        0.0
+                      ],
+                      [
+                        94.3807523055211,
+                        20.0306440538336,
+                        0.0
+                      ],
+                      [
+                        94.3517853165753,
+                        20.0257819799272,
+                        0.0
+                      ],
+                      [
+                        92.1631465039519,
+                        19.6050002218542,
+                        0.0
+                      ],
+                      [
+                        91.72008131793008,
+                        21.8937294068274,
+                        0.0
+                      ],
+                      [
+                        93.9379426658338,
+                        22.2831577532177,
+                        0.0
+                      ]
+                    ]
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        "prod_tiles": "https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/tiles/TMS/EOS-RS_20230518_DPM_S1_Myanmar_Cyclone_Mocha_v0.9_cvd_20230519_075749/EOS-RS_20230518_DPM_S1_Myanmar_Cyclone_Mocha_v0.9_cvd/",
+        "prod_min_zoom": "6",
+        "prod_max_zoom": "14",
+        "prod_date": "2023-05-18",
+        "prod_type": "DPM",
+        "prod_sat": "S1",
+        "prod_version": "0.9",
         "prod_cvd": true,
         "isLatest": true
       }
