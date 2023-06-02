@@ -34,7 +34,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { HEADER_HEIGHT } from "utils/constants";
 import { getRoute } from "utils/routes";
 import logo from "assets/EOS Logo.png";
-import { useLocation, useNavigate } from "react-router-dom";
+import { json, useLocation, useNavigate } from "react-router-dom";
 import ProductCard from "components/ProductCard/ProductCard";
 import Noise from "assets/noise.svg";
 import CVDSwitch from "components/Reusables/CVDSwitch";
@@ -209,12 +209,27 @@ function LeafletPage(props) {
   const Navigate = useNavigate();
   const { state } = useLocation();
   const [checked, setChecked] = useState([]);
+  const [jsonData, setJsonData] = useState({});
 
   const [products, setProducts] = useState([]);
 
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const [openLayers, setOpenLayers] = useState(false);
+
+  const GeoJSONMap = (url) => {
+    console.log(url);
+    fetch(url)
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        var newObj = jsonData;
+        newObj[url] = data;
+        console.log(newObj);
+        setJsonData(newObj);
+      });
+  };
 
   useEffect(() => {
     var productList = state?.product_list;
@@ -225,6 +240,7 @@ function LeafletPage(props) {
           return filter.prod_cvd === false;
         })
         .forEach((item) => {
+          GeoJSONMap(item.prod_rfp_file);
           var cvd = productList.filter((filter) => {
             return filter.prod_name === `${item.prod_name}_cvd`;
           });
@@ -495,10 +511,14 @@ function LeafletPage(props) {
                         ? `${item?.cvd_prod_tiles}{z}/{x}/{y}.png`
                         : `${item?.prod_tiles}{z}/{x}/{y}.png`
                     }
-                    maxNativeZoom={14}
-                    minNativeZoom={6}
+                    maxNativeZoom={item?.prod_max_zoom}
+                    minNativeZoom={item?.prod_min_zoom}
                   />
-                  {/* <GeoJSON key={item?.prod_tiles} data={geojson} /> */}
+                  <GeoJSON
+                    style={{ color: "#ff780099", weight: 2 }}
+                    key={item?.prod_rfp_file}
+                    data={jsonData[item?.prod_rfp_file]}
+                  />
                 </>
               );
             })}
