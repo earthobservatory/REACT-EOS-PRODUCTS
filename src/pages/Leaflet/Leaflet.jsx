@@ -218,7 +218,6 @@ function LeafletPage(props) {
   const [openLayers, setOpenLayers] = useState(false);
 
   const GeoJSONMap = (url) => {
-    console.log(url);
     fetch(url)
       .then((res) => {
         return res.json();
@@ -226,7 +225,6 @@ function LeafletPage(props) {
       .then((data) => {
         var newObj = jsonData;
         newObj[url] = data;
-        console.log(newObj);
         setJsonData(newObj);
       });
   };
