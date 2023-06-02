@@ -16,15 +16,17 @@ Metadata is stored in a list of event dictionaries.
 
 For each event:
 
-| Event Field        | Description  | 
-| ------------- |:-------------:| 
-| `event_name`   | Name of event folder in eos-rs-products.earthobservatory.sg | 
-| `event_display_name`   | Display name for the event. Derived from `event_name` |
-| `event_url`    | Event folder URL      | 
-| `event_start`|  Start of event, based on all products in `product_list`      | 
-| `event_end`|  End of event, based on all products in `product_list`      | 
-| `event_bbox`|  Rectangle bbox for event in `[[min lat, min lon], [max_lat, max_lon]]`, based on all radar footprints in `product_list` *Note*: useful for [flying to bounds on leaflet](https://leafletjs.com/reference.html#map-flytobounds) | 
-| `product_list`| List of all metadata for each product in event. (see [Product metadata](#product-metadata-format)) | 
+| Event Field           | Description  | 
+|-----------------------|:-------------:| 
+| `event_name`          | Name of event folder in eos-rs-products.earthobservatory.sg | 
+| `event_display_name`  | Display name for the event. Derived from `event_name` |
+| `event_url`           | Event folder URL      | 
+| `event_location_tags` |  List of countries event is associated with |
+| `event_type_tags`     |  List of event nature/types |
+| `event_start`         |  Start of event, based on all products in `product_list`      | 
+| `event_end`           |  End of event, based on all products in `product_list`      | 
+| `event_bbox`          |  Rectangle bbox for event in `[[min lat, min lon], [max_lat, max_lon]]`, based on all radar footprints in `product_list` *Note*: useful for [flying to bounds on leaflet](https://leafletjs.com/reference.html#map-flytobounds) | 
+| `product_list`        | List of all metadata for each product in event. (see [Product metadata](#product-metadata-format)) | 
 
 
 #### Product metadata format

@@ -19,12 +19,12 @@ import requests
 import dateparser
 import calendar
 import re
+import locationtagger
 
 
 KMLDIR = "final_kml"
-
-
-
+replace_locations = ["California Institute", "Japan Aerospace", "Observatory of Singapore", "Remote", "NASA"]
+event_tags = ['earthquake', 'earthquakes','typhoon', 'tsunami', 'volcano', 'flood', 'floods','explosion', 'landslides', 'landslide','cyclone']
 
 def runCmd(cmd):
     print("{}".format(cmd))
@@ -110,6 +110,26 @@ def get_bbox(prod_list):
     bbox = [[min_lat, min_lon], [max_lat, max_lon]]
     return bbox
 
+def get_tags(prod_list):
+    event_countries = []
+    event_type_tags = []
+
+    for product in prod_list:
+        desc = product['prod_desc']
+        title = product['prod_title']
+        refined_text = desc + title
+        event_type_tags.extend([x for x in event_tags if x in refined_text.lower()])
+
+        for replace_phrase in replace_locations:
+            refined_text = refined_text.replace(replace_phrase,"")
+        entities = locationtagger.find_locations(text=refined_text)
+        event_countries.extend(entities.countries)
+
+    event_type_tags = list(set(event_type_tags))
+    event_countries = list(set(event_countries))
+
+    return event_type_tags, event_countries
+
 def mark_latest_products(prod_list):
     latest_versions = {}
 
@@ -152,6 +172,8 @@ if __name__ == '__main__':
                          "event_start": '',
                          "event_end": '',
                          "event_bbox": '',
+                         "event_location_tags":[],
+                         "event_type_tags":[],
                          "product_list": []}
 
         # get event display name
@@ -174,6 +196,7 @@ if __name__ == '__main__':
             filename_base = os.path.splitext(os.path.basename(filepath))[0]
 
             if filepath.endswith('.txt'):
+                # for every product in the event
                 r_png = re.compile(f".*{filename_base}.*MAIN.*png")
                 r_kmz = re.compile(fr".*{filename_base}.*kmz")
                 list_png = list(filter(r_png.match, fileList))
@@ -211,6 +234,7 @@ if __name__ == '__main__':
                         if len(text_str_list) > 1:
                             this_product_md.update({"prod_title": text_str_list[0]})
                             this_product_md.update({"prod_desc": "\n".join(text_str_list[2:])})
+
 
                     if this_product_md['prod_title']:
                         print(this_product_md['prod_title'])
@@ -306,8 +330,11 @@ if __name__ == '__main__':
         event_bbox = get_bbox(this_event_md['product_list'])
         this_event_md.update({"event_bbox": event_bbox})
 
-
+        event_types, event_countries = get_tags(this_event_md['product_list'])
+        this_event_md.update({"event_type_tags": event_types})
+        this_event_md.update({"event_location_tags": event_countries})
         metadata_list.append(this_event_md)
+        print(json.dumps(metadata_list, indent=2))
         print(json.dumps(metadata_list, indent=2))
 
     metadata_file = "metadata.json"
