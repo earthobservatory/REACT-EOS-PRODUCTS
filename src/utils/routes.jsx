@@ -8,7 +8,7 @@ const RoutePaths = [
     type: "route",
     name: "Landing Page",
     key: "landing",
-    route: "/REACT-EOS-PRODUCTS/",
+    route: "/",
     component: <LandingPage />,
   },
 
@@ -16,7 +16,7 @@ const RoutePaths = [
     type: "route",
     name: "Home Page",
     key: "home",
-    route: "/REACT-EOS-PRODUCTS/home",
+    route: "/home",
     component: <HomePage />,
   },
 
@@ -24,7 +24,7 @@ const RoutePaths = [
     type: "route",
     name: "Leaflet Page",
     key: "leaflet",
-    route: "/REACT-EOS-PRODUCTS/leaflet",
+    route: "/leaflet",
     component: <LeafletPage />,
   },
   {

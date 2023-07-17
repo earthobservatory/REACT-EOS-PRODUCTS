@@ -1,6 +1,6 @@
 //Entry point for the webpack and deals with the routes
 import React from "react";
-import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
+import { Route, Routes, HashRouter as Router } from "react-router-dom";
 import RoutePaths from "utils/routes";
 
 const WebRoute = () => {
