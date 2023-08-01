@@ -12,7 +12,7 @@ const WebRoute = () => {
     });
 
   return (
-    <Router>
+    <Router basename="/REACT-EOS-PRODUCTS">
       <Routes>
         {getRoutes(RoutePaths)}
         {/* <Route path="*" element={<Navigate to={getRoute("home")} />} /> */}
