@@ -20,10 +20,59 @@ import { convertToHierarchy } from "utils/DirectoryListing";
 import XMLParser from "react-xml-parser";
 import { useMetadataContext } from "context/MetadataContext";
 import Noise from "assets/noise.svg";
+import moment from "moment";
+import { motion } from "framer-motion";
+import ScaleUpOnHover from "utils/Animations/ScaleUpOnHover";
 
 const HomePage = () => {
-  const Navigate = useNavigate();
   const metadata = useMetadataContext();
+  const Navigate = useNavigate();
+  const [query, setQuery] = useState("");
+  const [startDate, setStartDate] = useState(moment().subtract(6, "months"));
+  const [endDate, setEndDate] = useState(moment());
+
+  const handleChange = (event) => {
+    setQuery(event.target.value);
+  };
+
+  const mostRecentMetadata = metadata?.filter((item) => {
+    const itemDate = moment(item.event_start);
+    return itemDate.isAfter(startDate) && itemDate.isBefore(endDate);
+  });
+
+  const filteredMetadata = metadata?.filter((item) => {
+    return item.product_list[0].prod_desc
+      .toLowerCase()
+      .includes(query.toLowerCase());
+  });
+
+  const MapEventCards = (inputData) => {
+    return inputData?.map((item) => {
+      var latestProduct = item.product_list.find((data) => {
+        return data.isLatest == true;
+      });
+
+      console.log(item);
+      return (
+        <EventCard
+          Title={item.event_display_name}
+          Image={latestProduct.prod_main_png}
+          Description={latestProduct.prod_desc}
+          Date={`${item.event_start} | ${item.event_end}`}
+          LastUpdated={latestProduct.prod_date}
+          Tags={item.event_type_tags}
+          onClick={() => {
+            Navigate(getRoute("leaflet"), {
+              state: {
+                event: item,
+                product_list: item.product_list,
+              },
+            });
+          }}
+        />
+      );
+    });
+  };
 
   // const getHighestVersion = (fileArray) => {
   //   const fileExtension = ".kmz";
@@ -183,44 +232,14 @@ const HomePage = () => {
           <Typography variant="h3" fontWeight="800">
             Recent events
           </Typography>
-          <Typography variant="h6">Click to view maps</Typography>
+          <Typography variant="h6">Events in the last 6 months</Typography>
           <Grid
             sx={{ padding: "1rem" }}
             container
             spacing={{ xs: 2, md: 3 }}
             columns={{ xs: 2, sm: 8, md: 12 }}
           >
-            {metadata ? (
-              metadata?.map((item) => {
-                var latestProduct = item.product_list.find((data) => {
-                  return data.isLatest == true;
-                });
-
-                console.log(item);
-                // var versionNumber = getHighestVersion(item?.children);
-                // if (versionNumber) {
-                return (
-                  <EventCard
-                    Title={item.event_display_name}
-                    Image={latestProduct.prod_main_png}
-                    Description={latestProduct.prod_desc}
-                    Date={`${item.event_start} | ${item.event_end}`}
-                    LastUpdated={latestProduct.prod_date}
-                    onClick={() => {
-                      Navigate(getRoute("leaflet"), {
-                        state: {
-                          event: item,
-                          product_list: item.product_list,
-                        },
-                      });
-                    }}
-                  />
-                );
-                // }
-              })
-            ) : (
-              <></>
-            )}
+            {MapEventCards(mostRecentMetadata)}
           </Grid>
         </Box>
 
@@ -243,6 +262,7 @@ const HomePage = () => {
               label="Search"
               variant="outlined"
               size="small"
+              onChange={handleChange}
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
@@ -268,26 +288,14 @@ const HomePage = () => {
             spacing={{ xs: 2, md: 3 }}
             columns={{ xs: 2, sm: 8, md: 12 }}
           >
-            {/* <EventCard
-              Title="Afghanistan"
-              Description="Afghanistan, 22 Mar 2023"
-              LastUpdated="24 Mar 2023"
-            />
-            <EventCard
-              Title="Afghanistan"
-              Description="Afghanistan, 22 Mar 2023"
-              LastUpdated="24 Mar 2023"
-            />
-            <EventCard
-              Title="Afghanistan"
-              Description="Afghanistan, 22 Mar 2023"
-              LastUpdated="24 Mar 2023"
-            />
-            <EventCard
-              Title="Afghanistan"
-              Description="Afghanistan, 22 Mar 2023"
-              LastUpdated="24 Mar 2023"
-            /> */}
+            <Grid
+              sx={{ padding: "1rem" }}
+              container
+              spacing={{ xs: 2, md: 3 }}
+              columns={{ xs: 2, sm: 8, md: 12 }}
+            >
+              {MapEventCards(filteredMetadata)}
+            </Grid>
           </Grid>
         </Box>
       </Box>
