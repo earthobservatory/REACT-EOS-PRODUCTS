@@ -2,6 +2,7 @@ import HomePage from "pages/Home/Home";
 import LandingPage from "pages/Landing/Landing";
 import Error404Page from "pages/Error/E404";
 import LeafletPage from "pages/Leaflet/Leaflet";
+import AboutUsPage from "pages/AboutUs/AboutUs";
 
 const RoutePaths = [
   {
@@ -10,6 +11,14 @@ const RoutePaths = [
     key: "landing",
     route: "/",
     component: <LandingPage />,
+  },
+
+  {
+    type: "route",
+    name: "About Us",
+    key: "aboutus",
+    route: "/about-us",
+    component: <AboutUsPage />,
   },
 
   {

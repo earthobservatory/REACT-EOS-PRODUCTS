@@ -423,6 +423,15 @@ function LeafletPage(props) {
             }}
           >
             <Typography color="white" sx={{ fontWeight: 500 }}>
+              Home
+            </Typography>
+          </Button>
+          <Button
+            onClick={() => {
+              Navigate(getRoute("aboutus"));
+            }}
+          >
+            <Typography color="white" sx={{ fontWeight: 500 }}>
               About Us
             </Typography>
           </Button>
@@ -494,9 +503,14 @@ function LeafletPage(props) {
             zoom={10}
             scrollWheelZoom={true}
           >
-            <TileLayer
+            {/* <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            /> */}
+
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}"
             />
 
             {checked.map((item) => {

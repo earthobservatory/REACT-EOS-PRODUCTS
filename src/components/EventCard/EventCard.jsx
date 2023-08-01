@@ -46,7 +46,7 @@ const EventCard = ({
         <Card
           onClick={onClick}
           sx={{
-            minHeight: "450px",
+            minHeight: "500px",
             minWidth: "250px",
             display: "flex",
             flexDirection: "column",
