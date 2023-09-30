@@ -12,6 +12,7 @@ from osgeo import gdal, osr, ogr
 import urllib.parse
 import re, shutil
 import datetime
+import argparse
 import subprocess as sp
 import gdalconst
 import boto3
@@ -21,10 +22,6 @@ import calendar
 import re
 import locationtagger
 
-
-KMLDIR = "final_kml"
-replace_locations = ["California Institute", "Japan Aerospace", "Observatory of Singapore", "Remote", "NASA"]
-event_tags = ['earthquake', 'earthquakes','typhoon', 'tsunami', 'volcano', 'flood', 'floods','explosion', 'landslides', 'landslide','cyclone']
 
 def runCmd(cmd):
     print("{}".format(cmd))
@@ -151,198 +148,240 @@ def mark_latest_products(prod_list):
 
 
 
+def cmdLineParse():
+    '''
+    Command line parser.
+    '''
 
+    parser = argparse.ArgumentParser(
+        description='creating metadata from raw datasets, then uploading to metadata.json on s3 static site')
+    parser.add_argument('-prod_bucket', dest='prod_s3_bucket', type=str, default='eos-rs-products',
+                        help='name of s3 bucket which hosts all the products')
+    parser.add_argument('-prod_url', dest='prod_http', type=str, default='https://eos-rs-products.earthobservatory.sg/',
+                        help='http url of product site')
+    parser.add_argument('-md_bucket', dest='metadata_s3_bucket', type=str, default='aria-sg-products',
+                        help='s3 url of metadata.json to be uploaded to')
+    parser.add_argument('-prefix', dest='prefix_filter', type=str, default='EOS-RS_2023, EOS-RS_2022',
+                        help='If defined, comma-seperated prefix to filter events for metadata scraping')
+    parser.add_argument('-dry', action='store_true', default=False,
+                        dest='dry_run', help='Dry run, do not update metadata.json in metadata bucket')
+    parser.add_argument('-repl_loc', dest='replace_locations', type=str,
+                        default='California Institute, Japan Aerospace, Observatory of Singapore, Remote, NASA',
+                        help='locations to not detect when getting event tags (comma seperated)')
+    parser.add_argument('-event_tags', dest='event_tags', type=str,
+                        default="earthquake, earthquakes, typhoon, tsunami, volcano, flood, floods, explosion, landslides, landslide, cyclone, wildfire",
+                        help='Event type tags (comma seperated)')
+    return parser.parse_args()
 
 
 if __name__ == '__main__':
-    bucket = 'eos-rs-products'
+    inps = cmdLineParse()
+    KMLDIR = "final_kml"
+
+    replace_locations = [x.strip() for x in inps.replace_locations.split(',')]
+    print(replace_locations)
+    event_tags = [x.strip() for x in inps.event_tags.split(',')]
+    print(event_tags)
+
+    bucket = inps.prod_s3_bucket
     # Make sure you provide / in the end
-    prefix = 'EOS-RS_2023'
-    static_url = 'https://eos-rs-products.earthobservatory.sg/'
-    client = boto3.client('s3')
-    result_folder = client.list_objects(Bucket=bucket, Prefix=prefix, Delimiter='/')
-    metadata_list=[]
+    prefixes = [x.strip() for x in inps.prefix_filter.split(',')]
+    metadata_list = []
 
-    for o in result_folder.get('CommonPrefixes'):
-        # EVENT LOOP
-        response_folder = o.get('Prefix')
-        this_event_md = {"event_name": response_folder.split("/")[0],
-                         "event_display_name": '',
-                         "event_url": os.path.join(static_url, response_folder),
-                         "event_start": '',
-                         "event_end": '',
-                         "event_bbox": '',
-                         "event_location_tags":[],
-                         "event_type_tags":[],
-                         "product_list": []}
+    for prefix in prefixes:
+        # prefix = inps.prefix_filter
+        static_url = inps.prod_http
+        client = boto3.client('s3')
+        result_folder = client.list_objects(Bucket=bucket, Prefix=prefix, Delimiter='/')
 
-        # get event display name
-        # Split the filename into a list of strings using "_" as the separator
-        event_name_parts = this_event_md['event_name'].split("_")
-        date_string = datetime.datetime.strptime(event_name_parts[1], '%Y%m').strftime('%b %Y')
-        # Create the final string
-        this_event_md["event_display_name"] = f"{event_name_parts[0]} {' '.join(event_name_parts[2:])}, {date_string}"
+        for o in result_folder.get('CommonPrefixes'):
+            # EVENT LOOP
+            response_folder = o.get('Prefix')
+            this_event_md = {"event_name": response_folder.split("/")[0],
+                             "event_display_name": '',
+                             "event_url": os.path.join(static_url, response_folder),
+                             "event_start": '',
+                             "event_end": '',
+                             "event_bbox": '',
+                             "event_location_tags":[],
+                             "event_type_tags":[],
+                             "product_list": []}
 
-        print(f"sub folder :  {response_folder}")
-        result_files = client.list_objects(Bucket=bucket, Prefix=response_folder)
-        # fileList = result_files.get('Contents')
-        fileList = [d['Key'] for d in result_files.get('Contents')]
+            # get event display name
+            # Split the filename into a list of strings using "_" as the separator
+            event_name_parts = this_event_md['event_name'].split("_")
+            date_string = datetime.datetime.strptime(event_name_parts[1], '%Y%m').strftime('%b %Y')
+            # Create the final string
+            this_event_md["event_display_name"] = f"{event_name_parts[0]} {' '.join(event_name_parts[2:])}, {date_string}"
 
-        for filepath in fileList:
-            # PRODUCT LOOP
-            # filepath = file['Key']
-            print(filepath)
-            # kmz_file = os.path.basename(filepath)
-            filename_base = os.path.splitext(os.path.basename(filepath))[0]
+            print(f"sub folder :  {response_folder}")
+            result_files = client.list_objects(Bucket=bucket, Prefix=response_folder)
+            # fileList = result_files.get('Contents')
+            fileList = [d['Key'] for d in result_files.get('Contents')]
 
-            if filepath.endswith('.txt'):
-                # for every product in the event
-                r_png = re.compile(f".*{filename_base}.*MAIN.*png")
-                r_kmz = re.compile(fr".*{filename_base}.*kmz")
-                list_png = list(filter(r_png.match, fileList))
-                list_kmz = list(filter(r_kmz.match, fileList))
-                if list_png and list_kmz:
-                    kmz_filepath = list_kmz[0]
-                    kmz_file = os.path.basename(kmz_filepath)
-                    png_file = os.path.basename(list_png[0])
-
-                    # if newlist:
-                    #     this_product_md["prod_main_png"] = urllib.parse.urljoin(this_event_md['event_url'], newlist[0])
-
-                    this_product_md = {"prod_name": filename_base,
-                                       "prod_title": '',
-                                       "prod_desc": '',
-                                       "prod_main_png": urllib.parse.urljoin(this_event_md['event_url'], png_file),
-                                       "prod_rfp_file": '',
-                                       "prod_rfp_geojson": '',
-                                       "prod_tiles": '',
-                                       "prod_min_zoom": '',
-                                       "prod_max_zoom": '',
-                                       "prod_date": '',
-                                       "prod_type": '',
-                                       "prod_sat": '',
-                                       "prod_version": 0,
-                                       "prod_cvd": False
-                                       }
-
-                    # get text file
-                    text_url = os.path.join(static_url, filepath)
-                    r = requests.get(text_url)
-                    if r.status_code == 200:
-                        text_str_list = r.text.split("\n")
-
-                        if len(text_str_list) > 1:
-                            this_product_md.update({"prod_title": text_str_list[0]})
-                            this_product_md.update({"prod_desc": "\n".join(text_str_list[2:])})
-
-
-                    if this_product_md['prod_title']:
-                        print(this_product_md['prod_title'])
-                        prod_date = parseDate(this_product_md['prod_title'])
-                        this_product_md.update({"prod_date": prod_date})
-
-                    # extract product details with prod_name
-                    match = re.search(r'EOS-RS_\d{8}.*_([A-Z]{3})_.*([A-Z][0-9])_.*?v(\d\.\d)(?:.*?(cvd))?',
-                                      this_product_md["prod_name"])
+            for filepath in fileList:
+                # PRODUCT LOOP
+                # filepath = file['Key']
+                print(filepath)
+                # kmz_file = os.path.basename(filepath)
+                filename_base = os.path.basename(filepath)
+                if filepath.endswith('.txt') and 'IFG' not in filepath:
+                    match = re.search("(.*_v.*[1-9]).*.txt", filename_base)
                     if match:
-                        date_string = match.group(1)
-                        this_product_md["prod_type"] = match.group(1)
-                        this_product_md["prod_sat"] = match.group(2)
-                        this_product_md["prod_version"] = match.group(3)
-                        this_product_md["prod_cvd"] = True if match.group(4) else False
+                        textfile_base = match.group(1)
+                        # for every product in the event
+                        r_png = re.compile(f".*{textfile_base}.*MAIN.*png")
+                        r_kmz = re.compile(fr".*{textfile_base}.kmz|.*{textfile_base}_KMZ.kmz")
+                        list_png = list(filter(r_png.match, fileList))
+                        list_kmz = list(filter(r_kmz.match, fileList))
+                        if list_png and list_kmz:
+                            kmz_filepath = list_kmz[0]
+                            kmz_file = os.path.basename(kmz_filepath)
+                            png_file = os.path.basename(list_png[0])
 
-                    # GET THE RFP
-                    client.download_file(bucket, kmz_filepath, kmz_file)
+                            # if newlist:
+                            #     this_product_md["prod_main_png"] = urllib.parse.urljoin(this_event_md['event_url'], newlist[0])
 
-                    # unzip kmz
-                    runCmd(f'unzip "{kmz_file}"')
-                    file_kml = os.path.join(os.getcwd(), 'doc.kml')
+                            this_product_md = {"prod_name": textfile_base,
+                                               "prod_title": '',
+                                               "prod_desc": '',
+                                               "prod_main_png": urllib.parse.urljoin(this_event_md['event_url'], png_file),
+                                               "prod_rfp_file": '',
+                                               "prod_rfp_geojson": '',
+                                               "prod_tiles": '',
+                                               "prod_min_zoom": '',
+                                               "prod_max_zoom": '',
+                                               "prod_date": '',
+                                               "prod_type": '',
+                                               "prod_sat": '',
+                                               "prod_version": 0,
+                                               "prod_cvd": False
+                                               }
 
-                    # find the tiles url and get the radarfootprint?
-                    try:
-                        feat_dict = get_radar_footprint(file_kml)
-                    except:
-                        print(f"KML ISSUE FOR: {kmz_file}")
-                        continue
+                            # get text file
+                            text_url = os.path.join(static_url, filepath)
+                            r = requests.get(text_url)
+                            if r.status_code == 200:
+                                text_str_list = r.text.split("\n")
 
-                    for rfp_filename, geojson in feat_dict.items():
-                        this_product_md.update({"prod_rfp_geojson": geojson})
-                        with open(file_kml, 'r') as content_file:
-                            content_orig = content_file.read()
-                            http_result = re.search("\<href\>(http.*\/)[\d]*\/[\d]*\/.*.kml\<\/href\>", content_orig)
+                                if len(text_str_list) > 1:
+                                    this_product_md.update({"prod_title": text_str_list[0]})
+                                    this_product_md.update({"prod_desc": "\n".join(text_str_list[2:])})
 
-                        if http_result:
-                            # get http path of prod tiles
-                            real_url = http_result.group(1)
-                            this_product_md.update({"prod_tiles": real_url.replace('http', 'https').replace('website-','')})
-                            # get s3 path of prod tiles
-                            s3_result = re.search('http\:\/\/(.*)\.s3.*com\/(.*)', real_url)
-                            tile_bucket = s3_result.group(1)
-                            tile_prefix = s3_result.group(2)
-                            s3_url = "s3://" + tile_bucket + "/" + tile_prefix
-                            # upload rfp
-                            runCmd(f"aws s3 cp '{rfp_filename}' '{s3_url}'")
-                            this_product_md.update({"prod_rfp_file": os.path.join(this_product_md['prod_tiles'],rfp_filename)})
 
-                            # get min/max zoom
-                            tile_ls = client.list_objects(Bucket=tile_bucket, Prefix=tile_prefix, Delimiter='/')
-                            # import pdb; pdb.set_trace()
-                            tileFolderList = [d['Prefix'].split('/')[-2] for d in tile_ls.get('CommonPrefixes')]
-                            prod_tile_min = 99
-                            prod_tile_max = 0
-                            for zoom in tileFolderList:
-                                # check if folder is an integer
-                                try:
-                                    this_zoom = int(zoom)
-                                    prod_tile_max = this_zoom if this_zoom > prod_tile_max else prod_tile_max
-                                    prod_tile_min = this_zoom if this_zoom < prod_tile_min else prod_tile_min
-                                except ValueError:
-                                    continue
-                            # import pdb; pdb.set_trace()
-                            this_product_md.update({"prod_min_zoom": str(prod_tile_min)})
-                            this_product_md.update({"prod_max_zoom": str(prod_tile_max)})
+                            if this_product_md['prod_title']:
+                                print(this_product_md['prod_title'])
+                                prod_date = parseDate(this_product_md['prod_title'])
+                                this_product_md.update({"prod_date": prod_date})
 
-                    runCmd(f"rm -rf doc.kml files rfp_*.json {kmz_file}")
-                    this_event_md["product_list"].append(this_product_md)
+                            # extract product details with prod_name
+                            match = re.search(r'EOS-RS_\d{8}.*_([A-Z]{3})_.*([A-Z][0-9])_.*?v(\d\.\d)(?:.*?(cvd))?',
+                                              this_product_md["prod_name"])
+                            if match:
+                                date_string = match.group(1)
+                                this_product_md["prod_type"] = match.group(1)
+                                this_product_md["prod_sat"] = match.group(2)
+                                this_product_md["prod_version"] = match.group(3)
+                                this_product_md["prod_cvd"] = True if match.group(4) else False
 
-        # mark each item in list if it's the latest or not:
-        this_event_md["product_list"] = mark_latest_products(this_event_md["product_list"])
+                            # GET THE RFP
+                            client.download_file(bucket, kmz_filepath, kmz_file)
 
-        #create event bbox
-        max_date = datetime.datetime(1970, 1, 1)
-        min_date = datetime.datetime(2050, 1, 1)
+                            # unzip kmz
+                            runCmd(f'unzip "{kmz_file}"')
+                            file_kml = os.path.join(os.getcwd(), 'doc.kml')
 
-        is_ym_only = False
+                            # find the tiles url and get the radarfootprint?
+                            feat_dict={}
+                            try:
+                                feat_dict = get_radar_footprint(file_kml)
+                            except:
+                                print(f"KML ISSUE FOR: {kmz_file}")
 
-        for prod in this_event_md["product_list"]:
-            # find min and max date
-            if bool(re.match(r'^\d{4}-\d{2}?$', prod["prod_date"])):
-                is_ym_only = True
-            prod_event_date = dateparser.parse(prod['prod_date'])
-            if prod_event_date:
-                max_date = prod_event_date if prod_event_date > max_date else max_date
-                min_date = prod_event_date if prod_event_date < min_date else min_date
 
-        datestr_format = "%Y-%m" if is_ym_only else "%Y-%m-%d"
-        this_event_md.update({"event_start": min_date.strftime(datestr_format)})
-        this_event_md.update({"event_end": min_date.strftime(datestr_format)})
+                            for rfp_filename, geojson in feat_dict.items():
+                                this_product_md.update({"prod_rfp_geojson": geojson})
+                                with open(file_kml, 'r') as content_file:
+                                    content_orig = content_file.read()
+                                    http_result = re.search("\<href\>(http.*\/)[\d]*\/[\d]*\/.*.kml\<\/href\>", content_orig)
 
-        event_bbox = get_bbox(this_event_md['product_list'])
-        this_event_md.update({"event_bbox": event_bbox})
+                                if http_result:
+                                    # get http path of prod tiles
+                                    real_url = http_result.group(1)
+                                    this_product_md.update({"prod_tiles": real_url.replace('http', 'https').replace('website-','')})
+                                    # get s3 path of prod tiles
+                                    s3_result = re.search('http\:\/\/(.*)\.s3.*com\/(.*)', real_url)
+                                    tile_bucket = s3_result.group(1)
+                                    tile_prefix = s3_result.group(2)
+                                    s3_url = "s3://" + tile_bucket + "/" + tile_prefix
+                                    # upload rfp
+                                    runCmd(f"aws s3 cp '{rfp_filename}' '{s3_url}'")
+                                    this_product_md.update({"prod_rfp_file": os.path.join(this_product_md['prod_tiles'],rfp_filename)})
 
-        event_types, event_countries = get_tags(this_event_md['product_list'])
-        this_event_md.update({"event_type_tags": event_types})
-        this_event_md.update({"event_location_tags": event_countries})
-        metadata_list.append(this_event_md)
-        print(json.dumps(metadata_list, indent=2))
-        print(json.dumps(metadata_list, indent=2))
+                                    # get min/max zoom
+                                    tile_ls = client.list_objects(Bucket=tile_bucket, Prefix=tile_prefix, Delimiter='/')
+                                    # import pdb; pdb.set_trace()
+                                    tileFolderList = [d['Prefix'].split('/')[-2] for d in tile_ls.get('CommonPrefixes')]
+                                    prod_tile_min = 99
+                                    prod_tile_max = 0
+                                    for zoom in tileFolderList:
+                                        # check if folder is an integer
+                                        try:
+                                            this_zoom = int(zoom)
+                                            prod_tile_max = this_zoom if this_zoom > prod_tile_max else prod_tile_max
+                                            prod_tile_min = this_zoom if this_zoom < prod_tile_min else prod_tile_min
+                                        except ValueError:
+                                            continue
+                                    # import pdb; pdb.set_trace()
+                                    this_product_md.update({"prod_min_zoom": str(prod_tile_min)})
+                                    this_product_md.update({"prod_max_zoom": str(prod_tile_max)})
+
+                            runCmd(f"rm -rf doc.kml files rfp_*.json {kmz_file}")
+                            if feat_dict: # only appends if there is a valid radar footprint
+                                this_event_md["product_list"].append(this_product_md)
+
+            # mark each item in list if it's the latest or not:
+            this_event_md["product_list"] = mark_latest_products(this_event_md["product_list"])
+
+            #create event bbox
+            max_date = datetime.datetime(1970, 1, 1)
+            min_date = datetime.datetime(2050, 1, 1)
+
+            is_ym_only = False
+
+            for prod in this_event_md["product_list"]:
+                # find min and max date
+                if bool(re.match(r'^\d{4}-\d{2}?$', prod["prod_date"])):
+                    is_ym_only = True
+                prod_event_date = dateparser.parse(prod['prod_date'])
+                if prod_event_date:
+                    max_date = prod_event_date if prod_event_date > max_date else max_date
+                    min_date = prod_event_date if prod_event_date < min_date else min_date
+
+            datestr_format = "%Y-%m" if is_ym_only else "%Y-%m-%d"
+            this_event_md.update({"event_start": min_date.strftime(datestr_format)})
+            this_event_md.update({"event_end": min_date.strftime(datestr_format)})
+
+            event_bbox = get_bbox(this_event_md['product_list'])
+            this_event_md.update({"event_bbox": event_bbox})
+
+            event_types, event_countries = get_tags(this_event_md['product_list'])
+            this_event_md.update({"event_type_tags": event_types})
+            this_event_md.update({"event_location_tags": event_countries})
+            metadata_list.append(this_event_md)
+            print(json.dumps(metadata_list, indent=2))
+            print(json.dumps(metadata_list, indent=2))
+
 
     metadata_file = "metadata.json"
 
     with open(metadata_file, "w") as final:
         json.dump(metadata_list, final, indent=2)
 
-    runCmd(f"aws s3 cp {metadata_file} s3://aria-sg-products/")
+    if not inps.dry_run:
+        runCmd(f"aws s3 mv s3://aria-sg-products/{metadata_file} s3://aria-sg-products/metadata.{datetime.datetime.today().strftime('%Y%m%d')}.json")
+        runCmd(f"aws s3 cp {metadata_file} s3://aria-sg-products/{metadata_file}")
+
     runCmd(f"rm -rf *.kmz")
 
 
