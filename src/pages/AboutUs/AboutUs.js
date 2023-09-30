@@ -5,6 +5,7 @@ import BACKGROUND_IMG from "assets/EOS_PRODUCT.png";
 import SATELLITE_IMG from "assets/satellite-stock.jpeg";
 import { getRoute } from "utils/routes";
 import { useNavigate } from "react-router-dom";
+import REMOTE_LOGO from "assets/EOS-RS-Logo.png";
 
 const AboutUsPage = () => {
   const Navigate = useNavigate();
@@ -21,6 +22,7 @@ const AboutUsPage = () => {
           backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url(${BACKGROUND_IMG})`,
           backgroundSize: "contain",
           display: "flex",
+
           width: "100vw",
           height: "100vh",
         }}
@@ -32,30 +34,34 @@ const AboutUsPage = () => {
             display: "flex",
             justifyContent: "center",
             flexDirection: "column",
+            alignItems: "center",
             gap: "1rem",
           }}
         >
-          <Typography
+          {/* <Typography
             variant="h1"
             textAlign="center"
             fontWeight="800"
             color="white"
           >
-            PRODUCTS PAGE
-          </Typography>
+            REMOTE SENSING
+          </Typography> */}
+          <img src={REMOTE_LOGO} style={{ maxWidth: "80vw" }} />
           <Typography
-            variant="h6"
+            variant="h5"
             textAlign="center"
             color="white"
+            fontWeight={800}
             sx={{ padding: 8 }}
           >
             The EOS Remote Sensing Lab (EOS-RS) is a flagship laboratory at the
             Earth Observatory of Singapore. We use satellite remote-sensing data
             for rapid disaster response and hazard monitoring.
           </Typography>
-
           <Button
             type="primary"
+            variant="outlined"
+            sx={{ width: "50%", borderRadius: "5rem", marginTop: "2rem" }}
             onClick={() => {
               Navigate(getRoute("home"));
             }}
@@ -94,10 +100,14 @@ const AboutUsPage = () => {
               color="#0A0231"
               sx={{ padding: 8 }}
             >
-              The EOS Remote Sensing Lab (EOS-RS) is a flagship laboratory at
-              the Earth Observatory of Singapore. We use satellite
-              remote-sensing data for rapid disaster response and hazard
-              monitoring.
+              We support stakeholders and decision makers by monitoring and
+              mapping hazards and disasters, environmental crises, sea-level
+              rise and climate change using cutting-edge technology in remote
+              sensing (e.g. SAR, LiDAR, optical). <br />
+              <br />
+              We will drive scientific innovation and improved understanding of
+              hazards through development of new algorithms and systems and
+              through symbiotic collaboration with global partners.
             </Typography>
           </Box>
         </Grid>
@@ -141,6 +151,14 @@ const AboutUsPage = () => {
 
               <Button
                 type="primary"
+                variant="outlined"
+                sx={{
+                  // width: "50%",
+                  marginX: "2rem",
+                  borderRadius: "5rem",
+                  marginTop: "2rem",
+                  // justifySelf: "center",
+                }}
                 onClick={() => {
                   Navigate(getRoute("home"));
                 }}

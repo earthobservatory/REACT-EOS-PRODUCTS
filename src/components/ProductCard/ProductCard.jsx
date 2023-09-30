@@ -54,6 +54,7 @@ const ProductCard = ({
           image={Image ? Image : STOCK_IMG}
           alt="preview image"
           height="175px"
+          loading="lazy"
         />
         <CardContent
           sx={{

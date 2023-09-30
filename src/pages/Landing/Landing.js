@@ -29,11 +29,12 @@ const LandingPage = () => {
           flex: 1,
           display: "flex",
           justifyContent: "center",
+          alignItems: "center",
           flexDirection: "column",
           gap: "1rem",
         }}
       >
-        <Typography variant="h6" textAlign="center" color="white">
+        <Typography variant="h4" textAlign="center" color="white">
           EOS-RS
         </Typography>
         <Typography
@@ -45,7 +46,9 @@ const LandingPage = () => {
           PRODUCTS PAGE
         </Typography>
         <Button
+          variant="outlined"
           type="primary"
+          sx={{ width: "50%", borderRadius: "5rem", marginTop: "2rem" }}
           onClick={() => {
             Navigate(getRoute("home"));
           }}

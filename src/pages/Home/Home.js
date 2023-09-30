@@ -23,6 +23,7 @@ import Noise from "assets/noise.svg";
 import moment from "moment";
 import { motion } from "framer-motion";
 import ScaleUpOnHover from "utils/Animations/ScaleUpOnHover";
+import MultipleSelectChip from "components/Reusables/MultiSelect";
 
 const HomePage = () => {
   const metadata = useMetadataContext();
@@ -30,6 +31,7 @@ const HomePage = () => {
   const [query, setQuery] = useState("");
   const [startDate, setStartDate] = useState(moment().subtract(6, "months"));
   const [endDate, setEndDate] = useState(moment());
+  const [filter, setFilter] = useState([]);
 
   const handleChange = (event) => {
     setQuery(event.target.value);
@@ -41,9 +43,15 @@ const HomePage = () => {
   });
 
   const filteredMetadata = metadata?.filter((item) => {
-    return item.product_list[0].prod_desc
-      .toLowerCase()
-      .includes(query.toLowerCase());
+    return (
+      item.product_list[0].prod_desc
+        .toLowerCase()
+        .includes(query.toLowerCase()) &&
+      (filter.length == 0 ||
+        item.event_type_tags.some((r) => {
+          return filter.map((i) => i.toLowerCase()).includes(r);
+        }))
+    );
   });
 
   const MapEventCards = (inputData) => {
@@ -52,7 +60,7 @@ const HomePage = () => {
         return data.isLatest == true;
       });
 
-      console.log(item);
+      // console.log(item);
       return (
         <EventCard
           Title={item.event_display_name}
@@ -61,6 +69,7 @@ const HomePage = () => {
           Date={`${item.event_start} | ${item.event_end}`}
           LastUpdated={latestProduct.prod_date}
           Tags={item.event_type_tags}
+          key={item.event_display_name}
           onClick={() => {
             Navigate(getRoute("leaflet"), {
               state: {
@@ -243,7 +252,7 @@ const HomePage = () => {
           </Grid>
         </Box>
 
-        <Box>
+        <Box sx={{ minHeight: "80vh" }}>
           <Box
             sx={{
               display: "flex",
@@ -257,6 +266,8 @@ const HomePage = () => {
               </Typography>
               <Typography variant="h6">Click to view</Typography>
             </Box>
+
+            <MultipleSelectChip itemName={filter} setItemName={setFilter} />
 
             <TextField
               label="Search"

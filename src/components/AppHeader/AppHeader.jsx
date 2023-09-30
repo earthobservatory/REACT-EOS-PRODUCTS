@@ -76,7 +76,7 @@ const AppHeader = () => {
           </Button>
           <Button
             onClick={() => {
-              Navigate(getRoute("home"));
+              Navigate(getRoute("aboutus"));
             }}
           >
             <Typography color="white" sx={{ fontWeight: 500 }}>

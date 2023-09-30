@@ -1,5 +1,5 @@
 import { Box, Button, Stack, Fab, Checkbox, Avatar } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   MapContainer,
   TileLayer,
@@ -308,6 +308,24 @@ function LeafletPage(props) {
     );
   }
 
+  const geoJsonRef = useRef();
+
+  const onEachClick = (feature, layer) => {
+    // const name = feature.properties.name;
+    // const density = feature.properties.density;
+
+    layer.on({ click: handleFeatureClick });
+  };
+
+  const handleFeatureClick = (e) => {
+    if (!geoJsonRef.current) return;
+    geoJsonRef.current.resetStyle();
+
+    const layer = e.target;
+
+    layer.setStyle({ color: "red" });
+  };
+
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -318,19 +336,18 @@ function LeafletPage(props) {
         }}
       />
       <FloatingSidePeekPopup isOpen={openLayers}>
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <IconButton
+            onClick={() => {
+              setOpenLayers(!openLayers);
+            }}
+          >
+            <ChevronRightIcon />
+          </IconButton>
+          <Typography variant="h5">Products</Typography>
+        </Box>
         <Stack sx={{ padding: "0.5rem", gap: "1rem" }}>
-          <Box sx={{ display: "flex", alignItems: "center" }}>
-            <IconButton
-              onClick={() => {
-                setOpenLayers(!openLayers);
-              }}
-            >
-              <ChevronRightIcon />
-            </IconButton>
-            <Typography variant="h5">Products</Typography>
-          </Box>
-
-          <List dense sx={{ width: "100%" }}>
+          <List key={"list-component"} dense sx={{ width: "100%" }}>
             {products
               .filter((item) => {
                 return item.isLatest;
@@ -503,17 +520,18 @@ function LeafletPage(props) {
             zoom={10}
             scrollWheelZoom={true}
           >
-            {/* <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            /> */}
-
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url="https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}"
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
 
+            {/* <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}"
+            /> */}
+
             {checked.map((item) => {
+              console.log(item?.prod_max_zoom);
               return (
                 <>
                   <TileLayer
@@ -523,14 +541,22 @@ function LeafletPage(props) {
                         ? `${item?.cvd_prod_tiles}{z}/{x}/{y}.png`
                         : `${item?.prod_tiles}{z}/{x}/{y}.png`
                     }
-                    maxNativeZoom={item?.prod_max_zoom}
-                    minNativeZoom={item?.prod_min_zoom}
+                    maxNativeZoom={parseInt(item?.prod_max_zoom)}
+                    minNativeZoom={parseInt(item?.prod_min_zoom)}
                   />
                   <GeoJSON
-                    style={{ color: "#ff780099", weight: 2 }}
+                    style={{ color: "#be93e677", weight: 2 }}
+                    ref={geoJsonRef}
+                    onEachFeature={onEachClick}
                     key={item?.prod_rfp_file}
                     data={jsonData[item?.prod_rfp_file]}
-                  />
+                  >
+                    <Popup>
+                      <Box sx={{ maxHeight: "20rem", overflowY: "scroll" }}>
+                        {decodeURIComponent(escape(item?.prod_desc))}
+                      </Box>
+                    </Popup>
+                  </GeoJSON>
                 </>
               );
             })}
