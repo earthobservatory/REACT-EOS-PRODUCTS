@@ -235,6 +235,7 @@ const HomePage = () => {
           flexGrow: 1,
           padding: "2rem",
           gap: "3rem",
+          paddingTop: HEADER_HEIGHT,
         }}
       >
         <Box>

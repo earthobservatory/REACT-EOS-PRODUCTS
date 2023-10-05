@@ -8,9 +8,11 @@ import { Box, Button, Toolbar, Typography, AppBar } from "@mui/material";
 import { HEADER_HEIGHT } from "utils/constants";
 import logo from "assets/EOS Logo.png";
 import Noise from "assets/noise.svg";
+import { useTheme } from "@mui/material/styles";
 
 const AppHeader = () => {
   const Navigate = useNavigate();
+  const theme = useTheme();
   function EOSIcon(props) {
     return (
       <img
@@ -23,74 +25,76 @@ const AppHeader = () => {
   }
 
   return (
-    <Box
+    // <Box
+    //   sx={{
+    //     flexGrow: 1,
+    //     top: 0,
+    //     left: 0,
+    //     bottom: 0,
+    //     right: 0,
+    //   }}
+    // >
+    <AppBar
+      position="fixed"
       sx={{
-        flexGrow: 1,
-        top: 0,
-        left: 0,
-        bottom: 0,
-        right: 0,
+        height: HEADER_HEIGHT,
+        zIndex: 100,
+        backgroundColor: `${theme.palette.primary.main}AA`,
+        backdropFilter: "blur(8px)",
+        "&:after": {
+          content: "''",
+          background: `url(${Noise})`,
+          position: "absolute",
+          top: "0px",
+          left: "0px",
+          width: "100%",
+          height: "100%",
+          zIndex: -1,
+          opacity: 0.3 /* Here is your opacity */,
+        },
       }}
     >
-      <AppBar
-        position="static"
-        sx={{
-          height: HEADER_HEIGHT,
-          backdropFilter: "blur(16px)",
-          "&:after": {
-            content: "''",
-            background: `url(${Noise})`,
-            position: "absolute",
-            top: "0px",
-            left: "0px",
-            width: "100%",
-            height: "100%",
-            zIndex: -1,
-            opacity: 0.3 /* Here is your opacity */,
-          },
-        }}
-      >
-        <Toolbar>
-          <Button
-            onClick={() => {
-              Navigate(getRoute("landing"));
-            }}
-          >
-            <EOSIcon size={54} />
-          </Button>
-          <Typography
-            variant="h5"
-            color="white"
-            sx={{ flexGrow: 1, fontWeight: 800, letterSpacing: 3, ml: "1%" }}
-          >
-            EOS-RS
+      <Toolbar>
+        <Button
+          onClick={() => {
+            Navigate(getRoute("landing"));
+          }}
+        >
+          <EOSIcon size={54} />
+        </Button>
+        <Typography
+          variant="h5"
+          color="white"
+          sx={{ flexGrow: 1, fontWeight: 800, letterSpacing: 3, ml: "1%" }}
+        >
+          EOS-RS
+        </Typography>
+        <Button
+          onClick={() => {
+            Navigate(getRoute("home"));
+          }}
+        >
+          <Typography color="white" sx={{ fontWeight: 500 }}>
+            Home
           </Typography>
-          <Button
-            onClick={() => {
-              Navigate(getRoute("home"));
-            }}
-          >
-            <Typography color="white" sx={{ fontWeight: 500 }}>
-              Home
-            </Typography>
-          </Button>
-          <Button
-            onClick={() => {
-              Navigate(getRoute("aboutus"));
-            }}
-          >
-            <Typography color="white" sx={{ fontWeight: 500 }}>
-              About Us
-            </Typography>
-          </Button>
-          <Button>
-            <Typography color="white" sx={{ fontWeight: 500 }}>
-              How to use
-            </Typography>
-          </Button>
-        </Toolbar>
-      </AppBar>
-    </Box>
+        </Button>
+        <Button
+          onClick={() => {
+            Navigate(getRoute("aboutus"));
+          }}
+        >
+          <Typography color="white" sx={{ fontWeight: 500 }}>
+            About Us
+          </Typography>
+        </Button>
+        <Button>
+          <Typography color="white" sx={{ fontWeight: 500 }}>
+            How to use
+          </Typography>
+        </Button>
+      </Toolbar>
+    </AppBar>
+    // </Box>
   );
 };
 

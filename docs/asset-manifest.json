@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/css/main.12d852b1.css",
-    "main.js": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/js/main.8fd61faa.js",
+    "main.js": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/js/main.0fb7d94d.js",
     "static/media/EOS_PRODUCT.png": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/media/EOS_PRODUCT.357fa6967d46cda5a310.png",
     "static/media/satellite-stock.jpeg": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/media/satellite-stock.7b0013d6ad1d5e5d1b37.jpeg",
     "static/media/EOS-RS-Logo.png": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/media/EOS-RS-Logo.0e08716d6733abf50678.png",
     "index.html": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/index.html",
     "static/media/noise.svg": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/media/noise.46169fe3bf16f4e975f2d782397cb535.svg",
     "main.12d852b1.css.map": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/css/main.12d852b1.css.map",
-    "main.8fd61faa.js.map": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/js/main.8fd61faa.js.map"
+    "main.0fb7d94d.js.map": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/js/main.0fb7d94d.js.map"
   },
   "entrypoints": [
     "static/css/main.12d852b1.css",
-    "static/js/main.8fd61faa.js"
+    "static/js/main.0fb7d94d.js"
   ]
 }
