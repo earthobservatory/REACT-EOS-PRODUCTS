@@ -226,7 +226,7 @@ if __name__ == '__main__':
                 # kmz_file = os.path.basename(filepath)
                 filename_base = os.path.basename(filepath)
                 if filepath.endswith('.txt') and 'IFG' not in filepath:
-                    match = re.search("(.*_v.*[1-9]).*.txt", filename_base)
+                    match = re.search("(.*_v.*[1-9](?:_cvd)?)(?:_TXT)?.txt", filename_base)
                     if match:
                         textfile_base = match.group(1)
                         # for every product in the event
