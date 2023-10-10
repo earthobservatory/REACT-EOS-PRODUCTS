@@ -14,7 +14,6 @@ import re, shutil
 import datetime
 import argparse
 import subprocess as sp
-import gdalconst
 import boto3
 import requests
 import dateparser
