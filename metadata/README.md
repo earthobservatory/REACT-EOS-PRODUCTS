@@ -61,7 +61,11 @@ https://aria-sg-products.s3-ap-southeast-1.amazonaws.com/leaflet-demo.html
 
 <img width="1030" alt="image" src="https://user-images.githubusercontent.com/6346909/232744830-aebdd3cd-c04c-4777-8ea6-180d8040a573.png">
 
-
 You may see how the metadata could be used with leaflet [here](https://github.com/earthobservatory/REACT-EOS-PRODUCTS/blob/main/metadata/leaflet-demo.html#L115-L171)
 
+#### crontab
+Crontab to run this periodically is in geoserver in NTU:
+```commandline
+0 */6 * * * source /home/geoserver/miniconda3/etc/profile.d/conda.sh && conda activate isce2 && cd /home/geoserver/REACT-EOS-PRODUCTS/metadata && python audit-metadata.py -prefix "EOS-RS_2022,EOS-RS_2023,EOS-RS_2024" >> md-`date +\%Y\%m\%d\`-cron.log  2>&1
+```
 
