@@ -382,7 +382,7 @@ if __name__ == '__main__':
         runCmd(f"aws s3 mv s3://aria-sg-products/{metadata_file} s3://aria-sg-products/metadata.{datetime.datetime.today().strftime('%Y%m%d')}.json")
         runCmd(f"aws s3 cp {metadata_file} s3://aria-sg-products/{metadata_file}")
 
-    runCmd(f"rm -rf *.kmz")
+    runCmd(f"rm -rf *.kmz*")
 
 
 
