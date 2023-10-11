@@ -276,20 +276,20 @@ const HomePage = () => {
               size="small"
               onChange={handleChange}
               InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
+                endAdornment: (
+                  <InputAdornment position="end">
                     <IconButton>
                       <Search />
                     </IconButton>
                   </InputAdornment>
                 ),
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton>
-                      <FilterList />
-                    </IconButton>
-                  </InputAdornment>
-                ),
+                // endAdornment: (
+                //   <InputAdornment position="end">
+                //     <IconButton>
+                //       <FilterList />
+                //     </IconButton>
+                //   </InputAdornment>
+                // ),
                 style: { borderRadius: "20px" },
               }}
             />

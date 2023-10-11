@@ -7,6 +7,7 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Chip from "@mui/material/Chip";
+import { useMetadataContext } from "context/MetadataContext";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -29,8 +30,19 @@ function getStyles(item, itemName, theme) {
         : theme.typography.fontWeightMedium,
   };
 }
+const uniqueArray = (array) => Array.from(new Set(array));
 
 export default function MultipleSelectChip({ itemName, setItemName }) {
+  // const items = ["Flood", "Earthquake", "Cyclone", "Landslides"];
+
+  //Get unique tags
+  const metadata = useMetadataContext();
+  var nonUniqueArray = [];
+  metadata?.forEach((event_item) => {
+    nonUniqueArray = nonUniqueArray.concat(event_item.event_type_tags);
+  });
+  const items = uniqueArray(nonUniqueArray);
+
   const theme = useTheme();
 
   const handleChange = (event) => {
