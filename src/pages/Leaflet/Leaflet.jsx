@@ -325,7 +325,7 @@ function LeafletPage(props) {
 
     const layer = e.target;
 
-    layer.setStyle({ color: "red" });
+    layer.setStyle({ color: "#cc707688" });
   };
 
   return (
@@ -459,6 +459,15 @@ function LeafletPage(props) {
               How to use
             </Typography>
           </Button>
+          <Button
+            onClick={() => {
+              Navigate(getRoute("faq"));
+            }}
+          >
+            <Typography color="white" sx={{ fontWeight: 500 }}>
+              FAQ
+            </Typography>
+          </Button>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -511,6 +520,21 @@ function LeafletPage(props) {
       <Main open={open}>
         <DrawerHeader />
         <Box>
+          <Box
+            sx={{
+              position: "absolute",
+              bottom: "5%",
+              left: "50%",
+              zIndex: 1000,
+              backgroundColor: "#e80c1a66",
+              transform: "translate(-50%, -50%)",
+              borderRadius: "5px",
+              padding: "1rem",
+              backdropFilter: "blur(8px)",
+            }}
+          >
+            <Typography>Disclaimer .....</Typography>
+          </Box>
           <MapContainer
             style={{
               height: `calc(95vh - ${HEADER_HEIGHT})`,

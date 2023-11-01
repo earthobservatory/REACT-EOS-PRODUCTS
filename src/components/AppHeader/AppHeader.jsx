@@ -92,6 +92,16 @@ const AppHeader = () => {
             How to use
           </Typography>
         </Button>
+
+        <Button
+          onClick={() => {
+            Navigate(getRoute("faq"));
+          }}
+        >
+          <Typography color="white" sx={{ fontWeight: 500 }}>
+            FAQ
+          </Typography>
+        </Button>
       </Toolbar>
     </AppBar>
     // </Box>

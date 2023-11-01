@@ -12,6 +12,7 @@ import {
   Grid,
   Stack,
   Chip,
+  Skeleton,
 } from "@mui/material";
 import ScaleUpOnHover from "utils/Animations/ScaleUpOnHover";
 
@@ -24,7 +25,7 @@ const EventCard = ({
   LastUpdated,
   onClick,
 }) => {
-  // const [description, setDescription] = useState();
+  const [loading, setLoading] = useState(true);
 
   // console.log(Description);
 
@@ -69,13 +70,18 @@ const EventCard = ({
             },
           }}
         >
+          {loading ? <Skeleton height={175} variant="rounded" /> : <></>}
           <CardMedia
             component="img"
             image={Image ? Image : STOCK_IMG}
             alt="preview image"
-            height="175px"
+            height={loading ? "0px" : "175px"}
             loading="lazy"
+            onLoad={() => {
+              setLoading(false);
+            }}
           />
+
           <CardContent
             sx={{
               flex: 1,
