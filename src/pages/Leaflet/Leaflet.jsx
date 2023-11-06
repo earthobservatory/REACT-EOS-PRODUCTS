@@ -57,19 +57,19 @@ const FloatingSidePeekPopup = ({ children, isOpen, onClose }) => {
         boxShadow: " 0 4px 30px rgba(0, 0, 0, 0.1)",
         backdropFilter: "blur(16px)",
         border: "1px solid rgba(109, 240, 255, 0.29)",
-        overflowY: "scroll",
+        overflowY: "auto",
         padding: "1rem",
-        "&:after": {
-          content: "''",
-          background: `url(${Noise})`,
-          position: "absolute",
-          top: "0px",
-          left: "0px",
-          width: "100%",
-          height: "100%",
-          zIndex: -1,
-          opacity: 0.2 /* Here is your opacity */,
-        },
+        // "&:after": {
+        //   content: "''",
+        //   background: `url(${Noise})`,
+        //   position: "absolute",
+        //   top: "0px",
+        //   left: "0px",
+        //   width: "100%",
+        //   height: "100%",
+        //   zIndex: -1,
+        //   opacity: 0.2 /* Here is your opacity */,
+        // },
       }}
     >
       {/* <Fab
@@ -108,21 +108,21 @@ const FloatingSideButton = ({ children, isOpen, onClick }) => {
         border: "1px solid rgba(109, 240, 255, 0.29)",
 
         padding: "1rem",
-        "&:after": {
-          content: "''",
-          background: `url(${Noise})`,
-          position: "absolute",
-          top: "0px",
-          left: "0px",
-          width: "100%",
-          height: "100%",
-          zIndex: -1,
-          opacity: 0.2 /* Here is your opacity */,
-        },
+        // "&:after": {
+        //   content: "''",
+        //   background: `url(${Noise})`,
+        //   position: "absolute",
+        //   top: "0px",
+        //   left: "0px",
+        //   width: "100%",
+        //   height: "100%",
+        //   zIndex: -1,
+        //   opacity: 0.2 /* Here is your opacity */,
+        // },
       }}
     >
       <IconButton onClick={onClick}>
-        <ChevronLeftIcon />
+        <ChevronLeftIcon sx={{ color: "black" }} />
       </IconButton>
     </Box>
   );
@@ -133,17 +133,17 @@ const drawerWidth = 480;
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
     flexGrow: 1,
-    "&:after": {
-      content: "''",
-      background: `url(${Noise})`,
-      position: "absolute",
-      top: "0px",
-      left: "0px",
-      width: "100%",
-      height: "100%",
-      zIndex: -1,
-      opacity: 0.12 /* Here is your opacity */,
-    },
+    // "&:after": {
+    //   content: "''",
+    //   background: `url(${Noise})`,
+    //   position: "absolute",
+    //   top: "0px",
+    //   left: "0px",
+    //   width: "100%",
+    //   height: "100%",
+    //   zIndex: -1,
+    //   opacity: 0.12 /* Here is your opacity */,
+    // },
     padding: theme.spacing(3),
     transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
@@ -163,7 +163,7 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
-  backgroundColor: `${theme.palette.primary.main}AA`,
+  backgroundColor: `#424242AA`,
   height: HEADER_HEIGHT,
   transition: theme.transitions.create(["margin", "width"], {
     easing: theme.transitions.easing.sharp,
@@ -187,17 +187,17 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
   justifyContent: "flex-end",
-  "&:after": {
-    content: "''",
-    background: `url(${Noise})`,
-    position: "absolute",
-    top: "0px",
-    left: "0px",
-    width: "100%",
-    height: "100%",
-    zIndex: -1,
-    opacity: 0.2 /* Here is your opacity */,
-  },
+  // "&:after": {
+  //   content: "''",
+  //   background: `url(${Noise})`,
+  //   position: "absolute",
+  //   top: "0px",
+  //   left: "0px",
+  //   width: "100%",
+  //   height: "100%",
+  //   zIndex: -1,
+  //   opacity: 0.2 /* Here is your opacity */,
+  // },
 }));
 
 const getCenterPoint = (event_bbox) => {
@@ -344,9 +344,11 @@ function LeafletPage(props) {
               setOpenLayers(!openLayers);
             }}
           >
-            <ChevronRightIcon />
+            <ChevronRightIcon sx={{ color: "black" }} />
           </IconButton>
-          <Typography variant="h5">Products</Typography>
+          <Typography variant="h5" color={"black"}>
+            Products
+          </Typography>
         </Box>
         <Stack sx={{ padding: "0.5rem", gap: "1rem" }}>
           <List key={"list-component"} dense sx={{ width: "100%" }}>
@@ -362,6 +364,7 @@ function LeafletPage(props) {
                     <ListItemButton onClick={handleToggle(value)}>
                       <ListItemIcon>
                         <Checkbox
+                          sx={{ color: "black" }}
                           edge="end"
                           onChange={handleToggle(value)}
                           checked={checked.indexOf(value) !== -1}
@@ -376,6 +379,7 @@ function LeafletPage(props) {
                         />
                       </ListItemAvatar> */}
                       <ListItemText
+                        sx={{ color: "black" }}
                         id={labelId}
                         primary={decodeURIComponent(escape(value.prod_title))}
                       />
@@ -424,7 +428,7 @@ function LeafletPage(props) {
           </IconButton>
           <Button
             onClick={() => {
-              Navigate(getRoute("landing"));
+              Navigate(getRoute("home"));
             }}
           >
             <EOSIcon size={54} />
@@ -533,7 +537,9 @@ function LeafletPage(props) {
               backdropFilter: "blur(8px)",
             }}
           >
-            <Typography>Disclaimer .....</Typography>
+            <Typography>
+              Disclaimer this product should not be used for commercial purposes
+            </Typography>
           </Box>
           <MapContainer
             style={{

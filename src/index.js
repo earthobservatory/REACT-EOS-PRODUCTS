@@ -14,12 +14,15 @@ let theme = createTheme({
     fontFamily: "Helvetica Neue, Roboto",
   },
   palette: {
-    mode: "light",
+    mode: "dark",
     background: {
-      default: "#FFFDFA",
+      default: "rgb(39,36,37)",
     },
     primary: {
-      main: "#45b3e0",
+      main: "#ffbd59",
+    },
+    secondary: {
+      main: "#ffffff",
     },
     // secondary: {
     //   main: "rgb(255, 105, 127)",

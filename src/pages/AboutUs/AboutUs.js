@@ -62,11 +62,12 @@ const AboutUsPage = () => {
             type="primary"
             variant="outlined"
             sx={{ width: "50%", borderRadius: "5rem", marginTop: "2rem" }}
-            onClick={() => {
-              Navigate(getRoute("home"));
-            }}
+            // onClick={() => {
+            //   Navigate(getRoute("home"));
+            // }}
+            href="https://earthobservatory.sg/research/centres-labs/eos-rs"
           >
-            View Home Page
+            Click to read more about EOS-RS
           </Button>
         </Box>
       </Box>

@@ -6,13 +6,13 @@ import AboutUsPage from "pages/AboutUs/AboutUs";
 import FAQPage from "pages/FAQ/FAQ";
 
 const RoutePaths = [
-  {
-    type: "route",
-    name: "Landing Page",
-    key: "landing",
-    route: "/",
-    component: <LandingPage />,
-  },
+  // {
+  //   type: "route",
+  //   name: "Landing Page",
+  //   key: "landing",
+  //   route: "/",
+  //   component: <LandingPage />,
+  // },
 
   {
     type: "route",
@@ -34,7 +34,7 @@ const RoutePaths = [
     type: "route",
     name: "Home Page",
     key: "home",
-    route: "/home",
+    route: "/",
     component: <HomePage />,
   },
 

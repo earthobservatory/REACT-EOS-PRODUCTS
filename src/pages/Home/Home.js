@@ -11,6 +11,7 @@ import {
   TextField,
   InputAdornment,
   IconButton,
+  Stack,
 } from "@mui/material";
 import EventCard from "components/EventCard/EventCard";
 import { Search, FilterList } from "@mui/icons-material";
@@ -24,6 +25,9 @@ import moment from "moment";
 import { motion } from "framer-motion";
 import ScaleUpOnHover from "utils/Animations/ScaleUpOnHover";
 import MultipleSelectChip from "components/Reusables/MultiSelect";
+import BACKGROUND_IMG from "assets/EOS_PRODUCT.png";
+import EOS_RS_LOGO from "assets/EOS-RS-Logo.png";
+import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 
 const HomePage = () => {
   const metadata = useMetadataContext();
@@ -230,6 +234,59 @@ const HomePage = () => {
       <AppHeader />
       <Box
         sx={{
+          backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.05)), url(${BACKGROUND_IMG})`,
+          backgroundSize: "contain",
+          display: "flex",
+          width: "100vw",
+          height: "100vh",
+        }}
+      >
+        <Box
+          sx={{
+            backdropFilter: "blur(2px)",
+            flex: 1,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+            gap: "1rem",
+          }}
+        >
+          {/* <Typography variant="h4" textAlign="center" color="white">
+          EOS-RS
+        </Typography> */}
+          <img src={EOS_RS_LOGO} height={"80px"} />
+          <Typography
+            variant="h5"
+            textAlign="center"
+            width="60%"
+            // fontWeight="800"
+            color="white"
+          >
+            The EOS Remote Sensing Lab (EOS-RS) is a flagship laboratory at the
+            Earth Observatory of Singapore. We use satellite remote-sensing data
+            for rapid disaster response and hazard monitoring.
+          </Typography>
+          <Button
+            variant="outlined"
+            // type="primary"
+
+            color="secondary"
+            sx={{ width: "50%", borderRadius: "5rem", marginTop: "2rem" }}
+            // onClick={() => {
+            //   Navigate(getRoute("home"));
+            // }}
+            href="https://earthobservatory.sg/research/centres-labs/eos-rs"
+          >
+            Click to read more about EOS-RS
+          </Button>
+          <IconButton size="large">
+            <KeyboardDoubleArrowDownIcon />
+          </IconButton>
+        </Box>
+      </Box>
+      <Box
+        sx={{
           display: "flex",
           flexDirection: " column",
           flexGrow: 1,
@@ -268,31 +325,33 @@ const HomePage = () => {
               <Typography variant="h6">Click to view</Typography>
             </Box>
 
-            <MultipleSelectChip itemName={filter} setItemName={setFilter} />
+            <Stack direction={"row"} alignItems={"center"}>
+              <MultipleSelectChip itemName={filter} setItemName={setFilter} />
 
-            <TextField
-              label="Search"
-              variant="outlined"
-              size="small"
-              onChange={handleChange}
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton>
-                      <Search />
-                    </IconButton>
-                  </InputAdornment>
-                ),
-                // endAdornment: (
-                //   <InputAdornment position="end">
-                //     <IconButton>
-                //       <FilterList />
-                //     </IconButton>
-                //   </InputAdornment>
-                // ),
-                style: { borderRadius: "20px" },
-              }}
-            />
+              <TextField
+                label="Search"
+                variant="outlined"
+                size="small"
+                onChange={handleChange}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton>
+                        <Search />
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                  // endAdornment: (
+                  //   <InputAdornment position="end">
+                  //     <IconButton>
+                  //       <FilterList />
+                  //     </IconButton>
+                  //   </InputAdornment>
+                  // ),
+                  style: { borderRadius: "20px" },
+                }}
+              />
+            </Stack>
           </Box>
           <Grid
             sx={{ padding: "1rem" }}

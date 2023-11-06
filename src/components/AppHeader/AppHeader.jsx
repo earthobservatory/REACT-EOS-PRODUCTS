@@ -39,25 +39,25 @@ const AppHeader = () => {
       sx={{
         height: HEADER_HEIGHT,
         zIndex: 100,
-        backgroundColor: `${theme.palette.primary.main}AA`,
+        backgroundColor: `#424242AA`,
         backdropFilter: "blur(8px)",
-        "&:after": {
-          content: "''",
-          background: `url(${Noise})`,
-          position: "absolute",
-          top: "0px",
-          left: "0px",
-          width: "100%",
-          height: "100%",
-          zIndex: -1,
-          opacity: 0.3 /* Here is your opacity */,
-        },
+        // "&:after": {
+        //   content: "''",
+        //   background: `url(${Noise})`,
+        //   position: "absolute",
+        //   top: "0px",
+        //   left: "0px",
+        //   width: "100%",
+        //   height: "100%",
+        //   zIndex: -1,
+        //   opacity: 0.3 /* Here is your opacity */,
+        // },
       }}
     >
       <Toolbar>
         <Button
           onClick={() => {
-            Navigate(getRoute("landing"));
+            Navigate(getRoute("home"));
           }}
         >
           <EOSIcon size={54} />
@@ -69,6 +69,7 @@ const AppHeader = () => {
         >
           EOS-RS
         </Typography>
+
         <Button
           onClick={() => {
             Navigate(getRoute("home"));

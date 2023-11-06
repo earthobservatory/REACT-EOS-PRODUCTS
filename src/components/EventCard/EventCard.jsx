@@ -52,22 +52,22 @@ const EventCard = ({
             display: "flex",
             flexDirection: "column",
             boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.1)",
-            background: "rgba(255, 255, 255, 0.85)",
+            background: "rgba(255, 255, 255, 1)",
             borderRadius: "16px",
             boxShadow: " 0 4px 30px rgba(0, 0, 0, 0.1)",
-            backdropFilter: "blur(16px)",
+            // backdropFilter: "blur(16px)",
             border: "1px solid rgba(180, 240, 255, 0.29)",
-            "&:after": {
-              content: "''",
-              background: `url(${Noise})`,
-              position: "absolute",
-              top: "0px",
-              left: "0px",
-              width: "100%",
-              height: "100%",
-              zIndex: -1,
-              opacity: 0.2 /* Here is your opacity */,
-            },
+            // "&:after": {
+            //   content: "''",
+            //   background: `url(${Noise})`,
+            //   position: "absolute",
+            //   top: "0px",
+            //   left: "0px",
+            //   width: "100%",
+            //   height: "100%",
+            //   zIndex: -1,
+            //   opacity: 0.2 /* Here is your opacity */,
+            // },
           }}
         >
           {loading ? <Skeleton height={175} variant="rounded" /> : <></>}
@@ -91,10 +91,16 @@ const EventCard = ({
             }}
           >
             <Stack sx={{ flexGrow: 1, gap: 1 }}>
-              <Typography style={{ wordWrap: "break-word" }} variant="h5">
+              <Typography
+                style={{ wordWrap: "break-word" }}
+                variant="h5"
+                color={"black"}
+              >
                 {Title}
               </Typography>
-              <Typography variant="body1">{Date}</Typography>
+              <Typography variant="body1" color={"black"}>
+                {Date}
+              </Typography>
               <Typography
                 sx={{
                   display: "-webkit-box",
@@ -103,16 +109,21 @@ const EventCard = ({
                   WebkitLineClamp: 3,
                 }}
                 variant="body1"
+                color={"black"}
               >
                 {decodeURIComponent(escape(Description))}
               </Typography>
             </Stack>
             <Stack direction={"row"}>
               {Tags.map((item) => (
-                <Chip key={item} label={item} />
+                <Chip key={item} label={item} color={"primary"} />
               ))}
             </Stack>
-            <Typography variant="body1" sx={{ marginTop: "auto" }}>
+            <Typography
+              variant="body1"
+              sx={{ marginTop: "auto" }}
+              color={"black"}
+            >
               Last updated: {LastUpdated}
             </Typography>
           </CardContent>
