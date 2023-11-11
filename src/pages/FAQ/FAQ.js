@@ -18,7 +18,8 @@ import { useNavigate } from "react-router-dom";
 import REMOTE_LOGO from "assets/EOS-RS-Logo.png";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AppHeader from "components/AppHeader/AppHeader";
-import Noise from "assets/noise.svg";
+import INSAR_DIAGRAM from "assets/inSAR_diagram.png";
+import { HEADER_HEIGHT } from "utils/constants";
 
 const FAQPage = () => {
   const Navigate = useNavigate();
@@ -33,7 +34,7 @@ const FAQPage = () => {
     <Box>
       <AppHeader />
 
-      <Grid container>
+      <Grid container sx={{ paddingTop: HEADER_HEIGHT }}>
         <Grid item xs={12} md={12}>
           <Box
             sx={{
@@ -54,7 +55,7 @@ const FAQPage = () => {
               sx={{
                 width: "90vw",
                 transition: "transform 0.3s ease-in-out",
-                height: "60vh",
+                // height: "60vh",
                 background: "rgba(235, 253, 255, 0.55)",
                 borderRadius: "16px",
                 boxShadow: " 0 4px 30px rgba(0, 0, 0, 0.1)",
@@ -62,17 +63,6 @@ const FAQPage = () => {
                 border: "1px solid rgba(109, 240, 255, 0.29)",
                 overflowY: "auto",
                 padding: "1rem",
-                "&:after": {
-                  content: "''",
-                  background: `url(${Noise})`,
-                  position: "absolute",
-                  top: "0px",
-                  left: "0px",
-                  width: "100%",
-                  height: "100%",
-                  zIndex: -1,
-                  opacity: 0.2 /* Here is your opacity */,
-                },
               }}
             >
               <Accordion
@@ -84,17 +74,38 @@ const FAQPage = () => {
                   aria-controls="panel1bh-content"
                   id="panel1bh-header"
                 >
-                  <Typography sx={{ width: "33%", flexShrink: 0 }}>
-                    General settings
-                  </Typography>
-                  <Typography sx={{ color: "text.secondary" }}>
-                    I am an accordion
+                  <Typography sx={{ fontWeight: 800, flexShrink: 0 }}>
+                    {`What are damage proxy maps (DPMs) and flood proxy maps
+                    (FPMs)?`}
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>
-                    Nulla facilisi. Phasellus sollicitudin nulla et quam mattis
-                    feugiat. Aliquam eget maximus est, id dignissim quam.
+                    {`DPMs and FPMs are maps that shows changes the earth’s surface, before and after an event.  
+
+ 
+
+DPMs estimate where damage has been caused by ground-based events, such as earthquakes and landslides, while FPMs estimate the damage caused by flooding. 
+
+  
+
+These maps are useful because they can be produced rapidly and remotely, allowing disaster response teams to assess a situation and make decision on resource allocation. 
+
+  
+
+How are the maps produced? 
+
+The maps are produced using Interferometric Synthetic Aperture Radar (InSAR). InSAR is a satellite-based technology which can be used to measure changes on the Earth’s surface.   
+
+ 
+
+By comparing satellite images acquired before and after the event, we estimate how much damage has been done over the area. 
+
+ `}
+                  </Typography>
+                  <img src={INSAR_DIAGRAM} />
+                  <Typography sx={{ color: "text.secondary" }}>
+                    {`Caption: InSAR can measures ground deformation by comparing the amount of time it takes for a signal to travel between a satellite and the target area. (Source: Cheryl Tay/Earth Observatory of Singapore) `}
                   </Typography>
                 </AccordionDetails>
               </Accordion>
@@ -107,18 +118,29 @@ const FAQPage = () => {
                   aria-controls="panel2bh-content"
                   id="panel2bh-header"
                 >
-                  <Typography sx={{ width: "33%", flexShrink: 0 }}>
-                    Users
-                  </Typography>
-                  <Typography sx={{ color: "text.secondary" }}>
-                    You are currently not an owner
+                  <Typography sx={{ flexShrink: 0 }}>
+                    {`How accurate are the maps?`}
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>
-                    Donec placerat, lectus sed mattis semper, neque lectus
-                    feugiat lectus, varius pulvinar diam eros in elit.
-                    Pellentesque convallis laoreet laoreet.
+                    {`We strive to provide reliable maps. To do so, we validate our results by comparing them with on-the-ground information. However, there are limitations to the maps. 
+
+ 
+
+In addition, our maps are produced by comparing satellite images acquired before and after the event. The changes observed could be a result of the specified event, e.g. building damaged by an earthquake, but they could also be due to other changes observed across the time (e.g. building torn down via a controlled demolition).  
+
+ 
+
+The maps are also less reliable over urban and vegetated areas, due to [reasons]. 
+
+ 
+
+Thus, our maps should only be used as a guide to identify areas that are likely damaged.  
+
+ 
+
+[For DPM team to furnish w more info, if any, please. Is there some way to quantify the accuracy? (E.g. 70% accurate; up to 1cm resolution, etc)] `}
                   </Typography>
                 </AccordionDetails>
               </Accordion>
@@ -131,18 +153,19 @@ const FAQPage = () => {
                   aria-controls="panel3bh-content"
                   id="panel3bh-header"
                 >
-                  <Typography sx={{ width: "33%", flexShrink: 0 }}>
-                    Advanced settings
-                  </Typography>
-                  <Typography sx={{ color: "text.secondary" }}>
-                    Filtering has been entirely disabled for whole web server
+                  <Typography sx={{ flexShrink: 0 }}>
+                    {`I see that some events have multiple maps. What is the difference between them?`}
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography>
-                    Nunc vitae orci ultricies, auctor nunc in, volutpat nisl.
-                    Integer sit amet egestas eros, vitae egestas augue. Duis vel
-                    est augue.
+                    {`
+Different study areas? 
+
+Different versions 
+
+Different data sources 
+`}
                   </Typography>
                 </AccordionDetails>
               </Accordion>
