@@ -55,22 +55,19 @@ const EventCard = ({
             background: "rgba(255, 255, 255, 1)",
             borderRadius: "16px",
             boxShadow: " 0 4px 30px rgba(0, 0, 0, 0.1)",
-            // backdropFilter: "blur(16px)",
+
             border: "1px solid rgba(180, 240, 255, 0.29)",
-            // "&:after": {
-            //   content: "''",
-            //   background: `url(${Noise})`,
-            //   position: "absolute",
-            //   top: "0px",
-            //   left: "0px",
-            //   width: "100%",
-            //   height: "100%",
-            //   zIndex: -1,
-            //   opacity: 0.2 /* Here is your opacity */,
-            // },
           }}
         >
-          {loading ? <Skeleton height={175} variant="rounded" /> : <></>}
+          {loading ? (
+            <Skeleton
+              sx={{ backgroundColor: "rgb(89 95 101 / 50%)" }}
+              height={175}
+              variant="rounded"
+            />
+          ) : (
+            <></>
+          )}
           <CardMedia
             component="img"
             image={Image ? Image : STOCK_IMG}

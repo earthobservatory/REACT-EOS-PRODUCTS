@@ -33,11 +33,12 @@ import MailIcon from "@mui/icons-material/Mail";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { HEADER_HEIGHT } from "utils/constants";
 import { getRoute } from "utils/routes";
-import logo from "assets/EOS Logo.png";
+
 import { json, useLocation, useNavigate } from "react-router-dom";
 import ProductCard from "components/ProductCard/ProductCard";
 import Noise from "assets/noise.svg";
 import CVDSwitch from "components/Reusables/CVDSwitch";
+import CustomToolbar from "components/AppHeader/Toolbar";
 
 const FloatingSidePeekPopup = ({ children, isOpen, onClose }) => {
   return (
@@ -59,17 +60,6 @@ const FloatingSidePeekPopup = ({ children, isOpen, onClose }) => {
         border: "1px solid rgba(109, 240, 255, 0.29)",
         overflowY: "auto",
         padding: "1rem",
-        // "&:after": {
-        //   content: "''",
-        //   background: `url(${Noise})`,
-        //   position: "absolute",
-        //   top: "0px",
-        //   left: "0px",
-        //   width: "100%",
-        //   height: "100%",
-        //   zIndex: -1,
-        //   opacity: 0.2 /* Here is your opacity */,
-        // },
       }}
     >
       {/* <Fab
@@ -108,17 +98,6 @@ const FloatingSideButton = ({ children, isOpen, onClick }) => {
         border: "1px solid rgba(109, 240, 255, 0.29)",
 
         padding: "1rem",
-        // "&:after": {
-        //   content: "''",
-        //   background: `url(${Noise})`,
-        //   position: "absolute",
-        //   top: "0px",
-        //   left: "0px",
-        //   width: "100%",
-        //   height: "100%",
-        //   zIndex: -1,
-        //   opacity: 0.2 /* Here is your opacity */,
-        // },
       }}
     >
       <IconButton onClick={onClick}>
@@ -128,22 +107,11 @@ const FloatingSideButton = ({ children, isOpen, onClick }) => {
   );
 };
 
-const drawerWidth = 480;
+const drawerWidth = 400;
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
     flexGrow: 1,
-    // "&:after": {
-    //   content: "''",
-    //   background: `url(${Noise})`,
-    //   position: "absolute",
-    //   top: "0px",
-    //   left: "0px",
-    //   width: "100%",
-    //   height: "100%",
-    //   zIndex: -1,
-    //   opacity: 0.12 /* Here is your opacity */,
-    // },
     padding: theme.spacing(3),
     transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
@@ -187,17 +155,6 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
   justifyContent: "flex-end",
-  // "&:after": {
-  //   content: "''",
-  //   background: `url(${Noise})`,
-  //   position: "absolute",
-  //   top: "0px",
-  //   left: "0px",
-  //   width: "100%",
-  //   height: "100%",
-  //   zIndex: -1,
-  //   opacity: 0.2 /* Here is your opacity */,
-  // },
 }));
 
 const getCenterPoint = (event_bbox) => {
@@ -208,16 +165,16 @@ const getCenterPoint = (event_bbox) => {
 };
 
 function LeafletPage(props) {
-  const Navigate = useNavigate();
+  const theme = useTheme();
   const { state } = useLocation();
   const [checked, setChecked] = useState([]);
   const [jsonData, setJsonData] = useState({});
-
   const [products, setProducts] = useState([]);
-
-  const theme = useTheme();
+  const [sidebarDescription, setSidebarDescription] = useState("");
   const [open, setOpen] = useState(false);
   const [openLayers, setOpenLayers] = useState(false);
+
+  const geoJsonRef = useRef();
 
   const GeoJSONMap = (url) => {
     fetch(url)
@@ -255,6 +212,9 @@ function LeafletPage(props) {
           }
         });
 
+      setSidebarDescription(
+        decodeURIComponent(escape(state?.product_list[0].prod_desc))
+      );
       setProducts(finalList);
       setOpenLayers(true);
     }
@@ -299,33 +259,31 @@ function LeafletPage(props) {
     setChecked(newChecked);
   };
 
-  function EOSIcon(props) {
-    return (
-      <img
-        resizeMode="contain"
-        src={logo}
-        alt="logo"
-        style={{ width: "165px", height: "64px" }}
-      />
-    );
-  }
+  const handleSideBarDisplay = (description) => {
+    setSidebarDescription(description);
+    handleDrawerOpen();
+  };
 
-  const geoJsonRef = useRef();
-
-  const onEachClick = (feature, layer) => {
+  const onEachClick = (feature, layer, description) => {
     // const name = feature.properties.name;
     // const density = feature.properties.density;
 
-    layer.on({ click: handleFeatureClick });
+    layer.on({
+      click: (e) => {
+        handleFeatureClick(e, description);
+      },
+    });
   };
 
-  const handleFeatureClick = (e) => {
+  const handleFeatureClick = (e, description) => {
+    setOpenLayers(false);
     if (!geoJsonRef.current) return;
     geoJsonRef.current.resetStyle();
 
     const layer = e.target;
+    handleSideBarDisplay(description);
 
-    layer.setStyle({ color: "#cc707688" });
+    layer.setStyle({ color: "#cc7076AA" });
   };
 
   return (
@@ -416,63 +374,11 @@ function LeafletPage(props) {
         </Stack>
       </FloatingSidePeekPopup>
       <AppBar position="fixed" open={open}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{ mr: 2, ...(open && { display: "none" }) }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Button
-            onClick={() => {
-              Navigate(getRoute("home"));
-            }}
-          >
-            <EOSIcon size={54} />
-          </Button>
-          <Typography
-            variant="h5"
-            color="white"
-            sx={{ flexGrow: 1, fontWeight: 800, letterSpacing: 3, ml: "1%" }}
-          >
-            EOS-RS
-          </Typography>
-          <Button
-            onClick={() => {
-              Navigate(getRoute("home"));
-            }}
-          >
-            <Typography color="white" sx={{ fontWeight: 500 }}>
-              Home
-            </Typography>
-          </Button>
-          <Button
-            onClick={() => {
-              Navigate(getRoute("aboutus"));
-            }}
-          >
-            <Typography color="white" sx={{ fontWeight: 500 }}>
-              About Us
-            </Typography>
-          </Button>
-          <Button>
-            <Typography color="white" sx={{ fontWeight: 500 }}>
-              How to use
-            </Typography>
-          </Button>
-          <Button
-            onClick={() => {
-              Navigate(getRoute("faq"));
-            }}
-          >
-            <Typography color="white" sx={{ fontWeight: 500 }}>
-              FAQ
-            </Typography>
-          </Button>
-        </Toolbar>
+        <CustomToolbar
+          isMapPage
+          handleDrawerOpen={handleDrawerOpen}
+          open={open}
+        />
       </AppBar>
       <Drawer
         sx={{
@@ -502,23 +408,8 @@ function LeafletPage(props) {
         <Divider />
         <Stack sx={{ padding: "1rem", gap: "1rem" }}>
           <Typography variant="h5">Description</Typography>
-          <Typography>
-            {decodeURIComponent(escape(state?.product_list[0].prod_desc))}
-          </Typography>
+          <Typography>{sidebarDescription}</Typography>
         </Stack>
-        {/* <List>
-
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List> */}
         <Divider />
       </Drawer>
       <Main open={open}>
@@ -528,7 +419,7 @@ function LeafletPage(props) {
             sx={{
               position: "absolute",
               bottom: "5%",
-              left: "50%",
+              left: open ? `calc( 50% + ${drawerWidth}px / 2)` : "50%",
               zIndex: 1000,
               backgroundColor: "#e80c1a66",
               transform: "translate(-50%, -50%)",
@@ -579,15 +470,21 @@ function LeafletPage(props) {
                   <GeoJSON
                     style={{ color: "#be93e677", weight: 2 }}
                     ref={geoJsonRef}
-                    onEachFeature={onEachClick}
+                    onEachFeature={(feature, layer) => {
+                      onEachClick(
+                        feature,
+                        layer,
+                        decodeURIComponent(escape(item?.prod_desc))
+                      );
+                    }}
                     key={item?.prod_rfp_file}
                     data={jsonData[item?.prod_rfp_file]}
                   >
-                    <Popup>
+                    {/* <Popup>
                       <Box sx={{ maxHeight: "20rem", overflowY: "scroll" }}>
                         {decodeURIComponent(escape(item?.prod_desc))}
                       </Box>
-                    </Popup>
+                    </Popup> */}
                   </GeoJSON>
                 </>
               );
@@ -607,7 +504,7 @@ function LeafletPage(props) {
 
             <Rectangle
               bounds={state.event.event_bbox}
-              pathOptions={{ color: "yellow", fill: false }}
+              pathOptions={{ color: "white", fill: false, weight: 5 }}
             />
           </MapContainer>
         </Box>

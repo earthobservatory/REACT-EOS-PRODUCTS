@@ -9,6 +9,7 @@ import { HEADER_HEIGHT } from "utils/constants";
 import logo from "assets/EOS Logo.png";
 import Noise from "assets/noise.svg";
 import { useTheme } from "@mui/material/styles";
+import CustomToolbar from "./Toolbar";
 
 const AppHeader = () => {
   const Navigate = useNavigate();
@@ -16,7 +17,7 @@ const AppHeader = () => {
   function EOSIcon(props) {
     return (
       <img
-        resizeMode="contain"
+        // resizeMode="contain"
         src={logo}
         alt="logo"
         style={{ width: "165px", height: "64px" }}
@@ -41,69 +42,9 @@ const AppHeader = () => {
         zIndex: 100,
         backgroundColor: `#424242AA`,
         backdropFilter: "blur(8px)",
-        // "&:after": {
-        //   content: "''",
-        //   background: `url(${Noise})`,
-        //   position: "absolute",
-        //   top: "0px",
-        //   left: "0px",
-        //   width: "100%",
-        //   height: "100%",
-        //   zIndex: -1,
-        //   opacity: 0.3 /* Here is your opacity */,
-        // },
       }}
     >
-      <Toolbar>
-        <Button
-          onClick={() => {
-            Navigate(getRoute("home"));
-          }}
-        >
-          <EOSIcon size={54} />
-        </Button>
-        <Typography
-          variant="h5"
-          color="white"
-          sx={{ flexGrow: 1, fontWeight: 800, letterSpacing: 3, ml: "1%" }}
-        >
-          EOS-RS
-        </Typography>
-
-        <Button
-          onClick={() => {
-            Navigate(getRoute("home"));
-          }}
-        >
-          <Typography color="white" sx={{ fontWeight: 500 }}>
-            Home
-          </Typography>
-        </Button>
-        <Button
-          onClick={() => {
-            Navigate(getRoute("aboutus"));
-          }}
-        >
-          <Typography color="white" sx={{ fontWeight: 500 }}>
-            About Us
-          </Typography>
-        </Button>
-        <Button>
-          <Typography color="white" sx={{ fontWeight: 500 }}>
-            How to use
-          </Typography>
-        </Button>
-
-        <Button
-          onClick={() => {
-            Navigate(getRoute("faq"));
-          }}
-        >
-          <Typography color="white" sx={{ fontWeight: 500 }}>
-            FAQ
-          </Typography>
-        </Button>
-      </Toolbar>
+      <CustomToolbar />
     </AppBar>
     // </Box>
   );
