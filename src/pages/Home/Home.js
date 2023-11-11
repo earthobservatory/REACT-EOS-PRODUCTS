@@ -235,7 +235,7 @@ const HomePage = () => {
       <Box
         sx={{
           backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.05)), url(${BACKGROUND_IMG})`,
-          backgroundSize: "contain",
+          backgroundSize: "cover",
           display: "flex",
           width: "100vw",
           height: "100vh",
@@ -255,6 +255,7 @@ const HomePage = () => {
           {/* <Typography variant="h4" textAlign="center" color="white">
           EOS-RS
         </Typography> */}
+
           <img src={EOS_RS_LOGO} height={"80px"} />
           <Typography
             variant="h5"
@@ -331,7 +332,7 @@ const HomePage = () => {
               <TextField
                 label="Search"
                 variant="outlined"
-                size="small"
+                // size="small"
                 onChange={handleChange}
                 InputProps={{
                   endAdornment: (
