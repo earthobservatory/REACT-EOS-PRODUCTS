@@ -42,13 +42,14 @@ const EventCard = ({
   // }, []);
 
   return (
-    <Grid item xs={2} sm={4} md={4}>
+    <Grid item xs={12} sm={6} md={3} lg={3} sx={{ maxWidth: "100%" }}>
       <ScaleUpOnHover>
         <Card
           onClick={onClick}
           sx={{
-            minHeight: "500px",
+            minHeight: "550px",
             minWidth: "250px",
+            maxWidth: "100%",
             display: "flex",
             flexDirection: "column",
             boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.1)",
@@ -62,17 +63,25 @@ const EventCard = ({
           {loading ? (
             <Skeleton
               sx={{ backgroundColor: "rgb(89 95 101 / 50%)" }}
-              height={175}
+              height={200}
               variant="rounded"
             />
           ) : (
             <></>
           )}
-          <CardMedia
-            component="img"
-            image={Image ? Image : STOCK_IMG}
+
+          <img
+            // component="img"
+            src={Image ? Image : STOCK_IMG}
+            style={{
+              objectFit: "cover",
+              objectPosition: "-20px 50%",
+              // backgroundImage: `url(${Image ? Image : STOCK_IMG})`,
+              // backgroundSize: "350px",
+            }}
+            width={"700px"}
             alt="preview image"
-            height={loading ? "0px" : "175px"}
+            height={loading ? "0px" : "200px"}
             loading="lazy"
             onLoad={() => {
               setLoading(false);
