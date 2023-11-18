@@ -66,9 +66,10 @@ const CustomToolbar = ({ isMapPage, handleDrawerOpen, open }) => {
           </Typography>
         </Button>
         <Button
-          onClick={() => {
-            Navigate(getRoute("aboutus"));
-          }}
+          // onClick={() => {
+          //   Navigate(getRoute("aboutus"));
+          // }}
+          href="https://earthobservatory.sg/research/centres-labs/eos-rs"
         >
           <Typography color="white" fontWeight={fontWeight}>
             About Us

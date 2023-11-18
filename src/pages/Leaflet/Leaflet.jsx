@@ -1,43 +1,38 @@
-import { Box, Button, Stack, Fab, Checkbox, Avatar } from "@mui/material";
-import React, { useEffect, useRef, useState } from "react";
+import CloseIcon from "@mui/icons-material/Close";
 import {
-  MapContainer,
-  TileLayer,
-  GeoJSON,
-  useMap,
-  Marker,
-  Popup,
-  LayersControl,
-  Rectangle,
-} from "react-leaflet";
+  Box,
+  Button,
+  Checkbox,
+  Dialog,
+  IconButton,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  Link,
+  Stack,
+} from "@mui/material";
+import { useEffect, useRef, useState } from "react";
+import { GeoJSON, MapContainer, Rectangle, TileLayer } from "react-leaflet";
 
-import { styled, useTheme } from "@mui/material/styles";
-import Drawer from "@mui/material/Drawer";
-import CssBaseline from "@mui/material/CssBaseline";
-import MuiAppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import List from "@mui/material/List";
-import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import MuiAppBar from "@mui/material/AppBar";
+import CssBaseline from "@mui/material/CssBaseline";
+import Divider from "@mui/material/Divider";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import Typography from "@mui/material/Typography";
+import { styled, useTheme } from "@mui/material/styles";
 import { HEADER_HEIGHT } from "utils/constants";
-import { getRoute } from "utils/routes";
 
-import { json, useLocation, useNavigate } from "react-router-dom";
-import Noise from "assets/noise.svg";
-import CVDSwitch from "components/Reusables/CVDSwitch";
 import CustomToolbar from "components/AppHeader/Toolbar";
+import CVDSwitch from "components/Reusables/CVDSwitch";
+import { useLocation } from "react-router-dom";
 
 const FloatingSidePeekPopup = ({ children, isOpen, onClose }) => {
   return (
@@ -130,7 +125,8 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
-  backgroundColor: `#424242AA`,
+  // backgroundColor: `#424242AA`,
+  backgroundColor: "black",
   height: HEADER_HEIGHT,
   transition: theme.transitions.create(["margin", "width"], {
     easing: theme.transitions.easing.sharp,
@@ -161,6 +157,104 @@ const getCenterPoint = (event_bbox) => {
     (event_bbox[0][0] + event_bbox[1][0]) / 2.0,
     (event_bbox[0][1] + event_bbox[1][1]) / 2.0,
   ];
+};
+
+const DisclaimerPopup = ({ drawerIsOpen }) => {
+  const [open, setOpen] = useState(false);
+  const [closeWarning, setCloseWarning] = useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleCloseWarning = () => {
+    setCloseWarning(true);
+  };
+
+  return (
+    <>
+      <Box
+        sx={{
+          visibility: closeWarning ? "hidden" : "none",
+          position: "absolute",
+          bottom: "5%",
+          left: drawerIsOpen ? `calc( 50% + ${drawerWidth}px / 2)` : "50%",
+          zIndex: 1000,
+          backgroundColor: "#32323288",
+          transform: "translate(-50%, -50%)",
+          borderRadius: "5px",
+          padding: "1rem",
+          backdropFilter: "blur(8px)",
+          display: "flex",
+        }}
+      >
+        <Typography>
+          This map is provided for general information purpose only.
+          <br />
+          By using EOS-RS maps, you agree to our terms of use.{" "}
+          <Link
+            variant="contained"
+            color="error"
+            onClick={handleOpen}
+            sx={{ fontWeight: 800 }}
+          >
+            READ MORE...
+          </Link>
+        </Typography>
+        <IconButton onClick={handleCloseWarning} sx={{ height: "fit-content" }}>
+          <CloseIcon />
+        </IconButton>
+      </Box>
+
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        sx={{ zIndex: 10000 }}
+        color=""
+        PaperProps={{
+          style: {
+            // backgroundColor: "#e80c1a66",
+            borderRadius: "5px",
+            padding: "1rem",
+            backdropFilter: "blur(8px)",
+          },
+        }}
+      >
+        <DialogTitle color={"primary"}>Legal Disclaimer</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            While EOS-RS has made reasonable efforts to ensure the accuracy of
+            the information presented, EOS-RS makes no representations or
+            warranties of any kind, express or implied, about the completeness,
+            accuracy, reliability, suitability, or availability with respect to
+            the map or the information, products, services, or related graphics
+            contained on the map for any purpose. Any reliance you place on such
+            information is therefore strictly at your own risk.
+            <br />
+            <br />
+            In no event will EOS-RS be liable for any profits, loss of goodwill,
+            loss of use, loss of production or business interruption costs, or
+            any type of indirect, special, consequential, or incidental damages
+            arising in connection with the use of this map.
+            <br />
+            <br />
+            Please use this map responsibly and consult official sources for any
+            decision-making. If you have any questions or concerns about the map
+            or its content, please contact us.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary" variant="outlined">
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </>
+  );
 };
 
 function LeafletPage(props) {
@@ -414,23 +508,7 @@ function LeafletPage(props) {
       <Main open={open}>
         <DrawerHeader />
         <Box>
-          <Box
-            sx={{
-              position: "absolute",
-              bottom: "5%",
-              left: open ? `calc( 50% + ${drawerWidth}px / 2)` : "50%",
-              zIndex: 1000,
-              backgroundColor: "#e80c1a66",
-              transform: "translate(-50%, -50%)",
-              borderRadius: "5px",
-              padding: "1rem",
-              backdropFilter: "blur(8px)",
-            }}
-          >
-            <Typography>
-              Disclaimer this product should not be used for commercial purposes
-            </Typography>
-          </Box>
+          <DisclaimerPopup drawerIsOpen={open} />
           <MapContainer
             style={{
               height: `calc(95vh - ${HEADER_HEIGHT})`,

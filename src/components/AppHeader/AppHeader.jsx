@@ -40,8 +40,9 @@ const AppHeader = () => {
       sx={{
         height: HEADER_HEIGHT,
         zIndex: 100,
-        backgroundColor: `#424242AA`,
-        backdropFilter: "blur(8px)",
+        backgroundColor: "black",
+        // backgroundColor: `#424242AA`,
+        // backdropFilter: "blur(8px)",
       }}
     >
       <CustomToolbar />

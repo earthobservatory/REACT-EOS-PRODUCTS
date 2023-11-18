@@ -6,6 +6,7 @@ import SATELLITE_IMG from "assets/satellite-stock.jpeg";
 import { getRoute } from "utils/routes";
 import { useNavigate } from "react-router-dom";
 import REMOTE_LOGO from "assets/EOS-RS-Logo.png";
+import AppHeader from "components/AppHeader/AppHeader";
 
 const AboutUsPage = () => {
   const Navigate = useNavigate();
@@ -17,6 +18,7 @@ const AboutUsPage = () => {
 
   return (
     <>
+      <AppHeader />
       <Box
         sx={{
           backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6)), url(${BACKGROUND_IMG})`,
