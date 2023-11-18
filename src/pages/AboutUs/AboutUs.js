@@ -77,6 +77,7 @@ const AboutUsPage = () => {
           <Box
             sx={{
               // backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2))`,
+              backgroundColor: "#EFEFEF",
               backgroundSize: "cover",
               backgroundPosition: "center",
               flexDirection: "column",

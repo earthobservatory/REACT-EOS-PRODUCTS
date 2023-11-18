@@ -35,7 +35,6 @@ import { HEADER_HEIGHT } from "utils/constants";
 import { getRoute } from "utils/routes";
 
 import { json, useLocation, useNavigate } from "react-router-dom";
-import ProductCard from "components/ProductCard/ProductCard";
 import Noise from "assets/noise.svg";
 import CVDSwitch from "components/Reusables/CVDSwitch";
 import CustomToolbar from "components/AppHeader/Toolbar";

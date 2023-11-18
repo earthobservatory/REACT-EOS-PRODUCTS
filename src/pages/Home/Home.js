@@ -12,6 +12,7 @@ import {
   InputAdornment,
   IconButton,
   Stack,
+  Pagination,
 } from "@mui/material";
 import EventCard from "components/EventCard/EventCard";
 import { Search, FilterList } from "@mui/icons-material";
@@ -29,6 +30,8 @@ import BACKGROUND_IMG from "assets/EOS_PRODUCT.png";
 import EOS_RS_LOGO from "assets/EOS-RS-Logo.png";
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 
+const itemsPerPage = 8;
+
 const HomePage = () => {
   const metadata = useMetadataContext();
   const Navigate = useNavigate();
@@ -37,14 +40,11 @@ const HomePage = () => {
   const [endDate, setEndDate] = useState(moment());
   const [filter, setFilter] = useState([]);
 
-  const handleChange = (event) => {
-    setQuery(event.target.value);
-  };
+  const [page, setPage] = useState(1);
 
-  const mostRecentMetadata = metadata?.filter((item) => {
-    const itemDate = moment(item.event_start);
-    return itemDate.isAfter(startDate) && itemDate.isBefore(endDate);
-  });
+  const handlePageChange = (event, value) => {
+    setPage(value);
+  };
 
   const filteredMetadata = metadata?.filter((item) => {
     return (
@@ -56,6 +56,23 @@ const HomePage = () => {
           return filter.map((i) => i.toLowerCase()).includes(r);
         }))
     );
+  });
+
+  const startIndex = (page - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const paginatedData = filteredMetadata?.slice(startIndex, endIndex);
+
+  useEffect(() => {
+    setPage(1);
+  }, [filteredMetadata?.length]);
+
+  const handleChange = (event) => {
+    setQuery(event.target.value);
+  };
+
+  const mostRecentMetadata = metadata?.filter((item) => {
+    const itemDate = moment(item.event_start);
+    return itemDate.isAfter(startDate) && itemDate.isBefore(endDate);
   });
 
   const MapEventCards = (inputData) => {
@@ -236,8 +253,9 @@ const HomePage = () => {
         sx={{
           backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.05)), url(${BACKGROUND_IMG})`,
           backgroundSize: "cover",
+          backgroundPosition: "center",
           display: "flex",
-          width: "100vw",
+          width: "100%",
           height: "100vh",
         }}
       >
@@ -252,10 +270,6 @@ const HomePage = () => {
             gap: "1rem",
           }}
         >
-          {/* <Typography variant="h4" textAlign="center" color="white">
-          EOS-RS
-        </Typography> */}
-
           <img src={EOS_RS_LOGO} height={"80px"} />
           <Typography
             variant="h5"
@@ -272,14 +286,28 @@ const HomePage = () => {
             variant="outlined"
             // type="primary"
 
-            color="secondary"
+            color="primary"
             sx={{ width: "50%", borderRadius: "5rem", marginTop: "2rem" }}
+            onClick={(e) => {
+              let events = document
+                .getElementById("events")
+                .getBoundingClientRect();
+              e.preventDefault(); // Stop Page Reloading
+              events &&
+                window.scrollTo({
+                  behavior: "smooth",
+                  top:
+                    events.top -
+                    document.body.getBoundingClientRect().top -
+                    parseInt(HEADER_HEIGHT, 10),
+                });
+            }}
             // onClick={() => {
             //   Navigate(getRoute("home"));
             // }}
-            href="https://earthobservatory.sg/research/centres-labs/eos-rs"
+            // href="https://earthobservatory.sg/research/centres-labs/eos-rs"
           >
-            Click to read more about EOS-RS
+            View products
           </Button>
           <IconButton size="large">
             <KeyboardDoubleArrowDownIcon />
@@ -296,7 +324,7 @@ const HomePage = () => {
           paddingTop: HEADER_HEIGHT,
         }}
       >
-        <Box>
+        {/* <Box>
           <Typography variant="h3" fontWeight="800">
             Recent events
           </Typography>
@@ -309,7 +337,7 @@ const HomePage = () => {
           >
             {MapEventCards(mostRecentMetadata)}
           </Grid>
-        </Box>
+        </Box> */}
 
         <Box sx={{ minHeight: "80vh" }}>
           <Box
@@ -319,7 +347,10 @@ const HomePage = () => {
               alignItems: "center",
             }}
           >
-            <Box sx={{ display: "flex", flexDirection: "column" }}>
+            <Box
+              sx={{ display: "flex", flexDirection: "column" }}
+              id={"events"}
+            >
               <Typography variant="h3" fontWeight="800">
                 All events
               </Typography>
@@ -354,21 +385,19 @@ const HomePage = () => {
               />
             </Stack>
           </Box>
-          <Grid
-            sx={{ padding: "1rem" }}
-            container
-            spacing={{ xs: 2, md: 3 }}
-            columns={{ xs: 2, sm: 8, md: 12 }}
-          >
-            <Grid
-              sx={{ padding: "1rem" }}
-              container
-              spacing={{ xs: 2, md: 3 }}
-              columns={{ xs: 2, sm: 8, md: 12 }}
-            >
-              {MapEventCards(filteredMetadata)}
-            </Grid>
+          <Grid sx={{ padding: "1rem" }} container spacing={{ xs: 2, md: 3 }}>
+            {MapEventCards(paginatedData)}
           </Grid>
+          <Box width={"100%"} display={"flex"} justifyContent={"center"}>
+            <Pagination
+              // variant="outlined"
+              color="primary"
+              count={Math.ceil(filteredMetadata?.length / itemsPerPage)}
+              page={page}
+              onChange={handlePageChange}
+              size="large"
+            />
+          </Box>
         </Box>
       </Box>
     </Box>
