@@ -261,7 +261,6 @@ const HomePage = () => {
       >
         <Box
           sx={{
-            backdropFilter: "blur(2px)",
             flex: 1,
             display: "flex",
             justifyContent: "center",
