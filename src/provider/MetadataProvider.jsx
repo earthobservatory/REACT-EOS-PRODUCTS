@@ -24,7 +24,7 @@ const MetadataProvider = ({ children }) => {
       })
       .then((result) => {
         console.log(result);
-        setMetadata(result);
+        setMetadata(result.reverse());
       });
   }, []);
 
