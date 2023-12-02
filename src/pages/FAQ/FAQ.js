@@ -83,11 +83,14 @@ const FAQPage = () => {
                 width: "90vw",
                 transition: "transform 0.3s ease-in-out",
                 // height: "60vh",
-                background: "rgba(235, 253, 255, 0.55)",
+
+                background: "#32323288",
+
                 borderRadius: "16px",
                 boxShadow: " 0 4px 30px rgba(0, 0, 0, 0.1)",
                 backdropFilter: "blur(16px)",
-                border: "1px solid rgba(109, 240, 255, 0.29)",
+                // border: "1px solid rgba(109, 240, 255, 0.29)",
+
                 overflowY: "auto",
                 padding: "1rem",
               }}

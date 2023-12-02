@@ -47,11 +47,12 @@ const FloatingSidePeekPopup = ({ children, isOpen, onClose }) => {
         transform: isOpen ? "translate(0, -50%)" : "translate(100%, -50%)",
         transition: "transform 0.3s ease-in-out",
         height: "60vh",
-        background: "rgba(235, 253, 255, 0.55)",
+        // background: "rgba(235, 253, 255, 0.55)",
+        background: "#32323288",
         borderRadius: "16px",
         boxShadow: " 0 4px 30px rgba(0, 0, 0, 0.1)",
         backdropFilter: "blur(16px)",
-        border: "1px solid rgba(109, 240, 255, 0.29)",
+        // border: "1px solid rgba(109, 240, 255, 0.29)",
         overflowY: "auto",
         padding: "1rem",
       }}
@@ -85,17 +86,18 @@ const FloatingSideButton = ({ children, isOpen, onClick }) => {
         transform: isOpen ? "translate(100%, -50%)" : "translate(0, -50%)",
         transition: "transform 0.3s ease-in-out",
         // height: "60vh",
-        background: "rgba(235, 253, 255, 0.55)",
+        // background: "rgba(235, 253, 255, 0.55)",
+        background: "#32323288",
         borderRadius: "16px",
         boxShadow: " 0 4px 30px rgba(0, 0, 0, 0.1)",
         backdropFilter: "blur(16px)",
-        border: "1px solid rgba(109, 240, 255, 0.29)",
+        // border: "1px solid rgba(109, 240, 255, 0.29)",
 
         padding: "1rem",
       }}
     >
       <IconButton onClick={onClick}>
-        <ChevronLeftIcon sx={{ color: "black" }} />
+        <ChevronLeftIcon />
       </IconButton>
     </Box>
   );
@@ -263,7 +265,7 @@ function LeafletPage(props) {
   const [checked, setChecked] = useState([]);
   const [jsonData, setJsonData] = useState({});
   const [products, setProducts] = useState([]);
-  const [sidebarDescription, setSidebarDescription] = useState("");
+  const [sidebarDescription, setSidebarDescription] = useState({});
   const [open, setOpen] = useState(false);
   const [openLayers, setOpenLayers] = useState(false);
 
@@ -305,9 +307,12 @@ function LeafletPage(props) {
           }
         });
 
-      setSidebarDescription(
-        decodeURIComponent(escape(state?.product_list[0].prod_desc))
-      );
+      setSidebarDescription({
+        title: state?.product_list[0].prod_name,
+        description: decodeURIComponent(
+          escape(state?.product_list[0].prod_desc)
+        ),
+      });
       setProducts(finalList);
       setOpenLayers(true);
     }
@@ -352,29 +357,29 @@ function LeafletPage(props) {
     setChecked(newChecked);
   };
 
-  const handleSideBarDisplay = (description) => {
-    setSidebarDescription(description);
+  const handleSideBarDisplay = (title, description) => {
+    setSidebarDescription({ title: title, description: description });
     handleDrawerOpen();
   };
 
-  const onEachClick = (feature, layer, description) => {
+  const onEachClick = (feature, layer, title, description) => {
     // const name = feature.properties.name;
     // const density = feature.properties.density;
 
     layer.on({
       click: (e) => {
-        handleFeatureClick(e, description);
+        handleFeatureClick(e, title, description);
       },
     });
   };
 
-  const handleFeatureClick = (e, description) => {
+  const handleFeatureClick = (e, title, description) => {
     setOpenLayers(false);
     if (!geoJsonRef.current) return;
     geoJsonRef.current.resetStyle();
 
     const layer = e.target;
-    handleSideBarDisplay(description);
+    handleSideBarDisplay(title, description);
 
     layer.setStyle({ color: "#cc7076AA" });
   };
@@ -395,11 +400,9 @@ function LeafletPage(props) {
               setOpenLayers(!openLayers);
             }}
           >
-            <ChevronRightIcon sx={{ color: "black" }} />
+            <ChevronRightIcon />
           </IconButton>
-          <Typography variant="h5" color={"black"}>
-            Products
-          </Typography>
+          <Typography variant="h5">Products</Typography>
         </Box>
         <Stack sx={{ padding: "0.5rem", gap: "1rem" }}>
           <List key={"list-component"} dense sx={{ width: "100%" }}>
@@ -415,7 +418,6 @@ function LeafletPage(props) {
                     <ListItemButton onClick={handleToggle(value)}>
                       <ListItemIcon>
                         <Checkbox
-                          sx={{ color: "black" }}
                           edge="end"
                           onChange={handleToggle(value)}
                           checked={checked.indexOf(value) !== -1}
@@ -430,7 +432,6 @@ function LeafletPage(props) {
                         />
                       </ListItemAvatar> */}
                       <ListItemText
-                        sx={{ color: "black" }}
                         id={labelId}
                         primary={decodeURIComponent(escape(value.prod_title))}
                       />
@@ -487,7 +488,11 @@ function LeafletPage(props) {
         open={open}
       >
         <DrawerHeader>
-          <Typography variant="h5" sx={{ overflowWrap: "anywhere" }}>
+          <Typography
+            variant="h5"
+            sx={{ overflowWrap: "anywhere" }}
+            color={"primary"}
+          >
             {state.event.event_display_name}
           </Typography>
           <IconButton onClick={handleDrawerClose}>
@@ -500,8 +505,15 @@ function LeafletPage(props) {
         </DrawerHeader>
         <Divider />
         <Stack sx={{ padding: "1rem", gap: "1rem" }}>
-          <Typography variant="h5">Description</Typography>
-          <Typography>{sidebarDescription}</Typography>
+          <Typography variant="h5" sx={{ textDecoration: "underline" }}>
+            Product Description
+          </Typography>
+          <Typography variant="h6" sx={{ lineBreak: "anywhere" }}>
+            {sidebarDescription?.title}
+          </Typography>
+          <Typography sx={{ whiteSpace: "pre-wrap" }}>
+            {sidebarDescription?.description}
+          </Typography>
         </Stack>
         <Divider />
       </Drawer>
@@ -551,6 +563,7 @@ function LeafletPage(props) {
                       onEachClick(
                         feature,
                         layer,
+                        item?.prod_name,
                         decodeURIComponent(escape(item?.prod_desc))
                       );
                     }}

@@ -3,13 +3,15 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { getRoute } from "../../utils/routes";
 import MenuIcon from "@mui/icons-material/Menu";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import EOS_LOGO from "assets/EOS Logo.png";
 
 const fontWeight = 800;
 
 const CustomToolbar = ({ isMapPage, handleDrawerOpen, open }) => {
   const Navigate = useNavigate();
+  const location = useLocation();
+  const currentPath = location.pathname;
 
   function EOSIcon(props) {
     return (
@@ -53,12 +55,16 @@ const CustomToolbar = ({ isMapPage, handleDrawerOpen, open }) => {
       </Typography> */}
       <Stack
         sx={{ width: "100%", justifyContent: "end", height: "100%" }}
-        gap={3}
         direction={"row"}
       >
         <Button
           onClick={() => {
             Navigate(getRoute("home"));
+          }}
+          sx={{
+            backgroundColor: currentPath === "/" ? "#ffbd59FF" : "transparent",
+            paddingX: "2rem",
+            // Add other styles for highlighting
           }}
         >
           <Typography color="white" fontWeight={fontWeight}>
@@ -70,6 +76,10 @@ const CustomToolbar = ({ isMapPage, handleDrawerOpen, open }) => {
           //   Navigate(getRoute("aboutus"));
           // }}
           href="https://earthobservatory.sg/research/centres-labs/eos-rs"
+          sx={{
+            paddingX: "2rem",
+            // Add other styles for highlighting
+          }}
         >
           <Typography color="white" fontWeight={fontWeight}>
             About Us
@@ -83,6 +93,12 @@ const CustomToolbar = ({ isMapPage, handleDrawerOpen, open }) => {
         <Button
           onClick={() => {
             Navigate(getRoute("faq"));
+          }}
+          sx={{
+            backgroundColor:
+              currentPath === "/faq" ? "#ffbd59FF" : "transparent",
+            paddingX: "2rem",
+            // Add other styles for highlighting
           }}
         >
           <Typography color="white" fontWeight={fontWeight}>

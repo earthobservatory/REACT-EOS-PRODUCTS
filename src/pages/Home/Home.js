@@ -261,6 +261,7 @@ const HomePage = () => {
       >
         <Box
           sx={{
+            background: "#00000088",
             flex: 1,
             display: "flex",
             justifyContent: "center",
