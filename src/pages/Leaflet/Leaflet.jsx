@@ -288,12 +288,10 @@ function LeafletPage(props) {
 
   useEffect(() => {
     if (event_name && metadata) {
-      console.log(event_name);
       const event_metadata = metadata?.find((events) => {
         return events.event_name == event_name;
       });
 
-      console.log(event_metadata);
       setState({
         event: event_metadata,
         product_list: event_metadata.product_list,
@@ -327,7 +325,7 @@ function LeafletPage(props) {
         });
 
       setSidebarDescription({
-        title: state?.product_list[0].prod_name,
+        title: state?.product_list[0].prod_title,
         description: decodeURIComponent(
           escape(state?.product_list[0].prod_desc)
         ),
