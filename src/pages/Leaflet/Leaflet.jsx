@@ -427,11 +427,13 @@ function LeafletPage(props) {
               <List key={"list-component"} dense sx={{ width: "100%" }}>
                 {products
                   .filter((item) => {
+                    console.log(item);
                     return item.isLatest;
                   })
                   .map((value, index) => {
                     const labelId = `checkbox-list-${value}-${index}`;
                     console.log(value?.cvd_prod_tiles);
+                    console.log("Test");
                     return (
                       <ListItem key={labelId} disablePadding>
                         <ListItemButton onClick={handleToggle(value)}>
