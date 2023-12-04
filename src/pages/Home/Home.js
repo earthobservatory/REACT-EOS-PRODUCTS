@@ -16,7 +16,7 @@ import {
 } from "@mui/material";
 import EventCard from "components/EventCard/EventCard";
 import { Search, FilterList } from "@mui/icons-material";
-import { getRoute } from "utils/routes";
+import { getDynamicRoute, getRoute } from "utils/routes";
 import { useNavigate } from "react-router-dom";
 import { convertToHierarchy } from "utils/DirectoryListing";
 import XMLParser from "react-xml-parser";
@@ -90,14 +90,9 @@ const HomePage = () => {
           Date={`${item.event_start} | ${item.event_end}`}
           LastUpdated={latestProduct.prod_date}
           Tags={item.event_type_tags}
-          key={item.event_display_name}
+          key={item.event_name}
           onClick={() => {
-            Navigate(getRoute("leaflet"), {
-              state: {
-                event: item,
-                product_list: item.product_list,
-              },
-            });
+            Navigate(getDynamicRoute("leaflet", item.event_name));
           }}
         />
       );

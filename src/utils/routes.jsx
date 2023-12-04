@@ -39,10 +39,10 @@ const RoutePaths = [
   },
 
   {
-    type: "route",
+    type: "dynamic route",
     name: "Leaflet Page",
     key: "leaflet",
-    route: "/leaflet",
+    route: "/leaflet/:event_name",
     component: <LeafletPage />,
   },
   {
@@ -58,6 +58,12 @@ export const getRoute = (key) => {
   return RoutePaths.find((element) => {
     return element.key === key;
   }).route;
+};
+
+export const getDynamicRoute = (key, data) => {
+  return RoutePaths.find((element) => {
+    return element.key === key && element.type === "dynamic route";
+  }).route.replace(/:\S+/, data);
 };
 
 export default RoutePaths;

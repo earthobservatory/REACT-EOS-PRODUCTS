@@ -32,7 +32,8 @@ import { HEADER_HEIGHT } from "utils/constants";
 
 import CustomToolbar from "components/AppHeader/Toolbar";
 import CVDSwitch from "components/Reusables/CVDSwitch";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
+import { useMetadataContext } from "context/MetadataContext";
 
 const FloatingSidePeekPopup = ({ children, isOpen, onClose }) => {
   return (
@@ -261,7 +262,9 @@ const DisclaimerPopup = ({ drawerIsOpen }) => {
 
 function LeafletPage(props) {
   const theme = useTheme();
-  const { state } = useLocation();
+  const [state, setState] = useState();
+  const metadata = useMetadataContext();
+  const { event_name } = useParams();
   const [checked, setChecked] = useState([]);
   const [jsonData, setJsonData] = useState({});
   const [products, setProducts] = useState([]);
@@ -284,9 +287,25 @@ function LeafletPage(props) {
   };
 
   useEffect(() => {
-    var productList = state?.product_list;
-    if (productList) {
+    if (event_name && metadata) {
+      console.log(event_name);
+      const event_metadata = metadata?.find((events) => {
+        return events.event_name == event_name;
+      });
+
+      console.log(event_metadata);
+      setState({
+        event: event_metadata,
+        product_list: event_metadata.product_list,
+      });
+    }
+  }, [event_name, metadata]);
+
+  useEffect(() => {
+    if (state) {
       var finalList = [];
+      var productList = state?.product_list;
+
       productList
         .filter((filter) => {
           return filter.prod_cvd === false;
@@ -385,73 +404,77 @@ function LeafletPage(props) {
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
-      <CssBaseline />
-      <FloatingSideButton
-        isOpen={openLayers}
-        onClick={() => {
-          setOpenLayers(!openLayers);
-        }}
-      />
-      <FloatingSidePeekPopup isOpen={openLayers}>
-        <Box sx={{ display: "flex", alignItems: "center" }}>
-          <IconButton
+    <>
+      {state ? (
+        <Box sx={{ display: "flex" }}>
+          <CssBaseline />
+          <FloatingSideButton
+            isOpen={openLayers}
             onClick={() => {
               setOpenLayers(!openLayers);
             }}
-          >
-            <ChevronRightIcon />
-          </IconButton>
-          <Typography variant="h5">Products</Typography>
-        </Box>
-        <Stack sx={{ padding: "0.5rem", gap: "1rem" }}>
-          <List key={"list-component"} dense sx={{ width: "100%" }}>
-            {products
-              .filter((item) => {
-                return item.isLatest;
-              })
-              .map((value, index) => {
-                const labelId = `checkbox-list-${value}-${index}`;
-                console.log(value?.cvd_prod_tiles);
-                return (
-                  <ListItem key={labelId} disablePadding>
-                    <ListItemButton onClick={handleToggle(value)}>
-                      <ListItemIcon>
-                        <Checkbox
-                          edge="end"
-                          onChange={handleToggle(value)}
-                          checked={checked.indexOf(value) !== -1}
-                          inputProps={{ "aria-labelledby": labelId }}
-                        />
-                      </ListItemIcon>
+          />
+          <FloatingSidePeekPopup isOpen={openLayers}>
+            <Box sx={{ display: "flex", alignItems: "center" }}>
+              <IconButton
+                onClick={() => {
+                  setOpenLayers(!openLayers);
+                }}
+              >
+                <ChevronRightIcon />
+              </IconButton>
+              <Typography variant="h5">Products</Typography>
+            </Box>
+            <Stack sx={{ padding: "0.5rem", gap: "1rem" }}>
+              <List key={"list-component"} dense sx={{ width: "100%" }}>
+                {products
+                  .filter((item) => {
+                    return item.isLatest;
+                  })
+                  .map((value, index) => {
+                    const labelId = `checkbox-list-${value}-${index}`;
+                    console.log(value?.cvd_prod_tiles);
+                    return (
+                      <ListItem key={labelId} disablePadding>
+                        <ListItemButton onClick={handleToggle(value)}>
+                          <ListItemIcon>
+                            <Checkbox
+                              edge="end"
+                              onChange={handleToggle(value)}
+                              checked={checked.indexOf(value) !== -1}
+                              inputProps={{ "aria-labelledby": labelId }}
+                            />
+                          </ListItemIcon>
 
-                      {/* <ListItemAvatar>
+                          {/* <ListItemAvatar>
                         <Avatar
                           alt={`Avatar n°${value + 1}`}
                           src={value.prod_main_png}
                         />
                       </ListItemAvatar> */}
-                      <ListItemText
-                        id={labelId}
-                        primary={decodeURIComponent(escape(value.prod_title))}
-                      />
-                      {value?.cvd_prod_tiles ? (
-                        <CVDSwitch
-                          onChange={(newVal) => {
-                            handleSwitch(value, newVal);
-                          }}
-                          checked={value.cvd_selected}
-                          edge="end"
-                        />
-                      ) : (
-                        <></>
-                      )}
-                    </ListItemButton>
-                  </ListItem>
-                );
-              })}
-          </List>
-          {/* {state?.product_list
+                          <ListItemText
+                            id={labelId}
+                            primary={decodeURIComponent(
+                              escape(value.prod_title)
+                            )}
+                          />
+                          {value?.cvd_prod_tiles ? (
+                            <CVDSwitch
+                              onChange={(newVal) => {
+                                handleSwitch(value, newVal);
+                              }}
+                              checked={value.cvd_selected}
+                              edge="end"
+                            />
+                          ) : (
+                            <></>
+                          )}
+                        </ListItemButton>
+                      </ListItem>
+                    );
+                  })}
+              </List>
+              {/* {state?.product_list
             .filter((item) => {
               return item.isLatest;
             })
@@ -465,122 +488,123 @@ function LeafletPage(props) {
                 ></ProductCard>
               );
             })} */}
-        </Stack>
-      </FloatingSidePeekPopup>
-      <AppBar position="fixed" open={open}>
-        <CustomToolbar
-          isMapPage
-          handleDrawerOpen={handleDrawerOpen}
-          open={open}
-        />
-      </AppBar>
-      <Drawer
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          "& .MuiDrawer-paper": {
-            width: drawerWidth,
-            boxSizing: "border-box",
-          },
-        }}
-        variant="persistent"
-        anchor="left"
-        open={open}
-      >
-        <DrawerHeader>
-          <Typography
-            variant="h5"
-            sx={{ overflowWrap: "anywhere" }}
-            color={"primary"}
-          >
-            {state.event.event_display_name}
-          </Typography>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "ltr" ? (
-              <ChevronLeftIcon />
-            ) : (
-              <ChevronRightIcon />
-            )}
-          </IconButton>
-        </DrawerHeader>
-        <Divider />
-        <Stack sx={{ padding: "1rem", gap: "1rem" }}>
-          <Typography variant="h5" sx={{ textDecoration: "underline" }}>
-            Product Description
-          </Typography>
-          <Typography variant="h6" sx={{ lineBreak: "anywhere" }}>
-            {sidebarDescription?.title}
-          </Typography>
-          <Typography sx={{ whiteSpace: "pre-wrap" }}>
-            {sidebarDescription?.description}
-          </Typography>
-        </Stack>
-        <Divider />
-      </Drawer>
-      <Main open={open}>
-        <DrawerHeader />
-        <Box>
-          <DisclaimerPopup drawerIsOpen={open} />
-          <MapContainer
-            style={{
-              height: `calc(95vh - ${HEADER_HEIGHT})`,
-              borderRadius: "1rem",
-            }}
-            // center={getCenterPoint(state.event.event_bbox)}
-
-            bounds={state.event.event_bbox}
-            zoom={10}
-            scrollWheelZoom={true}
-          >
-            <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            </Stack>
+          </FloatingSidePeekPopup>
+          <AppBar position="fixed" open={open}>
+            <CustomToolbar
+              isMapPage
+              handleDrawerOpen={handleDrawerOpen}
+              open={open}
             />
+          </AppBar>
+          <Drawer
+            sx={{
+              width: drawerWidth,
+              flexShrink: 0,
+              "& .MuiDrawer-paper": {
+                width: drawerWidth,
+                boxSizing: "border-box",
+              },
+            }}
+            variant="persistent"
+            anchor="left"
+            open={open}
+          >
+            <DrawerHeader>
+              <Typography
+                variant="h5"
+                sx={{ overflowWrap: "anywhere" }}
+                color={"primary"}
+              >
+                {state.event?.event_display_name}
+              </Typography>
+              <IconButton onClick={handleDrawerClose}>
+                {theme.direction === "ltr" ? (
+                  <ChevronLeftIcon />
+                ) : (
+                  <ChevronRightIcon />
+                )}
+              </IconButton>
+            </DrawerHeader>
+            <Divider />
+            <Stack sx={{ padding: "1rem", gap: "1rem" }}>
+              <Typography variant="h5" sx={{ textDecoration: "underline" }}>
+                Product Description
+              </Typography>
+              <Typography variant="h6" sx={{ lineBreak: "anywhere" }}>
+                {sidebarDescription?.title}
+              </Typography>
+              <Typography sx={{ whiteSpace: "pre-wrap" }}>
+                {sidebarDescription?.description}
+              </Typography>
+            </Stack>
+            <Divider />
+          </Drawer>
+          <Main open={open}>
+            <DrawerHeader />
 
-            {/* <TileLayer
+            <Box>
+              <DisclaimerPopup drawerIsOpen={open} />
+              <MapContainer
+                style={{
+                  height: `calc(95vh - ${HEADER_HEIGHT})`,
+                  borderRadius: "1rem",
+                }}
+                // center={getCenterPoint(state.event.event_bbox)}
+
+                bounds={state?.event?.event_bbox}
+                zoom={10}
+                scrollWheelZoom={true}
+              >
+                <TileLayer
+                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
+
+                {/* <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}"
             /> */}
 
-            {checked.map((item) => {
-              console.log(item?.prod_max_zoom);
-              return (
-                <>
-                  <TileLayer
-                    tms={true}
-                    url={
-                      item?.cvd_selected
-                        ? `${item?.cvd_prod_tiles}{z}/{x}/{y}.png`
-                        : `${item?.prod_tiles}{z}/{x}/{y}.png`
-                    }
-                    maxNativeZoom={parseInt(item?.prod_max_zoom)}
-                    minNativeZoom={parseInt(item?.prod_min_zoom)}
-                  />
-                  <GeoJSON
-                    style={{ color: "#be93e677", weight: 2 }}
-                    ref={geoJsonRef}
-                    onEachFeature={(feature, layer) => {
-                      onEachClick(
-                        feature,
-                        layer,
-                        item?.prod_name,
-                        decodeURIComponent(escape(item?.prod_desc))
-                      );
-                    }}
-                    key={item?.prod_rfp_file}
-                    data={jsonData[item?.prod_rfp_file]}
-                  >
-                    {/* <Popup>
+                {checked.map((item) => {
+                  console.log(item?.prod_max_zoom);
+                  return (
+                    <>
+                      <TileLayer
+                        tms={true}
+                        url={
+                          item?.cvd_selected
+                            ? `${item?.cvd_prod_tiles}{z}/{x}/{y}.png`
+                            : `${item?.prod_tiles}{z}/{x}/{y}.png`
+                        }
+                        maxNativeZoom={parseInt(item?.prod_max_zoom)}
+                        minNativeZoom={parseInt(item?.prod_min_zoom)}
+                      />
+                      <GeoJSON
+                        style={{ color: "#be93e677", weight: 2 }}
+                        ref={geoJsonRef}
+                        onEachFeature={(feature, layer) => {
+                          onEachClick(
+                            feature,
+                            layer,
+                            decodeURIComponent(escape(item?.prod_title)),
+                            decodeURIComponent(escape(item?.prod_desc))
+                          );
+                        }}
+                        key={item?.prod_rfp_file}
+                        data={jsonData[item?.prod_rfp_file]}
+                      >
+                        {/* <Popup>
                       <Box sx={{ maxHeight: "20rem", overflowY: "scroll" }}>
                         {decodeURIComponent(escape(item?.prod_desc))}
                       </Box>
                     </Popup> */}
-                  </GeoJSON>
-                </>
-              );
-            })}
+                      </GeoJSON>
+                    </>
+                  );
+                })}
 
-            {/* <LayersControl position="topright">
+                {/* <LayersControl position="topright">
               <LayersControl.Overlay name="Afghanistan Earthquake">
                 <TileLayer
                   name="Afghanistan Earthquake"
@@ -592,14 +616,18 @@ function LeafletPage(props) {
               </LayersControl.Overlay>
             </LayersControl> */}
 
-            <Rectangle
-              bounds={state.event.event_bbox}
-              pathOptions={{ color: "white", fill: false, weight: 5 }}
-            />
-          </MapContainer>
+                <Rectangle
+                  bounds={state?.event?.event_bbox}
+                  pathOptions={{ color: "white", fill: false, weight: 5 }}
+                />
+              </MapContainer>
+            </Box>
+          </Main>
         </Box>
-      </Main>
-    </Box>
+      ) : (
+        <></>
+      )}
+    </>
   );
 }
 
