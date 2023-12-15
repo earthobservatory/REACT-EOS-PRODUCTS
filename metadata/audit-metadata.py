@@ -232,14 +232,16 @@ if __name__ == '__main__':
                         # for every product in the event
                         r_png = re.compile(f".*{textfile_base}.*MAIN.*png")
                         r_kmz = re.compile(fr".*{textfile_base}.kmz|.*{textfile_base}_KMZ.kmz")
+                        r_tif = re.compile(fr".*{textfile_base}.*tif.*")
                         list_png = list(filter(r_png.match, fileList))
                         list_kmz = list(filter(r_kmz.match, fileList))
+                        list_tif = list(filter(r_tif.match, fileList))
                         print(f"{list_png}, {list_kmz}")
                         if list_png and list_kmz:
                             kmz_filepath = list_kmz[0]
                             kmz_file = os.path.basename(kmz_filepath)
                             png_file = os.path.basename(list_png[0])
-
+                            tif_file = os.path.basename(list_tif[0])
                             # if newlist:
                             #     this_product_md["prod_main_png"] = urllib.parse.urljoin(this_event_md['event_url'], newlist[0])
 
@@ -247,6 +249,8 @@ if __name__ == '__main__':
                                                "prod_title": '',
                                                "prod_desc": '',
                                                "prod_main_png": urllib.parse.urljoin(this_event_md['event_url'], png_file),
+                                               "prod_tif": urllib.parse.urljoin(this_event_md['event_url'], tif_file),
+                                               "prod_kmz": urllib.parse.urljoin(this_event_md['event_url'], kmz_file),
                                                "prod_rfp_file": '',
                                                "prod_rfp_geojson": '',
                                                "prod_tiles": '',
@@ -257,6 +261,7 @@ if __name__ == '__main__':
                                                "prod_sat": '',
                                                "prod_version": 0,
                                                "prod_cvd": False
+
                                                }
 
                             # get text file
