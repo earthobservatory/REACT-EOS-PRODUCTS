@@ -168,7 +168,7 @@ def cmdLineParse():
                         default='California Institute, Japan Aerospace, Observatory of Singapore, Remote, NASA',
                         help='locations to not detect when getting event tags (comma seperated)')
     parser.add_argument('-event_tags', dest='event_tags', type=str,
-                        default="earthquake, earthquakes, typhoon, tsunami, volcano, flood, floods, explosion, landslides, landslide, cyclone, wildfire",
+                        default="earthquake, typhoon, tsunami, volcano, flood, explosion, landslide, cyclone, wildfire, damage proxy map, flood proxy map",
                         help='Event type tags (comma seperated)')
     return parser.parse_args()
 
@@ -192,8 +192,9 @@ if __name__ == '__main__':
         static_url = inps.prod_http
         client = boto3.client('s3')
         result_folder = client.list_objects(Bucket=bucket, Prefix=prefix, Delimiter='/')
+        disaster_folders = result_folder.get('CommonPrefixes') if result_folder.get('CommonPrefixes') is not None else []
 
-        for o in result_folder.get('CommonPrefixes'):
+        for o in disaster_folders:
             # EVENT LOOP
             response_folder = o.get('Prefix')
             this_event_md = {"event_name": response_folder.split("/")[0],
@@ -233,6 +234,7 @@ if __name__ == '__main__':
                         r_kmz = re.compile(fr".*{textfile_base}.kmz|.*{textfile_base}_KMZ.kmz")
                         list_png = list(filter(r_png.match, fileList))
                         list_kmz = list(filter(r_kmz.match, fileList))
+                        print(f"{list_png}, {list_kmz}")
                         if list_png and list_kmz:
                             kmz_filepath = list_kmz[0]
                             kmz_file = os.path.basename(kmz_filepath)
@@ -334,6 +336,11 @@ if __name__ == '__main__':
                                     # import pdb; pdb.set_trace()
                                     this_product_md.update({"prod_min_zoom": str(prod_tile_min)})
                                     this_product_md.update({"prod_max_zoom": str(prod_tile_max)})
+
+                            if not this_product_md["prod_tiles"]:
+                                print(f"ERROR: failed to find prod_tiles for {filepath}, breaking out and not adding product.")
+                                runCmd(f"rm -rf doc.kml files rfp_*.json {kmz_file}")
+                                continue
 
                             runCmd(f"rm -rf doc.kml files rfp_*.json {kmz_file}")
                             if feat_dict: # only appends if there is a valid radar footprint
