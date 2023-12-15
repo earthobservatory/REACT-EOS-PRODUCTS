@@ -283,7 +283,8 @@ if __name__ == '__main__':
                                 this_product_md["prod_type"] = match.group(1)
                                 this_product_md["prod_sat"] = match.group(2)
                                 this_product_md["prod_version"] = match.group(3)
-                                this_product_md["prod_cvd"] = True if match.group(4) else False
+                                this_product_md["prod_cvd"] = True if (
+                                            match.group(4) or "cvd" in this_product_md["prod_name"]) else False
 
                             # GET THE RFP
                             client.download_file(bucket, kmz_filepath, kmz_file)
