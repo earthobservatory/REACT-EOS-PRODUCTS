@@ -241,7 +241,7 @@ if __name__ == '__main__':
                             kmz_filepath = list_kmz[0]
                             kmz_file = os.path.basename(kmz_filepath)
                             png_file = os.path.basename(list_png[0])
-                            tif_file = os.path.basename(list_tif[0])
+                            tif_file = os.path.basename(list_tif[0]) if list_tif else ""
                             # if newlist:
                             #     this_product_md["prod_main_png"] = urllib.parse.urljoin(this_event_md['event_url'], newlist[0])
 
@@ -249,7 +249,7 @@ if __name__ == '__main__':
                                                "prod_title": '',
                                                "prod_desc": '',
                                                "prod_main_png": urllib.parse.urljoin(this_event_md['event_url'], png_file),
-                                               "prod_tif": urllib.parse.urljoin(this_event_md['event_url'], tif_file),
+                                               "prod_tif": urllib.parse.urljoin(this_event_md['event_url'], tif_file) if tif_file else "" ,
                                                "prod_kmz": urllib.parse.urljoin(this_event_md['event_url'], kmz_file),
                                                "prod_rfp_file": '',
                                                "prod_rfp_geojson": '',
