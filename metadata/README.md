@@ -42,11 +42,13 @@ For each product in `product_list`:
 | `prod_title`       |                           Title of DPM/FPM product, scrapred from txt                            |
 | `prod_desc`        |                        Description of DPM/FPM product, scrapred from txt                         |
 | `prod_main_png`    |                                   URL of main PNG of product.                                    |
+| `prod_kmz`         |                                   URL of main KMZ of product.                                    |
+| `prod_tif`         |                                 URL of main GeoTIFF of product.                                  |
 | `prod_rfp_file`    |                  Radar footprint geojson file url of product extracted from kmz                  |
 | `prod_rfp_geojson` | Radar footprint in geojson format extracted from kmz, contents should be same as `prod_rfp_file` |
 | `prod_tiles`       |                      TMS tile url for rendered products, extracted from kmz                      |
-| `prod_min_zoom`       |                      Minimum zoom for the product tiles                      |
-| `prod_max_zoom`       |                      Maximum zoom for the product tiles                      |
+| `prod_min_zoom`    |                                Minimum zoom for the product tiles                                |
+| `prod_max_zoom`    |                                Maximum zoom for the product tiles                                |
 | `prod_date`        |                    Product date tagged to product extracted from `prod_title`                    |
 | `prod_type`        |                         Product map type, damage or flood etc. (DPM/FPM)                         |
 | `prod_sat`         |                            Satellite product is derived from (S1/A2)                             |
@@ -66,6 +68,6 @@ You may see how the metadata could be used with leaflet [here](https://github.co
 #### crontab
 Crontab to run this periodically is in geoserver in NTU:
 ```commandline
-0 */6 * * * source /home/geoserver/miniconda3/etc/profile.d/conda.sh && conda activate isce2 && cd /home/geoserver/REACT-EOS-PRODUCTS/metadata/DATA && rm -rf *km* files && python ../audit-metadata.py -prefix "EOS-RS_2023,EOS-RS_2022,EOS-RS_2024" >> md-cron.log  2>&1
+0 */6 * * * source /home/geoserver/miniconda3/etc/profile.d/conda.sh && conda activate isce2 && cd /home/geoserver/REACT-EOS-PRODUCTS/metadata/DATA && rm -rf *km* files && python ../audit-metadata.py -prefix "EOS" >> md-cron.log  2>&1
 ```
 
