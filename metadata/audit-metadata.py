@@ -401,8 +401,11 @@ if __name__ == '__main__':
             event_types, event_countries = get_tags(this_event_md['product_list'])
             this_event_md.update({"event_type_tags": event_types})
             this_event_md.update({"event_location_tags": event_countries})
-            metadata_list.append(this_event_md)
-            print(json.dumps(metadata_list, indent=2))
+
+            if this_event_md['product_list']:
+                # only include events that have a list of products
+                metadata_list.append(this_event_md)
+
             print(json.dumps(metadata_list, indent=2))
 
 
