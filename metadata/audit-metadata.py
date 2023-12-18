@@ -290,7 +290,7 @@ if __name__ == '__main__':
                                 this_product_md.update({"prod_date": prod_date})
 
                             # extract product details with prod_name
-                            match_eosrs = re.search(r'EOS-RS_\d{8}|\d{6}.*_([A-Z]{3})_.*([A-Z][0-9])_.*?v(\d\.\d)(?:.*?(cvd))?',
+                            match_eosrs = re.search(r'EOS-RS_(?:\d{8}|\d{6}).*_([A-Z]{3})_.*([A-Z][0-9])_.*?v(\d\.\d)(?:.*?(cvd))?',
                                               this_product_md["prod_name"])
 
                             match_ariasg = re.search(r'EOS_ARIA-SG_(?:\d{8}|\d{6}).*_([A-Z]{3})_.*?v(\d\.\d)(?:.*?(cvd))?',
