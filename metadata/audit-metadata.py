@@ -210,9 +210,18 @@ if __name__ == '__main__':
             # get event display name
             # Split the filename into a list of strings using "_" as the separator
             event_name_parts = this_event_md['event_name'].split("_")
-            date_string = datetime.datetime.strptime(event_name_parts[1], '%Y%m').strftime('%b %Y')
-            # Create the final string
-            this_event_md["event_display_name"] = f"{event_name_parts[0]} {' '.join(event_name_parts[2:])}, {date_string}"
+            if "EOS-RS" in this_event_md['event_name']:
+                date_string = datetime.datetime.strptime(event_name_parts[1], '%Y%m').strftime('%b %Y')
+                # Create the final string
+                this_event_md[
+                    "event_display_name"] = f"{event_name_parts[0]} {' '.join(event_name_parts[2:])}, {date_string}"
+            else:
+                # for ARIA-SG
+                date_string = datetime.datetime.strptime(event_name_parts[2], '%Y%m').strftime('%b %Y')
+                # Create the final string
+                this_event_md[
+                    "event_display_name"] = f"{event_name_parts[0]} {event_name_parts[1]} {' '.join(event_name_parts[3:])}, {date_string}"
+
 
             print(f"sub folder :  {response_folder}")
             result_files = client.list_objects(Bucket=bucket, Prefix=response_folder)
@@ -237,11 +246,11 @@ if __name__ == '__main__':
                         list_kmz = list(filter(r_kmz.match, fileList))
                         list_tif = list(filter(r_tif.match, fileList))
                         print(f"{list_png}, {list_kmz}")
-                        if list_png and list_kmz:
+                        if list_png and list_kmz and list_tif:
                             kmz_filepath = list_kmz[0]
                             kmz_file = os.path.basename(kmz_filepath)
                             png_file = os.path.basename(list_png[0])
-                            tif_file = os.path.basename(list_tif[0]) if list_tif else ""
+                            tif_file = os.path.basename(list_tif[0])
                             # if newlist:
                             #     this_product_md["prod_main_png"] = urllib.parse.urljoin(this_event_md['event_url'], newlist[0])
 
@@ -281,15 +290,27 @@ if __name__ == '__main__':
                                 this_product_md.update({"prod_date": prod_date})
 
                             # extract product details with prod_name
-                            match = re.search(r'EOS-RS_\d{8}.*_([A-Z]{3})_.*([A-Z][0-9])_.*?v(\d\.\d)(?:.*?(cvd))?',
+                            match_eosrs = re.search(r'EOS-RS_\d{8}.*_([A-Z]{3})_.*([A-Z][0-9])_.*?v(\d\.\d)(?:.*?(cvd))?',
                                               this_product_md["prod_name"])
-                            if match:
-                                date_string = match.group(1)
-                                this_product_md["prod_type"] = match.group(1)
-                                this_product_md["prod_sat"] = match.group(2)
-                                this_product_md["prod_version"] = match.group(3)
+
+                            match_ariasg = re.search(r'EOS_ARIA-SG_\d{8}.*_([A-Z]{3})_.*?v(\d\.\d)(?:.*?(cvd))?',
+                                              this_product_md["prod_name"])
+
+                            if match_eosrs:
+                                # date_string = match_eosrs.group(1)
+                                this_product_md["prod_type"] = match_eosrs.group(1)
+                                this_product_md["prod_sat"] = match_eosrs.group(2)
+                                this_product_md["prod_version"] = match_eosrs.group(3)
                                 this_product_md["prod_cvd"] = True if (
-                                            match.group(4) or "cvd" in this_product_md["prod_name"]) else False
+                                            match_eosrs.group(4) or "cvd" in this_product_md["prod_name"]) else False
+
+                            if match_ariasg:
+                                # does not have prod_sat in ARIA-SG products
+                                # date_string = match.group(1)
+                                this_product_md["prod_type"] = match_ariasg.group(1)
+                                this_product_md["prod_version"] = match_ariasg.group(2)
+                                this_product_md["prod_cvd"] = True if (
+                                            match_ariasg.group(3) or "cvd" in this_product_md["prod_name"]) else False
 
                             # GET THE RFP
                             client.download_file(bucket, kmz_filepath, kmz_file)
