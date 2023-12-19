@@ -48,6 +48,17 @@ def parseDate(title):
 
     return formatted_date
 
+def parseDateFromFile(datestr):
+    formatted_date = ""
+    if len(datestr) > 6:
+        date = datetime.datetime.strptime(datestr, '%Y%m%d')
+        formatted_date = date.strftime("%Y-%m-%d")
+    else:
+        date = datetime.datetime.strptime(datestr, '%Y%m')
+        formatted_date = date.strftime("%Y-%m")
+    return formatted_date
+
+
 
 def get_radar_footprint(doc_kml):
     # extract radar footprint geojson
@@ -284,33 +295,35 @@ if __name__ == '__main__':
                                     this_product_md.update({"prod_desc": "\n".join(text_str_list[2:])})
 
 
-                            if this_product_md['prod_title']:
-                                print(this_product_md['prod_title'])
-                                prod_date = parseDate(this_product_md['prod_title'])
-                                this_product_md.update({"prod_date": prod_date})
-
                             # extract product details with prod_name
-                            match_eosrs = re.search(r'EOS-RS_(?:\d{8}|\d{6}).*_([A-Z]{3})_.*([A-Z][0-9])_.*?v(\d\.\d)(?:.*?(cvd))?',
+                            match_eosrs = re.search(r'EOS-RS_(\d{8}|\d{6}).*_([A-Z]{3})_.*([A-Z][0-9])_.*?v(\d\.\d)(?:.*?(cvd))?',
                                               this_product_md["prod_name"])
 
-                            match_ariasg = re.search(r'EOS_ARIA-SG_(?:\d{8}|\d{6}).*_([A-Z]{3})_.*?v(\d\.\d)(?:.*?(cvd))?',
+                            match_ariasg = re.search(r'EOS_ARIA-SG_(\d{8}|\d{6}).*_([A-Z]{3})_.*?v(\d\.\d)(?:.*?(cvd))?',
                                               this_product_md["prod_name"])
 
                             if match_eosrs:
-                                # date_string = match_eosrs.group(1)
-                                this_product_md["prod_type"] = match_eosrs.group(1)
-                                this_product_md["prod_sat"] = match_eosrs.group(2)
-                                this_product_md["prod_version"] = match_eosrs.group(3)
+                                prod_date_string = match_eosrs.group(1)
+                                this_product_md["prod_date"] = parseDateFromFile(prod_date_string)
+                                this_product_md["prod_type"] = match_eosrs.group(2)
+                                this_product_md["prod_sat"] = match_eosrs.group(3)
+                                this_product_md["prod_version"] = match_eosrs.group(4)
                                 this_product_md["prod_cvd"] = True if (
-                                            match_eosrs.group(4) or "cvd" in this_product_md["prod_name"]) else False
+                                            match_eosrs.group(5) or "cvd" in this_product_md["prod_name"]) else False
 
                             if match_ariasg:
                                 # does not have prod_sat in ARIA-SG products
-                                # date_string = match.group(1)
-                                this_product_md["prod_type"] = match_ariasg.group(1)
-                                this_product_md["prod_version"] = match_ariasg.group(2)
+                                prod_date_string = match.group(1)
+                                this_product_md["prod_date"] = parseDateFromFile(prod_date_string)
+                                this_product_md["prod_type"] = match_ariasg.group(2)
+                                this_product_md["prod_version"] = match_ariasg.group(3)
                                 this_product_md["prod_cvd"] = True if (
-                                            match_ariasg.group(3) or "cvd" in this_product_md["prod_name"]) else False
+                                            match_ariasg.group(4) or "cvd" in this_product_md["prod_name"]) else False
+
+                            if this_product_md['prod_title'] and this_product_md["prod_date"] == "":
+                                print(this_product_md['prod_title'])
+                                prod_date = parseDate(this_product_md['prod_title'])
+                                this_product_md.update({"prod_date": prod_date})
 
                             # GET THE RFP
                             client.download_file(bucket, kmz_filepath, kmz_file)
