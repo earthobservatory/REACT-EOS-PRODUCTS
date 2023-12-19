@@ -313,7 +313,7 @@ if __name__ == '__main__':
 
                             if match_ariasg:
                                 # does not have prod_sat in ARIA-SG products
-                                prod_date_string = match.group(1)
+                                prod_date_string = match_ariasg.group(1)
                                 this_product_md["prod_date"] = parseDateFromFile(prod_date_string)
                                 this_product_md["prod_type"] = match_ariasg.group(2)
                                 this_product_md["prod_version"] = match_ariasg.group(3)
