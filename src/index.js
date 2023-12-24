@@ -7,6 +7,8 @@ import { createTheme } from "@mui/material/styles";
 import "index.css";
 import { useMetadataContext } from "context/MetadataContext";
 import MetadataProvider from "provider/MetadataProvider";
+import { SnackbarProvider } from "notistack";
+
 //context: https://github.com/vasturiano/react-force-graph/issues/409
 
 let theme = createTheme({
@@ -24,6 +26,10 @@ let theme = createTheme({
     secondary: {
       main: "#ffffff",
     },
+    navyblue: {
+      main: "#3477e3",
+    },
+
     // secondary: {
     //   main: "rgb(255, 105, 127)",
     // },
@@ -50,7 +56,9 @@ root.render(
   <ThemeProvider theme={theme}>
     <MetadataProvider>
       <CssBaseline />
-      <WebRoute />
+      <SnackbarProvider>
+        <WebRoute />
+      </SnackbarProvider>
     </MetadataProvider>
   </ThemeProvider>
 );

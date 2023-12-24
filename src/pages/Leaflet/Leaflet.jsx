@@ -4,12 +4,14 @@ import {
   Button,
   Checkbox,
   Dialog,
-  IconButton,
   DialogActions,
   DialogContent,
   DialogContentText,
   DialogTitle,
+  Divider,
+  IconButton,
   Link,
+  Modal,
   Stack,
 } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
@@ -19,7 +21,6 @@ import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import MuiAppBar from "@mui/material/AppBar";
 import CssBaseline from "@mui/material/CssBaseline";
-import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -30,81 +31,125 @@ import Typography from "@mui/material/Typography";
 import { styled, useTheme } from "@mui/material/styles";
 import { HEADER_HEIGHT } from "utils/constants";
 
+import GetAppIcon from "@mui/icons-material/GetApp";
+import SatelliteAltRoundedIcon from "@mui/icons-material/SatelliteAltRounded";
+import VisibilityRoundedIcon from "@mui/icons-material/VisibilityRounded";
 import CustomToolbar from "components/AppHeader/Toolbar";
 import CVDSwitch from "components/Reusables/CVDSwitch";
-import { useLocation, useParams } from "react-router-dom";
+import { CustomPopup } from "components/Reusables/CustomCard";
 import { useMetadataContext } from "context/MetadataContext";
-
-const FloatingSidePeekPopup = ({ children, isOpen, onClose }) => {
-  return (
-    <Box
-      sx={{
-        position: "fixed",
-        top: "50%",
-        right: 0,
-        zIndex: 9999,
-        width: "35vw",
-        // transform: "translateY(-50%)",
-        transform: isOpen ? "translate(0, -50%)" : "translate(100%, -50%)",
-        transition: "transform 0.3s ease-in-out",
-        height: "60vh",
-        // background: "rgba(235, 253, 255, 0.55)",
-        background: "#32323288",
-        borderRadius: "16px",
-        boxShadow: " 0 4px 30px rgba(0, 0, 0, 0.1)",
-        backdropFilter: "blur(16px)",
-        // border: "1px solid rgba(109, 240, 255, 0.29)",
-        overflowY: "auto",
-        padding: "1rem",
-      }}
-    >
-      {/* <Fab
-        color="primary"
-        sx={{
-          position: "fixed",
-          top: "50%",
-          left: 0,
-          translate: "translateX(-50%)",
-        }}
-      >
-        <ArrowForwardIcon />
-      </Fab> */}
-      {children}
-    </Box>
-  );
-};
-
-const FloatingSideButton = ({ children, isOpen, onClick }) => {
-  return (
-    <Box
-      sx={{
-        position: "fixed",
-        top: "50%",
-        right: -10,
-        zIndex: 9999,
-        // width: "",
-        // transform: "translateY(-50%)",
-        transform: isOpen ? "translate(100%, -50%)" : "translate(0, -50%)",
-        transition: "transform 0.3s ease-in-out",
-        // height: "60vh",
-        // background: "rgba(235, 253, 255, 0.55)",
-        background: "#32323288",
-        borderRadius: "16px",
-        boxShadow: " 0 4px 30px rgba(0, 0, 0, 0.1)",
-        backdropFilter: "blur(16px)",
-        // border: "1px solid rgba(109, 240, 255, 0.29)",
-
-        padding: "1rem",
-      }}
-    >
-      <IconButton onClick={onClick}>
-        <ChevronLeftIcon />
-      </IconButton>
-    </Box>
-  );
-};
+import { useParams } from "react-router-dom";
+import { handleDownload } from "utils/helper";
+import {
+  FloatingSideButton,
+  FloatingSidePeekCard,
+} from "../../components/MapPage/FloatingSideCard";
+import { SnackbarProvider, enqueueSnackbar } from "notistack";
 
 const drawerWidth = 400;
+
+const DownloadsPopup = ({ open, downloads, onClose }) => {
+  return (
+    <Modal open={open} onClose={onClose} sx={{ zIndex: 100000 }}>
+      <CustomPopup sx={{ maxHeight: "80%", width: "80%" }}>
+        <Typography color={"primary"} variant="h4" fontWeight="400">
+          Downloads
+        </Typography>
+        <List sx={{ overflowY: "scroll" }}>
+          {downloads.map((item, index) => (
+            <>
+              <ListItem key={index}>
+                <SatelliteAltRoundedIcon
+                  color="primary"
+                  sx={{ marginRight: "1rem" }}
+                />
+
+                <ListItemText>
+                  <Typography sx={{ wordBreak: "break-all" }}>
+                    {item.prod_name}
+                  </Typography>
+                </ListItemText>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <Button
+                    aria-label={`Download PNG - ${item.prod_name}`}
+                    onClick={() => handleDownload(item.prod_main_png)}
+                  >
+                    <GetAppIcon />
+                    <Typography variant="body2">PNG</Typography>
+                  </Button>
+                  <Button
+                    aria-label={`Download TIFF - ${item.prod_name}`}
+                    onClick={() => handleDownload(item.prod_tif)}
+                  >
+                    <GetAppIcon />
+                    <Typography variant="body2">TIFF</Typography>
+                  </Button>
+                  <Button
+                    aria-label={`Download KMZ - ${item.prod_name}`}
+                    onClick={() => handleDownload(item.prod_kmz)}
+                  >
+                    <GetAppIcon />
+                    <Typography variant="body2">KMZ</Typography>
+                  </Button>
+                </div>
+              </ListItem>
+              {item?.cvd_prod_tiles ? (
+                <ListItem key={index} sx={{ display: "flex" }}>
+                  <VisibilityRoundedIcon
+                    color="navyblue"
+                    sx={{ marginRight: "1rem" }}
+                  />
+                  <ListItemText>
+                    <Typography sx={{ wordBreak: "break-all" }}>
+                      {item.cvd_prod_name}
+                    </Typography>
+                  </ListItemText>
+                  <div style={{ display: "flex", alignItems: "center" }}>
+                    <Button
+                      color="navyblue"
+                      aria-label={`Download CVD PNG - ${item.cvd_prod_name}`}
+                      onClick={() => handleDownload(item.cvd_prod_main_png)}
+                    >
+                      <GetAppIcon />
+                      <Typography variant="body2">PNG</Typography>
+                    </Button>
+                    <Button
+                      color="navyblue"
+                      aria-label={`Download CVD TIFF - ${item.cvd_prod_name}`}
+                      onClick={() => handleDownload(item.cvd_prod_tif)}
+                    >
+                      <GetAppIcon />
+                      <Typography variant="body2">TIFF</Typography>
+                    </Button>
+                    <Button
+                      color="navyblue"
+                      aria-label={`Download CVD KMZ - ${item.cvd_prod_name}`}
+                      onClick={() => handleDownload(item.cvd_prod_kmz)}
+                    >
+                      <GetAppIcon />
+                      <Typography variant="body2">KMZ</Typography>
+                    </Button>
+                  </div>
+                </ListItem>
+              ) : (
+                <></>
+              )}
+
+              <Divider />
+            </>
+          ))}
+        </List>
+        <IconButton
+          aria-label="Close"
+          style={{ position: "absolute", top: 5, right: 5 }}
+          onClick={onClose}
+        >
+          <CloseIcon />
+        </IconButton>
+      </CustomPopup>
+    </Modal>
+  );
+};
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
@@ -271,8 +316,21 @@ function LeafletPage(props) {
   const [sidebarDescription, setSidebarDescription] = useState({});
   const [open, setOpen] = useState(false);
   const [openLayers, setOpenLayers] = useState(false);
+  const [openDownload, setOpenDownload] = useState(false);
 
   const geoJsonRef = useRef();
+
+  const handleOpenDownload = () => {
+    if (checked.length) {
+      setOpenDownload(true);
+    } else {
+      enqueueSnackbar("Please select at least 1 product", { variant: "info" });
+    }
+  };
+
+  const handleCloseDownload = () => {
+    setOpenDownload(false);
+  };
 
   const GeoJSONMap = (url) => {
     fetch(url)
@@ -314,9 +372,15 @@ function LeafletPage(props) {
             return filter.prod_name === `${item.prod_name}_cvd`;
           });
           if (cvd.length) {
+            const cvd_metadata = cvd[0];
             finalList.push({
               ...item,
-              cvd_prod_tiles: cvd[0].prod_tiles,
+              cvd_prod_tiles: cvd_metadata.prod_tiles,
+              cvd_prod_kmz: cvd_metadata.prod_kmz,
+              cvd_prod_main_png: cvd_metadata.prod_main_png,
+              cvd_prod_name: cvd_metadata.prod_name,
+              cvd_prod_rfp_file: cvd_metadata.prod_rfp_file,
+              cvd_prod_tif: cvd_metadata.prod_tif,
               cvd_selected: false,
             });
           } else {
@@ -359,7 +423,6 @@ function LeafletPage(props) {
   const handleSwitch = (value, newVal) => {
     const currentIndex = checked.indexOf(value);
     const newChecked = [...checked];
-    console.log(checked);
 
     if (currentIndex === -1) {
       var productIndex = products.indexOf(value);
@@ -368,8 +431,6 @@ function LeafletPage(props) {
     } else {
       newChecked[currentIndex].cvd_selected = newVal.target.checked;
     }
-
-    console.log(newChecked);
 
     setChecked(newChecked);
   };
@@ -406,13 +467,18 @@ function LeafletPage(props) {
       {state ? (
         <Box sx={{ display: "flex" }}>
           <CssBaseline />
+          <DownloadsPopup
+            open={openDownload}
+            onClose={handleCloseDownload}
+            downloads={checked}
+          />
           <FloatingSideButton
             isOpen={openLayers}
             onClick={() => {
               setOpenLayers(!openLayers);
             }}
           />
-          <FloatingSidePeekPopup isOpen={openLayers}>
+          <FloatingSidePeekCard isOpen={openLayers}>
             <Box sx={{ display: "flex", alignItems: "center" }}>
               <IconButton
                 onClick={() => {
@@ -423,17 +489,22 @@ function LeafletPage(props) {
               </IconButton>
               <Typography variant="h5">Products</Typography>
             </Box>
-            <Stack sx={{ padding: "0.5rem", gap: "1rem" }}>
+            <Stack
+              sx={{
+                padding: "0.5rem",
+                gap: "1rem",
+                overflow: "auto",
+                flex: 1,
+              }}
+            >
               <List key={"list-component"} dense sx={{ width: "100%" }}>
                 {products
                   .filter((item) => {
-                    console.log(item);
+                    // console.log(item);
                     return item.isLatest;
                   })
                   .map((value, index) => {
                     const labelId = `checkbox-list-${value}-${index}`;
-                    console.log(value?.cvd_prod_tiles);
-                    console.log("Test");
                     return (
                       <ListItem key={labelId} disablePadding>
                         <ListItemButton onClick={handleToggle(value)}>
@@ -489,7 +560,10 @@ function LeafletPage(props) {
               );
             })} */}
             </Stack>
-          </FloatingSidePeekPopup>
+            <Button variant="outlined" fullWidth onClick={handleOpenDownload}>
+              Download Selected
+            </Button>
+          </FloatingSidePeekCard>
           <AppBar position="fixed" open={open}>
             <CustomToolbar
               isMapPage
@@ -567,7 +641,6 @@ function LeafletPage(props) {
             /> */}
 
                 {checked.map((item) => {
-                  console.log(item?.prod_max_zoom);
                   return (
                     <>
                       <TileLayer
