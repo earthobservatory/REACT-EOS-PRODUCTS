@@ -243,14 +243,14 @@ const DisclaimerPopup = ({ drawerIsOpen }) => {
         <Typography>
           This map is provided for general information purpose only.
           <br />
-          By using EOS-RS maps, you agree to our terms of use.{" "}
+          By using EOS-RS maps, you agree to our{" "}
           <Link
             variant="contained"
-            color="error"
+            color="primary"
             onClick={handleOpen}
-            sx={{ fontWeight: 800 }}
+            sx={{ fontWeight: 800, cursor: "pointer" }}
           >
-            READ MORE...
+            terms of use
           </Link>
         </Typography>
         <IconButton onClick={handleCloseWarning} sx={{ height: "fit-content" }}>
@@ -283,16 +283,20 @@ const DisclaimerPopup = ({ drawerIsOpen }) => {
             contained on the map for any purpose. Any reliance you place on such
             information is therefore strictly at your own risk.
             <br />
-            <br />
             In no event will EOS-RS be liable for any profits, loss of goodwill,
             loss of use, loss of production or business interruption costs, or
             any type of indirect, special, consequential, or incidental damages
             arising in connection with the use of this map.
             <br />
-            <br />
             Please use this map responsibly and consult official sources for any
             decision-making. If you have any questions or concerns about the map
-            or its content, please contact us.
+            or its content, please contact us at{" "}
+            <Link
+              sx={{ color: "primary", cursor: "pointer" }}
+              href="mailto:eos-rs@ntu.edu.sg"
+            >
+              eos-rs@ntu.edu.sg
+            </Link>
           </DialogContentText>
         </DialogContent>
         <DialogActions>
@@ -606,7 +610,7 @@ function LeafletPage(props) {
                 Product Description
               </Typography>
               <Typography variant="h6" sx={{ lineBreak: "anywhere" }}>
-                {sidebarDescription?.title}
+                {decodeURIComponent(escape(sidebarDescription?.title))}
               </Typography>
               <Typography sx={{ whiteSpace: "pre-wrap" }}>
                 {sidebarDescription?.description}

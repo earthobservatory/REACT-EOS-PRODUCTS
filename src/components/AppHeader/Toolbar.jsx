@@ -7,6 +7,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import EOS_LOGO from "assets/EOS Logo.png";
 
 const fontWeight = 800;
+const fontFamily = "Myriad Pro Bold";
 
 const CustomToolbar = ({ isMapPage, handleDrawerOpen, open }) => {
   const Navigate = useNavigate();
@@ -62,12 +63,18 @@ const CustomToolbar = ({ isMapPage, handleDrawerOpen, open }) => {
             Navigate(getRoute("home"));
           }}
           sx={{
-            backgroundColor: currentPath === "/" ? "#ffbd59FF" : "transparent",
+            // backgroundColor: currentPath === "/" ? "#ffbd59FF" : "transparent",
+            color: currentPath === "/" ? "#ffbd59FF" : "white",
+            "&:hover": {
+              backgroundColor: "transparent",
+              color: "#ffbd59FF",
+            },
+
             paddingX: "2rem",
             // Add other styles for highlighting
           }}
         >
-          <Typography color="white" fontWeight={fontWeight}>
+          <Typography fontWeight={fontWeight} fontFamily={fontFamily}>
             Home
           </Typography>
         </Button>
@@ -76,12 +83,18 @@ const CustomToolbar = ({ isMapPage, handleDrawerOpen, open }) => {
           //   Navigate(getRoute("aboutus"));
           // }}
           href="https://earthobservatory.sg/research/centres-labs/eos-rs"
+          target="_blank"
           sx={{
             paddingX: "2rem",
+            color: currentPath === "/aboutus" ? "#ffbd59FF" : "white",
+            "&:hover": {
+              backgroundColor: "transparent",
+              color: "#ffbd59FF",
+            },
             // Add other styles for highlighting
           }}
         >
-          <Typography color="white" fontWeight={fontWeight}>
+          <Typography fontWeight={fontWeight} fontFamily={fontFamily}>
             About Us
           </Typography>
         </Button>
@@ -95,13 +108,16 @@ const CustomToolbar = ({ isMapPage, handleDrawerOpen, open }) => {
             Navigate(getRoute("faq"));
           }}
           sx={{
-            backgroundColor:
-              currentPath === "/faq" ? "#ffbd59FF" : "transparent",
+            color: currentPath === "/faq" ? "#ffbd59FF" : "white",
+            "&:hover": {
+              backgroundColor: "transparent",
+              color: "#ffbd59FF",
+            },
             paddingX: "2rem",
             // Add other styles for highlighting
           }}
         >
-          <Typography color="white" fontWeight={fontWeight}>
+          <Typography fontWeight={fontWeight} fontFamily={fontFamily}>
             FAQ
           </Typography>
         </Button>

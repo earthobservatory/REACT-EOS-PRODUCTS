@@ -13,6 +13,7 @@ import {
   IconButton,
   Stack,
   Pagination,
+  Link,
 } from "@mui/material";
 import EventCard from "components/EventCard/EventCard";
 import { Search, FilterList } from "@mui/icons-material";
@@ -29,6 +30,25 @@ import MultipleSelectChip from "components/Reusables/MultiSelect";
 import BACKGROUND_IMG from "assets/EOS_PRODUCT.png";
 import EOS_RS_LOGO from "assets/EOS-RS-Logo.png";
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
+import NTU_LOGO from "assets/NTU-Logo.png";
+import EOS_LOGO_WHITE from "assets/EOS-Logo-White.png";
+import { capitalizeEachWord } from "utils/helper";
+
+const fontWeight = 800;
+const fontFamily = "Myriad Pro Bold";
+const linkStyle = {
+  color: "white",
+  "&:hover": {
+    backgroundColor: "transparent",
+    color: "#ffbd59FF",
+  },
+  cursor: "pointer",
+  fontFamily: fontFamily,
+  fontWeight: fontWeight,
+  lineHeight: 2,
+  textDecoration: "none",
+  boxShadow: "none",
+};
 
 const itemsPerPage = 8;
 
@@ -46,17 +66,19 @@ const HomePage = () => {
     setPage(value);
   };
 
-  const filteredMetadata = metadata?.filter((item) => {
-    return (
-      item.product_list[0].prod_desc
-        .toLowerCase()
-        .includes(query.toLowerCase()) &&
-      (filter.length == 0 ||
-        item.event_type_tags.some((r) => {
-          return filter.map((i) => i.toLowerCase()).includes(r);
-        }))
-    );
-  });
+  const filteredMetadata = metadata
+    ?.sort((a, b) => moment(b.event_start) - moment(a.event_start))
+    ?.filter((item) => {
+      return (
+        item.product_list[0].prod_desc
+          .toLowerCase()
+          .includes(query.toLowerCase()) &&
+        (filter.length == 0 ||
+          item.event_type_tags.some((r) => {
+            return filter.map((i) => i.toLowerCase()).includes(r);
+          }))
+      );
+    });
 
   const startIndex = (page - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -87,9 +109,12 @@ const HomePage = () => {
           Title={item.event_display_name}
           Image={latestProduct.prod_main_png}
           Description={latestProduct.prod_desc}
-          Date={`${item.event_start} | ${item.event_end}`}
+          // Date={`${item.event_start} | ${item.event_end}`}
+          EventDate={item.event_start}
           LastUpdated={latestProduct.prod_date}
-          Tags={item.event_type_tags}
+          Tags={item.event_type_tags.map((str) => {
+            return capitalizeEachWord(str);
+          })}
           key={item.event_name}
           onClick={() => {
             Navigate(getDynamicRoute("leaflet", item.event_name));
@@ -241,6 +266,19 @@ const HomePage = () => {
   //   return <LinearProgress />;
   // }
 
+  const scrollToEvents = () => {
+    let events = document.getElementById("events").getBoundingClientRect();
+    // e.preventDefault(); // Stop Page Reloading
+    events &&
+      window.scrollTo({
+        behavior: "smooth",
+        top:
+          events.top -
+          document.body.getBoundingClientRect().top -
+          parseInt(HEADER_HEIGHT, 10),
+      });
+  };
+
   return (
     <Box>
       <AppHeader />
@@ -283,20 +321,7 @@ const HomePage = () => {
 
             color="primary"
             sx={{ width: "50%", borderRadius: "5rem", marginTop: "2rem" }}
-            onClick={(e) => {
-              let events = document
-                .getElementById("events")
-                .getBoundingClientRect();
-              e.preventDefault(); // Stop Page Reloading
-              events &&
-                window.scrollTo({
-                  behavior: "smooth",
-                  top:
-                    events.top -
-                    document.body.getBoundingClientRect().top -
-                    parseInt(HEADER_HEIGHT, 10),
-                });
-            }}
+            onClick={scrollToEvents}
             // onClick={() => {
             //   Navigate(getRoute("home"));
             // }}
@@ -304,7 +329,7 @@ const HomePage = () => {
           >
             View products
           </Button>
-          <IconButton size="large">
+          <IconButton size="large" onClick={scrollToEvents}>
             <KeyboardDoubleArrowDownIcon />
           </IconButton>
         </Box>
@@ -394,6 +419,29 @@ const HomePage = () => {
             />
           </Box>
         </Box>
+      </Box>
+      <Box
+        sx={{
+          background: "linear-gradient(#032852,#021122 73.22%,#010810)",
+          height: "200px",
+          display: "flex",
+          justifyContent: "space-evenly",
+          alignItems: "center",
+        }}
+      >
+        <img src={EOS_LOGO_WHITE} height={"80px"} />
+        <img src={NTU_LOGO} height={"80px"} />
+        <Stack>
+          <Link href="mailto:eos-rs@ntu.edu.sg" sx={linkStyle}>
+            Contact us
+          </Link>
+          <Link href="https://earthobservatory.sg" sx={linkStyle}>
+            Earth Observatory of Singapore
+          </Link>
+          <Link href="https://www.ntu.edu.sg/ase" sx={linkStyle}>
+            Asian School of the Environment
+          </Link>
+        </Stack>
       </Box>
     </Box>
   );

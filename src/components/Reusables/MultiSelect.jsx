@@ -8,6 +8,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Chip from "@mui/material/Chip";
 import { useMetadataContext } from "context/MetadataContext";
+import { capitalizeEachWord } from "utils/helper";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -20,7 +21,7 @@ const MenuProps = {
   },
 };
 
-const items = ["Flood", "Earthquake", "Cyclone", "Landslides"];
+// const items = ["Flood", "Earthquake", "Cyclone", "Landslides"];
 
 function getStyles(item, itemName, theme) {
   return {
@@ -41,7 +42,9 @@ export default function MultipleSelectChip({ itemName, setItemName }) {
   metadata?.forEach((event_item) => {
     nonUniqueArray = nonUniqueArray.concat(event_item.event_type_tags);
   });
-  const items = uniqueArray(nonUniqueArray);
+  const items = uniqueArray(nonUniqueArray).map((str) => {
+    return capitalizeEachWord(str);
+  });
 
   const theme = useTheme();
 

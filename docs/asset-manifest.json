@@ -1,18 +1,22 @@
 {
   "files": {
     "main.css": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/css/main.12d852b1.css",
-    "main.js": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/js/main.826c7e01.js",
+    "main.js": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/js/main.a8f6f790.js",
     "static/media/EOS_PRODUCT.png": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/media/EOS_PRODUCT.e68685849e59894b23fc.png",
     "static/media/satellite-stock.jpeg": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/media/satellite-stock.7b0013d6ad1d5e5d1b37.jpeg",
+    "static/media/NTU-Logo.png": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/media/NTU-Logo.0a65716aa80c0feb8180.png",
+    "static/media/MYRIADPRO-BOLD.woff": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/media/MYRIADPRO-BOLD.1c6432261fa438517e63.woff",
+    "static/media/MYRIADPRO-REGULAR.woff": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/media/MYRIADPRO-REGULAR.d30b05461519da431d12.woff",
     "static/media/inSAR_diagram.png": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/media/inSAR_diagram.dee63d5adcf80edea628.png",
+    "static/media/EOS-Logo-White.png": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/media/EOS-Logo-White.84c24673c25483eb18f9.png",
     "static/media/EOS-RS-Logo.png": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/media/EOS-RS-Logo.0e08716d6733abf50678.png",
     "index.html": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/index.html",
     "static/media/noise.svg": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/media/noise.46169fe3bf16f4e975f2d782397cb535.svg",
     "main.12d852b1.css.map": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/css/main.12d852b1.css.map",
-    "main.826c7e01.js.map": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/js/main.826c7e01.js.map"
+    "main.a8f6f790.js.map": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/js/main.a8f6f790.js.map"
   },
   "entrypoints": [
     "static/css/main.12d852b1.css",
-    "static/js/main.826c7e01.js"
+    "static/js/main.a8f6f790.js"
   ]
 }

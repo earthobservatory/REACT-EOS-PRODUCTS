@@ -15,11 +15,12 @@ import {
   Skeleton,
 } from "@mui/material";
 import ScaleUpOnHover from "utils/Animations/ScaleUpOnHover";
+import { formatDate, textToColorHex } from "utils/helper";
 
 const EventCard = ({
   Title,
   Image,
-  Date,
+  EventDate,
   Description,
   Tags,
   LastUpdated,
@@ -97,6 +98,14 @@ const EventCard = ({
             }}
           >
             <Stack sx={{ flexGrow: 1, gap: 1 }}>
+              <Stack direction={"row"} flexWrap="wrap" gap={1}>
+                {Tags.filter((item) => item.includes("Map")).map((item) => {
+                  // color={textToColorHex(item)}
+                  return (
+                    <Chip key={item} label={item} sx={textToColorHex(item)} />
+                  );
+                })}
+              </Stack>
               <Typography
                 style={{ wordWrap: "break-word" }}
                 variant="h5"
@@ -104,8 +113,8 @@ const EventCard = ({
               >
                 {Title}
               </Typography>
-              <Typography variant="body1" color={"black"}>
-                {Date}
+              <Typography fontSize={13} color={"black"}>
+                Date of event: {formatDate(EventDate)}
               </Typography>
               <Typography
                 sx={{
@@ -120,17 +129,29 @@ const EventCard = ({
                 {decodeURIComponent(escape(Description))}
               </Typography>
             </Stack>
-            <Stack direction={"row"}>
-              {Tags.map((item) => (
-                <Chip key={item} label={item} color={"primary"} />
-              ))}
+            <Stack direction={"row"} flexWrap="wrap" gap={1}>
+              {Tags.filter((item) => !item.includes("Map")).map((item) => {
+                // color={textToColorHex(item)}
+                return (
+                  <Chip
+                    key={item}
+                    label={item}
+                    size="small"
+                    sx={{
+                      backgroundColor: "lightgray",
+                      color: "black",
+                      fontSize: 10,
+                    }}
+                  />
+                );
+              })}
             </Stack>
             <Typography
-              variant="body1"
+              fontSize={13}
               sx={{ marginTop: "auto" }}
               color={"black"}
             >
-              Last updated: {LastUpdated}
+              Map produced on {formatDate(LastUpdated)}
             </Typography>
           </CardContent>
         </Card>

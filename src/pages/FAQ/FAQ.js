@@ -106,14 +106,14 @@ const FAQPage = () => {
                 before and after an event.
                 <br />
                 <br />
-                DPMs estimate where damage has been caused by ground-based
-                events, such as earthquakes and landslides, while FPMs estimate
-                the damage caused by flooding.
+                DPMs estimate where changes to the ground have likely occurred,
+                potentially a result of earthquakes and landslides, while FPMs
+                estimates the areas that are likely flooded.
                 <br />
                 <br />
                 These maps are useful because they can be produced rapidly and
                 remotely, allowing disaster response teams to assess a situation
-                and make decision on resource allocation.
+                and make decisions on resource allocation.
               </AccordionComponent>
 
               <AccordionComponent
@@ -129,18 +129,34 @@ const FAQPage = () => {
                 <br />
                 <br />
                 By comparing satellite images acquired before and after the
-                event, we estimate how much damage has been done over the area.
+                event, we estimate how much change has occurred over a given
+                area.
                 <br />
                 <br />
                 <img src={INSAR_DIAGRAM} />
                 <Typography sx={{ color: "text.secondary" }}>
-                  {`Caption: InSAR can measures ground deformation by comparing the amount of time it takes for a signal to travel between a satellite and the target area. (Source: Cheryl Tay/Earth Observatory of Singapore) `}
+                  {`Caption: InSAR can measures ground deformation by comparing the amount of time it takes for a signal to travel between a satellite and the target area. (Source: Cheryl Tay/Earth Observatory of Singapore). The satellite data we use are from Japan Aerospace Exploration Agency’s ALOS-2 and European Space Agency’s Sentinel-1. The satellite data have a ground resolution of 25m and 30m per pixel, respectively.`}
                 </Typography>
               </AccordionComponent>
 
               <AccordionComponent
-                summary={`How accurate are the maps?`}
+                summary={`Why InSAR?`}
                 panelID={"panel3"}
+                handleChange={handleChange}
+                expanded={expanded}
+              >
+                nSAR maps the deformation of ground using radar images of the
+                Earth's surface that are collected from orbiting satellites.
+                <br />
+                Unlike optical imagery, INSAR is not subject to weather and
+                light conditions. Radar waves used by INSAR can penetrate clouds
+                and are equally effective in darkness, providing round-the-clock
+                monitoring.
+              </AccordionComponent>
+
+              <AccordionComponent
+                summary={`How accurate are the maps?`}
+                panelID={"panel4"}
                 handleChange={handleChange}
                 expanded={expanded}
               >
@@ -148,34 +164,48 @@ const FAQPage = () => {
                 results by comparing them with on-the-ground information.
                 However, there are limitations to the maps. <br />
                 <br />
-                In addition, our maps are produced by comparing satellite images
-                acquired before and after the event. The changes observed could
-                be a result of the specified event, e.g. building damaged by an
+                We validate our maps by comparing them with on-the-ground
+                information, such as media reports and optical imagery. However,
+                there are limitations to the maps.
+                <br />
+                <br />
+                Our maps are produced by comparing satellite images acquired
+                before and after the event. The changes observed could be a
+                result of the specified event, e.g. building damaged by an
                 earthquake, but they could also be due to other changes observed
-                across the time (e.g. building torn down via a controlled
-                demolition).
+                across the time (e.g. a new building).
                 <br />
                 <br />
-                The maps are also less reliable over urban and vegetated areas,
-                due to [reasons].
+                DPMs may be less reliable over vegetated areas, and FPMs may be
+                less reliable over urban and vegetated areas, due to signal
+                interference.
                 <br />
                 <br />
                 Thus, our maps should only be used as a guide to identify areas
-                that are likely damaged.
-                <br />
-                <br />
-                [For DPM team to furnish w more info, if any, please. Is there
-                some way to quantify the accuracy? (E.g. 70% accurate; up to 1cm
-                resolution, etc)]
+                that are likely damaged or flooded.
               </AccordionComponent>
 
               <AccordionComponent
                 summary={`I see that some events have multiple maps. What is the difference between them?`}
-                panelID={"panel4"}
+                panelID={"panel5"}
                 handleChange={handleChange}
                 expanded={expanded}
               >
-                Different study areas? Different versions Different data sources
+                Some events may have multiple layers of maps. You may view any
+                number of them by checking the boxes. There could be variations
+                across:
+                <br />
+                <br />
+                1. Study area
+                <br />
+                2. Version (the higher the version number, the more robust the
+                map is, e.g. v1.2 is more accurate than v0.5)
+                <br />
+                3. Source of satellite data (e.g. ALOS-2 or Sentinel-1)
+                <br />
+                <br />
+                To learn more about each layer, click on the purple area for a
+                caption.
               </AccordionComponent>
             </Card>
           </Box>
