@@ -145,7 +145,7 @@ const FAQPage = () => {
                 handleChange={handleChange}
                 expanded={expanded}
               >
-                nSAR maps the deformation of ground using radar images of the
+                InSAR maps the deformation of ground using radar images of the
                 Earth's surface that are collected from orbiting satellites.
                 <br />
                 Unlike optical imagery, INSAR is not subject to weather and
