@@ -1,18 +1,23 @@
-import { Button, Stack, Toolbar } from "@mui/material";
+import { Button, Divider, Drawer, Stack, Toolbar } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { getRoute } from "../../utils/routes";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useLocation, useNavigate } from "react-router-dom";
 import EOS_LOGO from "assets/EOS Logo.png";
+import { useState } from "react";
+import useScreenSize from "hooks/useScreenSize";
+import DynamicIconMUI from "components/Reusables/DynamicIconMUI";
 
 const fontWeight = 800;
 const fontFamily = "Myriad Pro Bold";
 
 const CustomToolbar = ({ isMapPage, handleDrawerOpen, open }) => {
+  const [openDrawer, setOpenDrawer] = useState(false);
   const Navigate = useNavigate();
   const location = useLocation();
   const currentPath = location.pathname;
+  const { isDesktopView } = useScreenSize();
 
   function EOSIcon(props) {
     return (
@@ -24,40 +29,17 @@ const CustomToolbar = ({ isMapPage, handleDrawerOpen, open }) => {
     );
   }
 
-  return (
-    <Toolbar>
-      {isMapPage ? (
-        <IconButton
-          color="inherit"
-          aria-label="open drawer"
-          onClick={handleDrawerOpen}
-          edge="start"
-          sx={{ mr: 2, ...(open && { display: "none" }) }}
-        >
-          <MenuIcon />
-        </IconButton>
-      ) : (
-        <></>
-      )}
+  const handleMenuOpen = () => {
+    setOpenDrawer(true);
+  };
 
-      <Button
-        onClick={() => {
-          Navigate(getRoute("home"));
-        }}
-      >
-        <EOSIcon size={54} />
-      </Button>
-      {/* <Typography
-        variant="h5"
-        color="white"
-        sx={{ flexGrow: 1, fontWeight: 800, letterSpacing: 3, ml: "1%" }}
-      >
-        EOS-RS
-      </Typography> */}
-      <Stack
-        sx={{ width: "100%", justifyContent: "end", height: "100%" }}
-        direction={"row"}
-      >
+  const handleMenuClose = () => {
+    setOpenDrawer(false);
+  };
+
+  const MenuButtons = ({ currentPath, variant }) => {
+    return (
+      <>
         <Button
           onClick={() => {
             Navigate(getRoute("home"));
@@ -69,15 +51,15 @@ const CustomToolbar = ({ isMapPage, handleDrawerOpen, open }) => {
               backgroundColor: "transparent",
               color: "#ffbd59FF",
             },
-
             paddingX: "2rem",
-            // Add other styles for highlighting
           }}
         >
           <Typography fontWeight={fontWeight} fontFamily={fontFamily}>
             Home
           </Typography>
         </Button>
+
+        {variant == "mobile" ? <Divider /> : <></>}
         <Button
           // onClick={() => {
           //   Navigate(getRoute("aboutus"));
@@ -91,18 +73,16 @@ const CustomToolbar = ({ isMapPage, handleDrawerOpen, open }) => {
               backgroundColor: "transparent",
               color: "#ffbd59FF",
             },
-            // Add other styles for highlighting
           }}
+          variant={variant}
         >
           <Typography fontWeight={fontWeight} fontFamily={fontFamily}>
             About Us
           </Typography>
         </Button>
-        {/* <Button>
-          <Typography color="white" sx={{ fontWeight: 500 }}>
-            How to use
-          </Typography>
-        </Button> */}
+
+        {variant == "mobile" ? <Divider /> : <></>}
+
         <Button
           onClick={() => {
             Navigate(getRoute("faq"));
@@ -116,13 +96,97 @@ const CustomToolbar = ({ isMapPage, handleDrawerOpen, open }) => {
             paddingX: "2rem",
             // Add other styles for highlighting
           }}
+          variant={variant}
         >
           <Typography fontWeight={fontWeight} fontFamily={fontFamily}>
             FAQ
           </Typography>
         </Button>
-      </Stack>
-    </Toolbar>
+      </>
+    );
+  };
+
+  return (
+    <>
+      <Toolbar>
+        {isMapPage ? (
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawerOpen}
+            edge="start"
+            sx={{ mr: 2, ...(open && { display: "none" }) }}
+          >
+            <MenuIcon />
+          </IconButton>
+        ) : (
+          <></>
+        )}
+
+        <Button
+          onClick={() => {
+            Navigate(getRoute("home"));
+          }}
+        >
+          <EOSIcon size={54} />
+        </Button>
+        {/* <Typography
+        variant="h5"
+        color="white"
+        sx={{ flexGrow: 1, fontWeight: 800, letterSpacing: 3, ml: "1%" }}
+      >
+        EOS-RS
+      </Typography> */}
+        <Stack
+          sx={{
+            width: "100%",
+            justifyContent: "end",
+            height: "100%",
+            alignItems: "center",
+          }}
+          direction={"row"}
+        >
+          {isDesktopView ? (
+            <MenuButtons currentPath={currentPath} />
+          ) : (
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleMenuOpen}
+              // edge="start"
+              sx={{ height: "fit-content" }}
+            >
+              <MenuIcon />
+            </IconButton>
+          )}
+        </Stack>
+      </Toolbar>
+      <Drawer anchor="right" open={openDrawer} onClose={handleMenuClose}>
+        <Stack
+          direction="row"
+          // justifyContent="space-between"
+          sx={{
+            padding: "1rem",
+            borderBottom: "1px solid #ccc",
+            backgroundColor: "#333",
+            color: "white",
+            alignItems: "center",
+
+            width: "40vw",
+          }}
+        >
+          <IconButton color="inherit" onClick={handleMenuClose}>
+            <DynamicIconMUI iconName={"Close"} />
+          </IconButton>
+          <Typography sx={{ fontWeight: 800 }} variant="h5">
+            Menu
+          </Typography>
+        </Stack>
+        <Stack sx={{ padding: 1 }}>
+          <MenuButtons currentPath={currentPath} variant={"mobile"} />
+        </Stack>
+      </Drawer>
+    </>
   );
 };
 

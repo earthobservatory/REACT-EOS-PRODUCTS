@@ -21,7 +21,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AppHeader from "components/AppHeader/AppHeader";
 import INSAR_DIAGRAM from "assets/inSAR_diagram.png";
 import { HEADER_HEIGHT } from "utils/constants";
-
+import MAP_SELECTION_GIF from "assets/Map-version-selection.gif";
 const AccordionComponent = ({
   panelID,
   handleChange,
@@ -36,7 +36,15 @@ const AccordionComponent = ({
         aria-controls={`${panelID}-content`}
         id={`${panelID}-header`}
       >
-        <Typography sx={{ fontWeight: 800, flexShrink: 0, fontSize: 24 }}>
+        <Typography
+          sx={{
+            fontWeight: 800,
+            flexShrink: 0,
+            fontSize: { md: 24, xs: 18 },
+            wordWrap: "break-word",
+            width: "100%",
+          }}
+        >
           {summary}
         </Typography>
       </AccordionSummary>
@@ -75,7 +83,7 @@ const FAQPage = () => {
               alignItems: "center",
             }}
           >
-            <Typography variant="h1" fontWeight={800}>
+            <Typography variant={"h1"} fontWeight={800}>
               FAQ
             </Typography>
             <Card
@@ -206,6 +214,7 @@ const FAQPage = () => {
                 <br />
                 To learn more about each layer, click on the purple area for a
                 caption.
+                <img src={MAP_SELECTION_GIF} width={"100%"} />
               </AccordionComponent>
             </Card>
           </Box>

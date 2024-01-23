@@ -59,8 +59,8 @@ export default function MultipleSelectChip({ itemName, setItemName }) {
   };
 
   return (
-    <div>
-      <FormControl sx={{ m: 1, width: 300 }}>
+    <div style={{ width: "100%" }}>
+      <FormControl sx={{ width: "100%" }}>
         <InputLabel id="demo-multiple-chip-label">Category</InputLabel>
         <Select
           labelId="demo-multiple-chip-label"

@@ -360,14 +360,19 @@ const HomePage = () => {
         </Box> */}
 
         <Box sx={{ minHeight: "80vh" }}>
-          <Box
+          <Grid
+            container
+            spacing={2}
             sx={{
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
             }}
           >
-            <Box
+            <Grid
+              item
+              xs={12}
+              md={6}
               sx={{ display: "flex", flexDirection: "column" }}
               id={"events"}
             >
@@ -375,14 +380,33 @@ const HomePage = () => {
                 All events
               </Typography>
               <Typography variant="h6">Click to view</Typography>
-            </Box>
+            </Grid>
 
-            <Stack direction={"row"} alignItems={"center"}>
+            <Grid
+              item
+              xs={12}
+              md={3}
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
               <MultipleSelectChip itemName={filter} setItemName={setFilter} />
-
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              md={3}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
               <TextField
                 label="Search"
                 variant="outlined"
+                fullWidth
                 // size="small"
                 onChange={handleChange}
                 InputProps={{
@@ -403,8 +427,8 @@ const HomePage = () => {
                   style: { borderRadius: "20px" },
                 }}
               />
-            </Stack>
-          </Box>
+            </Grid>
+          </Grid>
           <Grid sx={{ padding: "1rem" }} container spacing={{ xs: 2, md: 3 }}>
             {MapEventCards(paginatedData)}
           </Grid>
@@ -423,25 +447,50 @@ const HomePage = () => {
       <Box
         sx={{
           background: "linear-gradient(#032852,#021122 73.22%,#010810)",
-          height: "200px",
+          minHeight: "200px",
           display: "flex",
           justifyContent: "space-evenly",
           alignItems: "center",
+          padding: 4,
         }}
       >
-        <img src={EOS_LOGO_WHITE} height={"80px"} />
-        <img src={NTU_LOGO} height={"80px"} />
-        <Stack>
-          <Link href="mailto:eos-rs@ntu.edu.sg" sx={linkStyle}>
-            Contact us
-          </Link>
-          <Link href="https://earthobservatory.sg" sx={linkStyle}>
-            Earth Observatory of Singapore
-          </Link>
-          <Link href="https://www.ntu.edu.sg/ase" sx={linkStyle}>
-            Asian School of the Environment
-          </Link>
-        </Stack>
+        <Grid container rowSpacing={4}>
+          <Grid
+            item
+            md={4}
+            xs={12}
+            sx={{ display: "flex", justifyContent: "center" }}
+          >
+            <img src={EOS_LOGO_WHITE} height={"80px"} />
+          </Grid>
+
+          <Grid
+            item
+            md={4}
+            xs={12}
+            sx={{ display: "flex", justifyContent: "center" }}
+          >
+            <img src={NTU_LOGO} height={"80px"} />
+          </Grid>
+          <Grid
+            item
+            md={4}
+            xs={12}
+            sx={{ display: "flex", justifyContent: "center" }}
+          >
+            <Stack>
+              <Link href="mailto:eos-rs@ntu.edu.sg" sx={linkStyle}>
+                Contact us
+              </Link>
+              <Link href="https://earthobservatory.sg" sx={linkStyle}>
+                Earth Observatory of Singapore
+              </Link>
+              <Link href="https://www.ntu.edu.sg/ase" sx={linkStyle}>
+                Asian School of the Environment
+              </Link>
+            </Stack>
+          </Grid>
+        </Grid>
       </Box>
     </Box>
   );
