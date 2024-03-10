@@ -42,7 +42,7 @@ const CustomToolbar = ({ isMapPage, handleDrawerOpen, open }) => {
       <>
         <Button
           onClick={() => {
-            Navigate(getRoute("home"));
+            Navigate(getRoute("products"));
           }}
           sx={{
             // backgroundColor: currentPath === "/" ? "#ffbd59FF" : "transparent",
@@ -55,7 +55,7 @@ const CustomToolbar = ({ isMapPage, handleDrawerOpen, open }) => {
           }}
         >
           <Typography fontWeight={fontWeight} fontFamily={fontFamily}>
-            Home
+            Products
           </Typography>
         </Button>
 
@@ -124,9 +124,9 @@ const CustomToolbar = ({ isMapPage, handleDrawerOpen, open }) => {
         )}
 
         <Button
-          onClick={() => {
-            Navigate(getRoute("home"));
-          }}
+        // onClick={() => {
+        //   Navigate(getRoute("home"));
+        // }}
         >
           <EOSIcon size={54} />
         </Button>

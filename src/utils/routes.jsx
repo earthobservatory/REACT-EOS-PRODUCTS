@@ -1,5 +1,4 @@
-import HomePage from "pages/Home/Home";
-import LandingPage from "pages/Landing/Landing";
+import ProductsPage from "pages/Products/Products";
 import Error404Page from "pages/Error/E404";
 import LeafletPage from "pages/Leaflet/Leaflet";
 import AboutUsPage from "pages/AboutUs/AboutUs";
@@ -32,10 +31,10 @@ const RoutePaths = [
 
   {
     type: "route",
-    name: "Home Page",
-    key: "home",
+    name: "Products Page",
+    key: "products",
     route: "/",
-    component: <HomePage />,
+    component: <ProductsPage />,
   },
 
   {

@@ -238,12 +238,11 @@ const DisclaimerPopup = ({ drawerIsOpen }) => {
           padding: "1rem",
           backdropFilter: "blur(8px)",
           display: "flex",
+          alignItems: "center",
         }}
       >
         <Typography>
-          This map is provided for general information purpose only.
-          <br />
-          By using EOS-RS maps, you agree to our{" "}
+          By using EOS-RS’ products, you agree to our{" "}
           <Link
             variant="contained"
             color="primary"
@@ -252,6 +251,7 @@ const DisclaimerPopup = ({ drawerIsOpen }) => {
           >
             terms of use
           </Link>
+          {"."}
         </Typography>
         <IconButton onClick={handleCloseWarning} sx={{ height: "fit-content" }}>
           <CloseIcon />

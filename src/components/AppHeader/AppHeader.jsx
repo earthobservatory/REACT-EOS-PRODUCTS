@@ -11,7 +11,7 @@ import Noise from "assets/noise.svg";
 import { useTheme } from "@mui/material/styles";
 import CustomToolbar from "./Toolbar";
 
-const AppHeader = () => {
+const AppHeader = ({ isScrolled = false }) => {
   const Navigate = useNavigate();
   const theme = useTheme();
   function EOSIcon(props) {
@@ -40,7 +40,8 @@ const AppHeader = () => {
       sx={{
         height: HEADER_HEIGHT,
         zIndex: 100,
-        backgroundColor: "black",
+        backgroundColor: isScrolled ? "black" : "transparent",
+        backgroundImage: isScrolled ? "" : "none",
         // backgroundColor: `#424242AA`,
         // backdropFilter: "blur(8px)",
       }}

@@ -20,7 +20,7 @@ let theme = createTheme({
   palette: {
     mode: "dark",
     background: {
-      default: "rgb(39,36,37)",
+      default: "#171717",
     },
     primary: {
       main: "#ffbd59",

@@ -48,7 +48,7 @@ const EventCard = ({
         <Card
           onClick={onClick}
           sx={{
-            minHeight: "550px",
+            minHeight: "590px",
             minWidth: "250px",
             maxWidth: "100%",
             display: "flex",
@@ -57,7 +57,6 @@ const EventCard = ({
             background: "rgba(255, 255, 255, 1)",
             borderRadius: "16px",
             boxShadow: " 0 4px 30px rgba(0, 0, 0, 0.1)",
-
             border: "1px solid rgba(180, 240, 255, 0.29)",
           }}
         >
@@ -121,12 +120,14 @@ const EventCard = ({
                   display: "-webkit-box",
                   overflow: "hidden",
                   WebkitBoxOrient: "vertical",
-                  WebkitLineClamp: 3,
+                  WebkitLineClamp: 5,
                 }}
                 variant="body1"
                 color={"black"}
               >
-                {decodeURIComponent(escape(Description))}
+                {decodeURIComponent(
+                  escape(Description.replace(/^.+.This/, "This"))
+                )}
               </Typography>
             </Stack>
             <Stack direction={"row"} flexWrap="wrap" gap={1}>

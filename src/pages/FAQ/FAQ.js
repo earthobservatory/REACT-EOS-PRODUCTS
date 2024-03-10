@@ -50,7 +50,17 @@ const AccordionComponent = ({
       </AccordionSummary>
       <AccordionDetails>
         <Divider />
-        <Box>{children}</Box>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 2,
+            padding: "1rem",
+          }}
+        >
+          {children}
+        </Box>
       </AccordionDetails>
     </Accordion>
   );
@@ -69,7 +79,7 @@ const FAQPage = () => {
     <Box>
       <AppHeader />
 
-      <Grid container sx={{ paddingTop: HEADER_HEIGHT }}>
+      <Grid container>
         <Grid item xs={12} md={12}>
           <Box
             sx={{
@@ -81,6 +91,8 @@ const FAQPage = () => {
               height: "100vh",
               justifyContent: "center",
               alignItems: "center",
+              paddingTop: HEADER_HEIGHT,
+              paddingBottom: "1rem",
             }}
           >
             <Typography variant={"h1"} fontWeight={800}>
@@ -88,7 +100,7 @@ const FAQPage = () => {
             </Typography>
             <Card
               sx={{
-                width: "90vw",
+                width: "60vw",
                 transition: "transform 0.3s ease-in-out",
                 // height: "60vh",
 
@@ -130,7 +142,6 @@ const FAQPage = () => {
                 handleChange={handleChange}
                 expanded={expanded}
               >
-                <br />
                 The maps are produced using Interferometric Synthetic Aperture
                 Radar (InSAR). InSAR is a satellite-based technology which can
                 be used to measure changes on the Earth’s surface.
@@ -141,7 +152,7 @@ const FAQPage = () => {
                 area.
                 <br />
                 <br />
-                <img src={INSAR_DIAGRAM} />
+                <img src={INSAR_DIAGRAM} style={{ maxWidth: "80%" }} />
                 <Typography sx={{ color: "text.secondary" }}>
                   {`Caption: InSAR can measures ground deformation by comparing the amount of time it takes for a signal to travel between a satellite and the target area. (Source: Cheryl Tay/Earth Observatory of Singapore). The satellite data we use are from Japan Aerospace Exploration Agency’s ALOS-2 and European Space Agency’s Sentinel-1. The satellite data have a ground resolution of 25m and 30m per pixel, respectively.`}
                 </Typography>
@@ -214,7 +225,7 @@ const FAQPage = () => {
                 <br />
                 To learn more about each layer, click on the purple area for a
                 caption.
-                <img src={MAP_SELECTION_GIF} width={"100%"} />
+                <img src={MAP_SELECTION_GIF} style={{ maxWidth: "80%" }} />
               </AccordionComponent>
             </Card>
           </Box>
