@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Button, Box, LinearProgress, Typography, Grid } from "@mui/material";
 import BACKGROUND_IMG from "assets/EOS_PRODUCT.png";
-import SATELLITE_IMG from "assets/satellite-stock.jpeg";
+import SATELLITE_IMG from "assets/Sent1-ESA-ModifiedEOSRS.png";
 import { getRoute } from "utils/routes";
 import { useNavigate } from "react-router-dom";
 import REMOTE_LOGO from "assets/EOS-RS-Logo.png";
