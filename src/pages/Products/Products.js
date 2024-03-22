@@ -313,7 +313,7 @@ const ProductsPage = () => {
         <Box
           sx={{
             background:
-              "linear-gradient(to bottom, #00000088 0%, #00000088 80%, #171717 98%)",
+              "linear-gradient(to bottom, #00000022 0%, #00000022 80%, #171717 98%)",
             flex: 1,
             display: "flex",
           }}
@@ -323,7 +323,7 @@ const ProductsPage = () => {
               position: "absolute",
               transform: "translate3d(-50%,0,0)",
               left: "50%",
-              bottom: "8%",
+              bottom: "4%",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
@@ -353,7 +353,7 @@ const ProductsPage = () => {
                 width: "50%",
                 borderRadius: "5rem",
 
-                marginBottom: "5rem",
+                marginBottom: "1rem",
               }}
               onClick={scrollToEvents}
               // onClick={() => {
