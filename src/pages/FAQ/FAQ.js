@@ -227,6 +227,22 @@ const FAQPage = () => {
                 <img src={MAP_SELECTION_GIF} style={{ maxWidth: "80%" }} />
               </AccordionComponent>
             </Card>
+
+            <br />
+            <br />
+            
+            <Typography variant={"h1"} fontWeight={800}>
+              Legal Disclaimer
+            </Typography>
+            <Typography variant={"h6"} fontWeight={200} marginLeft={20} marginRight={20} textAlign={'justify'}>
+              
+                While EOS-RS has made reasonable efforts to ensure the accuracy of the information presented, EOS-RS makes no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability with respect to the map or the information, products, services, or related graphics contained on the map for any purpose. Any reliance you place on such information is therefore strictly at your own risk.
+                In no event will EOS-RS be liable for any profits, loss of goodwill, loss of use, loss of production or business interruption costs, or any type of indirect, special, consequential, or incidental damages arising in connection with the use of this map.
+                Please use this map responsibly and consult official sources for any decision-making. If you have any questions or concerns about the map or its content, please contact us at eos-rs@ntu.edu.sg
+              
+            </Typography>
+            <br />
+
           </Box>
         </Grid>
       </Grid>
