@@ -223,7 +223,7 @@ const FAQPage = () => {
                 <br />
                 <br />
                 To learn more about each layer, click on the purple area for a
-                caption.
+                caption
                 <img src={MAP_SELECTION_GIF} style={{ maxWidth: "80%" }} />
               </AccordionComponent>
             </Card>
