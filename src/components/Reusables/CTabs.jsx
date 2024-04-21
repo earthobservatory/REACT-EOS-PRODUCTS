@@ -18,7 +18,7 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box sx={{ p: "3%", backgroundColor: "dark le", borderRadius: 8 }}>
-          <Typography>{children}</Typography>
+          <CustomTypo>{children}</CustomTypo>
         </Box>
       )}
     </div>
@@ -51,18 +51,18 @@ export default function CTabs() {
         <Tab label="Workshop" {...a11yProps(1)} />
       </Tabs>
       <TabPanel value={value} index={0}>
-        <Typography variant="h6">
+        <CustomTypo variant="h6">
           We provide workshops with different levels of difficulty, suitable for
           all age groups. Be it for small classes or even company team
           trainings, we can provide a customised tech enabled learning
           experience for your organisation.
-        </Typography>
+        </CustomTypo>
         <Button variant="outlined" size={"large"} sx={{ mt: "1%" }}>
           Enquire now
         </Button>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <Typography variant="h6">
+        <CustomTypo variant="h6">
           With increasing digitalization and adoption of Internet 4.0, coding
           skills are in demand. We provide tech enhanced lessons that trains
           design thinking and core coding fundamentals. Lessons don't just stop
@@ -70,7 +70,7 @@ export default function CTabs() {
           level, driven by their interests. <br />
           <br />
           Learning has never been easier.
-        </Typography>
+        </CustomTypo>
         <Button variant="outlined" size={"large"} sx={{ mt: "1%" }}>
           Enquire now
         </Button>

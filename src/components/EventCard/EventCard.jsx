@@ -7,7 +7,6 @@ import {
   Card,
   CardMedia,
   CardContent,
-  Typography,
   Box,
   Grid,
   Stack,
@@ -16,6 +15,7 @@ import {
 } from "@mui/material";
 import ScaleUpOnHover from "utils/Animations/ScaleUpOnHover";
 import { formatDate, textToColorHex } from "utils/helper";
+import CustomTypo from "components/Reusables/CustomTypo";
 
 const EventCard = ({
   Title,
@@ -48,7 +48,7 @@ const EventCard = ({
         <Card
           onClick={onClick}
           sx={{
-            minHeight: "590px",
+            minHeight: "540px",
             minWidth: "250px",
             maxWidth: "100%",
             display: "flex",
@@ -105,17 +105,18 @@ const EventCard = ({
                   );
                 })}
               </Stack>
-              <Typography
+              <CustomTypo
                 style={{ wordWrap: "break-word" }}
                 variant="h5"
+                bold
                 color={"black"}
               >
-                {Title}
-              </Typography>
-              <Typography fontSize={13} color={"black"}>
+                {Title?.replace("EOS-RS ", "")}
+              </CustomTypo>
+              <CustomTypo fontSize={13} color={"black"}>
                 Date of event: {formatDate(EventDate)}
-              </Typography>
-              <Typography
+              </CustomTypo>
+              <CustomTypo
                 sx={{
                   display: "-webkit-box",
                   overflow: "hidden",
@@ -128,7 +129,7 @@ const EventCard = ({
                 {decodeURIComponent(
                   escape(Description.replace(/^.+.This/, "This"))
                 )}
-              </Typography>
+              </CustomTypo>
             </Stack>
             <Stack direction={"row"} flexWrap="wrap" gap={1}>
               {Tags.filter((item) => !item.includes("Map")).map((item) => {
@@ -147,13 +148,13 @@ const EventCard = ({
                 );
               })}
             </Stack>
-            <Typography
+            <CustomTypo
               fontSize={13}
               sx={{ marginTop: "auto" }}
               color={"black"}
             >
               Map produced on {formatDate(LastUpdated)}
-            </Typography>
+            </CustomTypo>
           </CardContent>
         </Card>
       </ScaleUpOnHover>

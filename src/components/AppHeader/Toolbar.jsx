@@ -8,6 +8,7 @@ import EOS_LOGO from "assets/EOS Logo.png";
 import { useState } from "react";
 import useScreenSize from "hooks/useScreenSize";
 import DynamicIconMUI from "components/Reusables/DynamicIconMUI";
+import CustomTypo from "components/Reusables/CustomTypo";
 
 const fontWeight = 800;
 const fontFamily = "Myriad Pro Bold";
@@ -54,9 +55,9 @@ const CustomToolbar = ({ isMapPage, handleDrawerOpen, open }) => {
             paddingX: "2rem",
           }}
         >
-          <Typography fontWeight={fontWeight} fontFamily={fontFamily}>
+          <CustomTypo fontWeight={fontWeight} fontFamily={fontFamily}>
             Products
-          </Typography>
+          </CustomTypo>
         </Button>
 
         {variant == "mobile" ? <Divider /> : <></>}
@@ -76,9 +77,9 @@ const CustomToolbar = ({ isMapPage, handleDrawerOpen, open }) => {
           }}
           variant={variant}
         >
-          <Typography fontWeight={fontWeight} fontFamily={fontFamily}>
+          <CustomTypo fontWeight={fontWeight} fontFamily={fontFamily}>
             About Us
-          </Typography>
+          </CustomTypo>
         </Button>
 
         {variant == "mobile" ? <Divider /> : <></>}
@@ -98,9 +99,9 @@ const CustomToolbar = ({ isMapPage, handleDrawerOpen, open }) => {
           }}
           variant={variant}
         >
-          <Typography fontWeight={fontWeight} fontFamily={fontFamily}>
+          <CustomTypo fontWeight={fontWeight} fontFamily={fontFamily}>
             FAQ
-          </Typography>
+          </CustomTypo>
         </Button>
       </>
     );
@@ -130,13 +131,13 @@ const CustomToolbar = ({ isMapPage, handleDrawerOpen, open }) => {
         >
           <EOSIcon size={54} />
         </Button>
-        {/* <Typography
+        {/* <CustomTypo
         variant="h5"
         color="white"
         sx={{ flexGrow: 1, fontWeight: 800, letterSpacing: 3, ml: "1%" }}
       >
         EOS-RS
-      </Typography> */}
+      </CustomTypo> */}
         <Stack
           sx={{
             width: "100%",
@@ -178,9 +179,9 @@ const CustomToolbar = ({ isMapPage, handleDrawerOpen, open }) => {
           <IconButton color="inherit" onClick={handleMenuClose}>
             <DynamicIconMUI iconName={"Close"} />
           </IconButton>
-          <Typography sx={{ fontWeight: 800 }} variant="h5">
+          <CustomTypo sx={{ fontWeight: 800 }} variant="h5">
             Menu
-          </Typography>
+          </CustomTypo>
         </Stack>
         <Stack sx={{ padding: 1 }}>
           <MenuButtons currentPath={currentPath} variant={"mobile"} />

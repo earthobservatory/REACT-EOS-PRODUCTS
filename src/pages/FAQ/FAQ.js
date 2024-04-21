@@ -21,6 +21,7 @@ import AppHeader from "components/AppHeader/AppHeader";
 import INSAR_DIAGRAM from "assets/inSAR_diagram.png";
 import { HEADER_HEIGHT } from "utils/constants";
 import MAP_SELECTION_GIF from "assets/Map-version-selection.gif";
+import CustomTypo from "components/Reusables/CustomTypo";
 const AccordionComponent = ({
   panelID,
   handleChange,
@@ -35,7 +36,7 @@ const AccordionComponent = ({
         aria-controls={`${panelID}-content`}
         id={`${panelID}-header`}
       >
-        <Typography
+        <CustomTypo
           sx={{
             fontWeight: 800,
             flexShrink: 0,
@@ -45,7 +46,7 @@ const AccordionComponent = ({
           }}
         >
           {summary}
-        </Typography>
+        </CustomTypo>
       </AccordionSummary>
       <AccordionDetails>
         <Divider />
@@ -94,9 +95,9 @@ const FAQPage = () => {
               paddingBottom: "1rem",
             }}
           >
-            <Typography variant={"h1"} fontWeight={800}>
+            <CustomTypo variant={"h1"} fontWeight={800}>
               FAQ
-            </Typography>
+            </CustomTypo>
             <Card
               sx={{
                 width: "60vw",
@@ -152,9 +153,9 @@ const FAQPage = () => {
                 <br />
                 <br />
                 <img src={INSAR_DIAGRAM} style={{ maxWidth: "80%" }} />
-                <Typography sx={{ color: "text.secondary" }}>
+                <CustomTypo sx={{ color: "text.secondary" }}>
                   {`Caption: InSAR can measures ground deformation by comparing the amount of time it takes for a signal to travel between a satellite and the target area. (Source: Cheryl Tay/Earth Observatory of Singapore). The satellite data we use are from Japan Aerospace Exploration Agency’s ALOS-2 and European Space Agency’s Sentinel-1. The satellite data have a ground resolution of 25m and 30m per pixel, respectively.`}
-                </Typography>
+                </CustomTypo>
               </AccordionComponent>
 
               <AccordionComponent
@@ -230,19 +231,34 @@ const FAQPage = () => {
 
             <br />
             <br />
-            
-            <Typography variant={"h1"} fontWeight={800}>
-              Legal Disclaimer
-            </Typography>
-            <Typography variant={"h6"} fontWeight={200} marginLeft={20} marginRight={20} textAlign={'justify'}>
-              
-                While EOS-RS has made reasonable efforts to ensure the accuracy of the information presented, EOS-RS makes no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability with respect to the map or the information, products, services, or related graphics contained on the map for any purpose. Any reliance you place on such information is therefore strictly at your own risk.
-                In no event will EOS-RS be liable for any profits, loss of goodwill, loss of use, loss of production or business interruption costs, or any type of indirect, special, consequential, or incidental damages arising in connection with the use of this map.
-                Please use this map responsibly and consult official sources for any decision-making. If you have any questions or concerns about the map or its content, please contact us at eos-rs@ntu.edu.sg
-              
-            </Typography>
-            <br />
 
+            <CustomTypo variant={"h1"} fontWeight={800}>
+              Legal Disclaimer
+            </CustomTypo>
+            <CustomTypo
+              variant={"h6"}
+              fontWeight={200}
+              marginLeft={20}
+              marginRight={20}
+              textAlign={"justify"}
+            >
+              While EOS-RS has made reasonable efforts to ensure the accuracy of
+              the information presented, EOS-RS makes no representations or
+              warranties of any kind, express or implied, about the
+              completeness, accuracy, reliability, suitability, or availability
+              with respect to the map or the information, products, services, or
+              related graphics contained on the map for any purpose. Any
+              reliance you place on such information is therefore strictly at
+              your own risk. In no event will EOS-RS be liable for any profits,
+              loss of goodwill, loss of use, loss of production or business
+              interruption costs, or any type of indirect, special,
+              consequential, or incidental damages arising in connection with
+              the use of this map. Please use this map responsibly and consult
+              official sources for any decision-making. If you have any
+              questions or concerns about the map or its content, please contact
+              us at eos-rs@ntu.edu.sg
+            </CustomTypo>
+            <br />
           </Box>
         </Grid>
       </Grid>

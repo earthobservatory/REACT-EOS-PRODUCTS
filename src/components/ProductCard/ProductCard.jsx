@@ -65,11 +65,11 @@ const ProductCard = ({
           }}
         >
           <Stack sx={{ flexGrow: 1, gap: 1 }}>
-            <Typography style={{ wordWrap: "break-word" }} variant="h5">
+            <CustomTypo style={{ wordWrap: "break-word" }} variant="h5">
               {Title}
-            </Typography>
-            <Typography variant="body1">{Date}</Typography>
-            <Typography
+            </CustomTypo>
+            <CustomTypo variant="body1">{Date}</CustomTypo>
+            <CustomTypo
               sx={{
                 display: "-webkit-box",
                 overflow: "hidden",
@@ -79,12 +79,12 @@ const ProductCard = ({
               variant="body1"
             >
               {Description}
-            </Typography>
+            </CustomTypo>
           </Stack>
 
-          <Typography variant="body1" sx={{ marginTop: "auto" }}>
+          <CustomTypo variant="body1" sx={{ marginTop: "auto" }}>
             Last updated: {LastUpdated}
-          </Typography>
+          </CustomTypo>
         </CardContent>
       </Card>
     </Grid>

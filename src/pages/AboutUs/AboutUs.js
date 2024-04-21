@@ -7,6 +7,7 @@ import { getRoute } from "utils/routes";
 import { useNavigate } from "react-router-dom";
 import REMOTE_LOGO from "assets/EOS-RS-Logo.png";
 import AppHeader from "components/AppHeader/AppHeader";
+import CustomTypo from "components/Reusables/CustomTypo";
 
 const AboutUsPage = () => {
   const Navigate = useNavigate();
@@ -40,16 +41,16 @@ const AboutUsPage = () => {
             gap: "1rem",
           }}
         >
-          {/* <Typography
+          {/* <CustomTypo
             variant="h1"
             textAlign="center"
             fontWeight="800"
             color="white"
           >
             REMOTE SENSING
-          </Typography> */}
+          </CustomTypo> */}
           <img src={REMOTE_LOGO} style={{ maxWidth: "80vw" }} />
-          <Typography
+          <CustomTypo
             variant="h5"
             textAlign="center"
             color="white"
@@ -59,7 +60,7 @@ const AboutUsPage = () => {
             The EOS Remote Sensing Lab (EOS-RS) is a flagship laboratory at the
             Earth Observatory of Singapore. We use satellite remote-sensing data
             for rapid disaster response and hazard monitoring.
-          </Typography>
+          </CustomTypo>
           <Button
             type="primary"
             variant="outlined"
@@ -90,15 +91,15 @@ const AboutUsPage = () => {
               justifyContent: "center",
             }}
           >
-            <Typography
+            <CustomTypo
               variant="h2"
               textAlign="center"
               fontWeight="800"
               color="#0A0231"
             >
               PRODUCTS PAGE
-            </Typography>
-            <Typography
+            </CustomTypo>
+            <CustomTypo
               variant="h6"
               textAlign="center"
               color="#0A0231"
@@ -112,7 +113,7 @@ const AboutUsPage = () => {
               We will drive scientific innovation and improved understanding of
               hazards through development of new algorithms and systems and
               through symbiotic collaboration with global partners.
-            </Typography>
+            </CustomTypo>
           </Box>
         </Grid>
         <Grid item xs={12} md={6}>
@@ -136,22 +137,22 @@ const AboutUsPage = () => {
                 gap: "1rem",
               }}
             >
-              <Typography
+              <CustomTypo
                 variant="h2"
                 textAlign="center"
                 fontWeight="800"
                 color="white"
               >
                 Ready to use our products?
-              </Typography>
-              <Typography
+              </CustomTypo>
+              <CustomTypo
                 variant="h6"
                 textAlign="center"
                 color="white"
                 sx={{ padding: 8 }}
               >
                 Start now!
-              </Typography>
+              </CustomTypo>
 
               <Button
                 type="primary"

@@ -45,6 +45,7 @@ import {
   FloatingSidePeekCard,
 } from "../../components/MapPage/FloatingSideCard";
 import { SnackbarProvider, enqueueSnackbar } from "notistack";
+import CustomTypo from "components/Reusables/CustomTypo";
 
 const drawerWidth = 400;
 
@@ -52,9 +53,9 @@ const DownloadsPopup = ({ open, downloads, onClose }) => {
   return (
     <Modal open={open} onClose={onClose} sx={{ zIndex: 100000 }}>
       <CustomPopup sx={{ maxHeight: "80%", width: "80%" }}>
-        <Typography color={"primary"} variant="h4" fontWeight="400">
+        <CustomTypo color={"primary"} variant="h4" fontWeight="400">
           Downloads
-        </Typography>
+        </CustomTypo>
         <List sx={{ overflowY: "scroll" }}>
           {downloads.map((item, index) => (
             <>
@@ -65,9 +66,9 @@ const DownloadsPopup = ({ open, downloads, onClose }) => {
                 />
 
                 <ListItemText>
-                  <Typography sx={{ wordBreak: "break-all" }}>
+                  <CustomTypo sx={{ wordBreak: "break-all" }}>
                     {item.prod_name}
-                  </Typography>
+                  </CustomTypo>
                 </ListItemText>
                 <div style={{ display: "flex", alignItems: "center" }}>
                   <Button
@@ -75,21 +76,21 @@ const DownloadsPopup = ({ open, downloads, onClose }) => {
                     onClick={() => handleDownload(item.prod_main_png)}
                   >
                     <GetAppIcon />
-                    <Typography variant="body2">PNG</Typography>
+                    <CustomTypo variant="body2">PNG</CustomTypo>
                   </Button>
                   <Button
                     aria-label={`Download TIFF - ${item.prod_name}`}
                     onClick={() => handleDownload(item.prod_tif)}
                   >
                     <GetAppIcon />
-                    <Typography variant="body2">TIFF</Typography>
+                    <CustomTypo variant="body2">TIFF</CustomTypo>
                   </Button>
                   <Button
                     aria-label={`Download KMZ - ${item.prod_name}`}
                     onClick={() => handleDownload(item.prod_kmz)}
                   >
                     <GetAppIcon />
-                    <Typography variant="body2">KMZ</Typography>
+                    <CustomTypo variant="body2">KMZ</CustomTypo>
                   </Button>
                 </div>
               </ListItem>
@@ -100,9 +101,9 @@ const DownloadsPopup = ({ open, downloads, onClose }) => {
                     sx={{ marginRight: "1rem" }}
                   />
                   <ListItemText>
-                    <Typography sx={{ wordBreak: "break-all" }}>
+                    <CustomTypo sx={{ wordBreak: "break-all" }}>
                       {item.cvd_prod_name}
-                    </Typography>
+                    </CustomTypo>
                   </ListItemText>
                   <div style={{ display: "flex", alignItems: "center" }}>
                     <Button
@@ -111,7 +112,7 @@ const DownloadsPopup = ({ open, downloads, onClose }) => {
                       onClick={() => handleDownload(item.cvd_prod_main_png)}
                     >
                       <GetAppIcon />
-                      <Typography variant="body2">PNG</Typography>
+                      <CustomTypo variant="body2">PNG</CustomTypo>
                     </Button>
                     <Button
                       color="navyblue"
@@ -119,7 +120,7 @@ const DownloadsPopup = ({ open, downloads, onClose }) => {
                       onClick={() => handleDownload(item.cvd_prod_tif)}
                     >
                       <GetAppIcon />
-                      <Typography variant="body2">TIFF</Typography>
+                      <CustomTypo variant="body2">TIFF</CustomTypo>
                     </Button>
                     <Button
                       color="navyblue"
@@ -127,7 +128,7 @@ const DownloadsPopup = ({ open, downloads, onClose }) => {
                       onClick={() => handleDownload(item.cvd_prod_kmz)}
                     >
                       <GetAppIcon />
-                      <Typography variant="body2">KMZ</Typography>
+                      <CustomTypo variant="body2">KMZ</CustomTypo>
                     </Button>
                   </div>
                 </ListItem>
@@ -241,7 +242,7 @@ const DisclaimerPopup = ({ drawerIsOpen }) => {
           alignItems: "center",
         }}
       >
-        <Typography>
+        <CustomTypo>
           By using EOS-RS’ products, you agree to our{" "}
           <Link
             variant="contained"
@@ -252,7 +253,7 @@ const DisclaimerPopup = ({ drawerIsOpen }) => {
             terms of use
           </Link>
           {"."}
-        </Typography>
+        </CustomTypo>
         <IconButton onClick={handleCloseWarning} sx={{ height: "fit-content" }}>
           <CloseIcon />
         </IconButton>
@@ -491,7 +492,7 @@ function LeafletPage(props) {
               >
                 <ChevronRightIcon />
               </IconButton>
-              <Typography variant="h5">Products</Typography>
+              <CustomTypo variant="h5">Products</CustomTypo>
             </Box>
             <Stack
               sx={{
@@ -589,13 +590,13 @@ function LeafletPage(props) {
             open={open}
           >
             <DrawerHeader>
-              <Typography
+              <CustomTypo
                 variant="h5"
                 sx={{ overflowWrap: "anywhere" }}
                 color={"primary"}
               >
                 {state.event?.event_display_name}
-              </Typography>
+              </CustomTypo>
               <IconButton onClick={handleDrawerClose}>
                 {theme.direction === "ltr" ? (
                   <ChevronLeftIcon />
@@ -606,15 +607,15 @@ function LeafletPage(props) {
             </DrawerHeader>
             <Divider />
             <Stack sx={{ padding: "1rem", gap: "1rem" }}>
-              <Typography variant="h5" sx={{ textDecoration: "underline" }}>
+              <CustomTypo variant="h5" sx={{ textDecoration: "underline" }}>
                 Product Description
-              </Typography>
-              <Typography variant="h6" sx={{ lineBreak: "anywhere" }}>
+              </CustomTypo>
+              <CustomTypo variant="h6" sx={{ lineBreak: "anywhere" }}>
                 {decodeURIComponent(escape(sidebarDescription?.title))}
-              </Typography>
-              <Typography sx={{ whiteSpace: "pre-wrap" }}>
+              </CustomTypo>
+              <CustomTypo sx={{ whiteSpace: "pre-wrap" }}>
                 {sidebarDescription?.description}
-              </Typography>
+              </CustomTypo>
             </Stack>
             <Divider />
           </Drawer>

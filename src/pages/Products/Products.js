@@ -33,6 +33,7 @@ import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrow
 import NTU_LOGO from "assets/NTU-Logo.png";
 import EOS_LOGO_WHITE from "assets/EOS-Logo-White.png";
 import { capitalizeEachWord } from "utils/helper";
+import CustomTypo from "components/Reusables/CustomTypo";
 
 const fontWeight = 800;
 const fontFamily = "Myriad Pro Bold";
@@ -329,12 +330,11 @@ const ProductsPage = () => {
               alignItems: "center",
               flexDirection: "column",
               gap: "1rem",
-              width: "60%",
+              width: "30%",
             }}
           >
             <img src={EOS_RS_LOGO} height={"80px"} />
-            <Typography
-              variant="h5"
+            <CustomTypo
               textAlign="center"
               // fontWeight="800"
               color="white"
@@ -343,14 +343,15 @@ const ProductsPage = () => {
               the Earth Observatory of Singapore, Nanyang Technological
               University. We use satellite remote-sensing data for rapid
               disaster response and hazard monitoring.
-            </Typography>
+            </CustomTypo>
             <Button
               variant="outlined"
               // type="primary"
 
               color="primary"
               sx={{
-                width: "50%",
+                // width: "50%",
+                paddingX: "2rem",
                 borderRadius: "5rem",
 
                 marginBottom: "1rem",
@@ -368,7 +369,7 @@ const ProductsPage = () => {
             </IconButton>
           </Box>
         </Box>
-        <Typography
+        <CustomTypo
           sx={{
             position: "absolute",
             transform: "translate3d(-50%,0,0)",
@@ -381,7 +382,7 @@ const ProductsPage = () => {
           color="grey"
         >
           Photo: ©ESA
-        </Typography>
+        </CustomTypo>
       </Box>
       <Box
         sx={{
@@ -394,10 +395,10 @@ const ProductsPage = () => {
         }}
       >
         {/* <Box>
-          <Typography variant="h3" fontWeight="800">
+          <CustomTypo variant="h3" fontWeight="800">
             Recent events
-          </Typography>
-          <Typography variant="h6">Events in the last 6 months</Typography>
+          </CustomTypo>
+          <CustomTypo variant="h6">Events in the last 6 months</CustomTypo>
           <Grid
             sx={{ padding: "1rem" }}
             container
@@ -425,10 +426,10 @@ const ProductsPage = () => {
               sx={{ display: "flex", flexDirection: "column" }}
               id={"events"}
             >
-              <Typography variant="h3" fontWeight="800">
+              <CustomTypo variant="h3" fontWeight="800">
                 All events
-              </Typography>
-              <Typography variant="h6">Click to view</Typography>
+              </CustomTypo>
+              <CustomTypo variant="h6">Click to view</CustomTypo>
             </Grid>
 
             <Grid

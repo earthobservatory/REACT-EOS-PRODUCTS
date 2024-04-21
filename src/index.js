@@ -16,6 +16,45 @@ import MyriadProBold from "assets/MYRIADPRO-BOLD.woff";
 let theme = createTheme({
   typography: {
     fontFamily: ['"Myriad Pro"', "Helvetica Neue", "Roboto"].join(","),
+    h1: {
+      fontFamily: "Myriad Pro",
+      letterSpacing: -0.5,
+      textTransform: "uppercase",
+    },
+    h2: {
+      fontFamily: "Myriad Pro Bold",
+      letterSpacing: -1.2,
+    },
+    h3: {
+      fontFamily: "Myriad Pro Bold",
+      letterSpacing: -1.2,
+    },
+    h4: {
+      fontFamily: "Myriad Pro Bold",
+      letterSpacing: -1.2,
+    },
+    h5: {
+      fontFamily: "Myriad Pro Bold",
+      letterSpacing: -1.2,
+    },
+    h6: {
+      fontFamily: "Myriad Pro Bold",
+      letterSpacing: -1.2,
+    },
+    body1: {
+      fontFamily: "Arial",
+      fontWeight: 600,
+      letterSpacing: -1,
+    },
+
+    body2: {
+      fontFamily: "Arial",
+    },
+    button: {
+      fontFamily: "Myriad Pro Bold",
+      letterSpacing: -1,
+      fontSize: "1.5rem",
+    },
   },
   palette: {
     mode: "dark",
@@ -23,7 +62,7 @@ let theme = createTheme({
       default: "#171717",
     },
     primary: {
-      main: "#ffbd59",
+      main: "#D9AA63",
     },
     secondary: {
       main: "#ffffff",

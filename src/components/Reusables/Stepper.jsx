@@ -97,7 +97,7 @@ export default function CustomizedSteppers() {
         {steps.map((label) => (
           <Step key={label}>
             <StepLabel StepIconComponent={ColorlibStepIcon}>
-              <Typography variant="h6">{label}</Typography>
+              <CustomTypo variant="h6">{label}</CustomTypo>
             </StepLabel>
           </Step>
         ))}
