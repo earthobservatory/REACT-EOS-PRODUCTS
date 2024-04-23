@@ -70,13 +70,6 @@ let theme = createTheme({
     navyblue: {
       main: "#3477e3",
     },
-
-    // secondary: {
-    //   main: "rgb(255, 105, 127)",
-    // },
-    // normal: {
-    //   main: "#2596be",
-    // },
   },
   components: {
     MuiCssBaseline: {
