@@ -399,7 +399,17 @@ function LeafletPage(props) {
           escape(state?.product_list[0].prod_desc)
         ),
       });
+
       setProducts(finalList);
+
+      const newChecked = [...checked];
+      newChecked.push(
+        finalList.filter((item) => {
+          // console.log(item);
+          return item.isLatest;
+        })[0]
+      );
+      setChecked(newChecked);
       setOpenLayers(true);
     }
   }, [state]);
@@ -589,7 +599,7 @@ function LeafletPage(props) {
             anchor="left"
             open={open}
           >
-            <DrawerHeader>
+            <DrawerHeader sx={{ padding: "1rem", paddingTop: "2rem" }}>
               <CustomTypo
                 variant="h5"
                 sx={{ overflowWrap: "anywhere" }}

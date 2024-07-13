@@ -77,18 +77,25 @@ export const textToColorHex = (text) => {
     // Add more pastel colors as needed
   ];
 
-  let hash = 0;
-  for (let i = 0; i < text.length; i++) {
-    hash = text.charCodeAt(i) + ((hash << 5) - hash);
+  var backgroundColor = "#000000";
+
+  if (text === "Damage Proxy Map") backgroundColor = "#ffbd59";
+  else if (text === "Flood Proxy Map") backgroundColor = "#8fd2ff";
+  else {
+    let hash = 0;
+    for (let i = 0; i < text.length; i++) {
+      hash = text.charCodeAt(i) + ((hash << 5) - hash);
+    }
+
+    // Use modulus to select a pastel color from the array
+    const colorIndex = Math.abs(hash) % pastelColors.length;
+
+    // Set the selected pastel color as the background
+    backgroundColor = pastelColors[colorIndex];
+
+    // Calculate the luminance to determine text color
   }
 
-  // Use modulus to select a pastel color from the array
-  const colorIndex = Math.abs(hash) % pastelColors.length;
-
-  // Set the selected pastel color as the background
-  const backgroundColor = pastelColors[colorIndex];
-
-  // Calculate the luminance to determine text color
   const luminance =
     (0.299 * parseInt(backgroundColor.slice(1, 3), 16) +
       0.587 * parseInt(backgroundColor.slice(3, 5), 16) +

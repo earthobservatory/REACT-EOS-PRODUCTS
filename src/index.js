@@ -23,33 +23,33 @@ let theme = createTheme({
     },
     h2: {
       fontFamily: "Myriad Pro Bold",
-      letterSpacing: -1.2,
+      letterSpacing: -1,
       lineHeight: 1.2,
     },
     h3: {
       fontFamily: "Myriad Pro Bold",
-      letterSpacing: -1.2,
+      letterSpacing: -1,
       lineHeight: 1.2,
     },
     h4: {
       fontFamily: "Myriad Pro Bold",
-      letterSpacing: -1.2,
+      letterSpacing: -1,
       lineHeight: 1.2,
     },
     h5: {
       fontFamily: "Myriad Pro Bold",
-      letterSpacing: -1.2,
+      letterSpacing: -1,
       lineHeight: 1.2,
     },
     h6: {
       fontFamily: "Myriad Pro Bold",
-      letterSpacing: -1.2,
+      letterSpacing: -1,
       lineHeight: 1.2,
     },
     body1: {
       fontFamily: "Arial",
 
-      letterSpacing: -1,
+      letterSpacing: -0.3,
       lineHeight: 1.3,
     },
 
@@ -59,8 +59,8 @@ let theme = createTheme({
     },
     button: {
       fontFamily: "Myriad Pro Bold",
-      letterSpacing: -1,
-      fontSize: "1.5rem",
+      letterSpacing: -0.3,
+      fontSize: "1rem",
     },
   },
   palette: {

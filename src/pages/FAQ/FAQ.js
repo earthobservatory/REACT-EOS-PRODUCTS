@@ -90,6 +90,7 @@ const FAQPage = () => {
           alignItems: "center",
           marginTop: HEADER_HEIGHT + "",
           paddingBottom: "1rem",
+          paddingX: { md: "15rem", sm: "5rem", xs: "1rem" },
         }}
       >
         <CustomTypo variant={"h1"} fontWeight={800}>
@@ -97,7 +98,7 @@ const FAQPage = () => {
         </CustomTypo>
         <Card
           sx={{
-            width: "60vw",
+            width: "100%",
             minHeight: "40vh",
             transition: "transform 0.3s ease-in-out",
             // height: "60vh",
@@ -230,13 +231,7 @@ const FAQPage = () => {
         <CustomTypo variant={"h1"} fontWeight={800}>
           Legal Disclaimer
         </CustomTypo>
-        <CustomTypo
-          variant={"h6"}
-          fontWeight={200}
-          marginLeft={20}
-          marginRight={20}
-          textAlign={"justify"}
-        >
+        <CustomTypo variant={"h6"} fontWeight={200} textAlign={"justify"}>
           While EOS-RS has made reasonable efforts to ensure the accuracy of the
           information presented, EOS-RS makes no representations or warranties
           of any kind, express or implied, about the completeness, accuracy,

@@ -34,6 +34,10 @@ import NTU_LOGO from "assets/NTU-Logo.png";
 import EOS_LOGO_WHITE from "assets/EOS-Logo-White.png";
 import { capitalizeEachWord } from "utils/helper";
 import CustomTypo from "components/Reusables/CustomTypo";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import YouTubeIcon from "@mui/icons-material/YouTube";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
 
 const fontWeight = 800;
 const fontFamily = "Myriad Pro Bold";
@@ -50,6 +54,17 @@ const linkStyle = {
   textDecoration: "none",
   boxShadow: "none",
 };
+
+const footerStyle = {
+  color: "white",
+  fontFamily: fontFamily,
+  fontWeight: fontWeight,
+  lineHeight: 2,
+  textDecoration: "none",
+  boxShadow: "none",
+};
+
+const iconStyle = { color: "#FFFFFF", fontSize: "25px" };
 
 const itemsPerPage = 8;
 
@@ -305,7 +320,7 @@ const ProductsPage = () => {
         sx={{
           backgroundImage: `url(${BACKGROUND_IMG})`,
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "center bottom 30px",
           display: "flex",
           width: "100%",
           height: "100vh",
@@ -324,13 +339,13 @@ const ProductsPage = () => {
               position: "absolute",
               transform: "translate3d(-50%,0,0)",
               left: "50%",
-              bottom: "4%",
+              bottom: { xl: "15%", lg: "15%", md: "8%", sm: "8%", xs: "8%" },
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
               flexDirection: "column",
               gap: "1rem",
-              width: "30%",
+              width: { xs: "80%", md: "40%", lg: "50%" },
             }}
           >
             <img src={EOS_RS_LOGO} height={"80px"} />
@@ -353,7 +368,7 @@ const ProductsPage = () => {
                 // width: "50%",
                 paddingX: "2rem",
                 borderRadius: "5rem",
-
+                paddingY: "0.5rem",
                 marginBottom: "1rem",
               }}
               onClick={scrollToEvents}
@@ -507,7 +522,7 @@ const ProductsPage = () => {
         <Grid container rowSpacing={4}>
           <Grid
             item
-            md={4}
+            md={3}
             xs={12}
             sx={{ display: "flex", justifyContent: "center" }}
           >
@@ -516,15 +531,7 @@ const ProductsPage = () => {
 
           <Grid
             item
-            md={4}
-            xs={12}
-            sx={{ display: "flex", justifyContent: "center" }}
-          >
-            <img src={NTU_LOGO} height={"80px"} />
-          </Grid>
-          <Grid
-            item
-            md={4}
+            md={3}
             xs={12}
             sx={{ display: "flex", justifyContent: "center" }}
           >
@@ -538,6 +545,72 @@ const ProductsPage = () => {
               <Link href="https://www.ntu.edu.sg/ase" sx={linkStyle}>
                 Asian School of the Environment
               </Link>
+            </Stack>
+          </Grid>
+
+          <Grid
+            item
+            md={3}
+            xs={12}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <Stack>
+              <CustomTypo sx={{ fontWeight: 1000 }} style={footerStyle}>
+                Follow Us
+              </CustomTypo>
+              <Stack direction={"row"} spacing={1}>
+                {/* <Link
+                  href="https://x.com/eos_rs?lang=en"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <YouTubeIcon style={iconStyle} />
+                </Link>
+
+                <Link
+                  href="https://x.com/eos_rs?lang=en"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <InstagramIcon style={iconStyle} />
+                </Link> */}
+
+                <Link
+                  href="https://x.com/eos_rs?lang=en"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <TwitterIcon style={iconStyle} />
+                </Link>
+
+                {/* <Link
+                  href="https://x.com/eos_rs?lang=en"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FacebookIcon style={iconStyle} />
+                </Link> */}
+              </Stack>
+            </Stack>
+          </Grid>
+
+          <Grid
+            item
+            md={3}
+            xs={12}
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <Stack>
+              <CustomTypo sx={{ fontWeight: 1000 }} style={footerStyle}>
+                An institute of
+              </CustomTypo>
+              <img src={NTU_LOGO} style={{ width: "auto", height: "60px" }} />
             </Stack>
           </Grid>
         </Grid>
