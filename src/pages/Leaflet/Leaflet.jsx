@@ -402,6 +402,13 @@ function LeafletPage(props) {
 
       setProducts(finalList);
 
+      setOpenLayers(true);
+      setMainProduct(finalList);
+    }
+  }, [state]);
+
+  const setMainProduct = async (finalList) => {
+    setTimeout(() => {
       const newChecked = [...checked];
       newChecked.push(
         finalList.filter((item) => {
@@ -410,9 +417,8 @@ function LeafletPage(props) {
         })[0]
       );
       setChecked(newChecked);
-      setOpenLayers(true);
-    }
-  }, [state]);
+    }, 500); // 1000 milliseconds delay
+  };
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -621,7 +627,7 @@ function LeafletPage(props) {
                 Product Description
               </CustomTypo>
               <CustomTypo variant="h6" sx={{ lineBreak: "anywhere" }}>
-                {decodeURIComponent(escape(sidebarDescription?.title))}
+                {sidebarDescription?.title}
               </CustomTypo>
               <CustomTypo sx={{ whiteSpace: "pre-wrap" }}>
                 {sidebarDescription?.description}

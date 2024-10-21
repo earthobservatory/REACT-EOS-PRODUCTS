@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.12d852b1.css",
-    "main.js": "/static/js/main.3f03dc72.js",
-    "static/media/Map-version-selection.gif": "/static/media/Map-version-selection.548c7b3c2723606a3879.gif",
-    "static/media/Sent1-ESA-ModifiedEOSRS.png": "/static/media/Sent1-ESA-ModifiedEOSRS.5e95c0d943318c056e73.png",
-    "static/media/EOS_PRODUCT.png": "/static/media/EOS_PRODUCT.e68685849e59894b23fc.png",
-    "static/media/NTU-Logo.png": "/static/media/NTU-Logo.0a65716aa80c0feb8180.png",
-    "static/media/MYRIADPRO-BOLD.woff": "/static/media/MYRIADPRO-BOLD.1c6432261fa438517e63.woff",
-    "static/media/MYRIADPRO-REGULAR.woff": "/static/media/MYRIADPRO-REGULAR.d30b05461519da431d12.woff",
-    "static/media/inSAR_diagram.png": "/static/media/inSAR_diagram.dee63d5adcf80edea628.png",
-    "static/media/EOS-Logo-White.png": "/static/media/EOS-Logo-White.84c24673c25483eb18f9.png",
-    "index.html": "/index.html",
-    "static/media/noise.svg": "/static/media/noise.46169fe3bf16f4e975f2d782397cb535.svg",
-    "main.12d852b1.css.map": "/static/css/main.12d852b1.css.map",
-    "main.3f03dc72.js.map": "/static/js/main.3f03dc72.js.map"
+    "main.css": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/css/main.477177ac.css",
+    "main.js": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/js/main.da2de389.js",
+    "static/media/Map-version-selection.gif": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/media/Map-version-selection.548c7b3c2723606a3879.gif",
+    "static/media/Sent1-ESA-ModifiedEOSRS.png": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/media/Sent1-ESA-ModifiedEOSRS.5e95c0d943318c056e73.png",
+    "static/media/EOS_PRODUCT.png": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/media/EOS_PRODUCT.e68685849e59894b23fc.png",
+    "static/media/NTU-Logo.png": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/media/NTU-Logo.0a65716aa80c0feb8180.png",
+    "static/media/MYRIADPRO-BOLD.woff": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/media/MYRIADPRO-BOLD.1c6432261fa438517e63.woff",
+    "static/media/MYRIADPRO-REGULAR.woff": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/media/MYRIADPRO-REGULAR.d30b05461519da431d12.woff",
+    "static/media/inSAR_diagram.png": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/media/inSAR_diagram.dee63d5adcf80edea628.png",
+    "static/media/EOS-Logo-White.png": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/media/EOS-Logo-White.84c24673c25483eb18f9.png",
+    "index.html": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/index.html",
+    "static/media/noise.svg": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/media/noise.46169fe3bf16f4e975f2d782397cb535.svg",
+    "main.477177ac.css.map": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/css/main.477177ac.css.map",
+    "main.da2de389.js.map": "https://earthobservatory.github.io/REACT-EOS-PRODUCTS/static/js/main.da2de389.js.map"
   },
   "entrypoints": [
-    "static/css/main.12d852b1.css",
-    "static/js/main.3f03dc72.js"
+    "static/css/main.477177ac.css",
+    "static/js/main.da2de389.js"
   ]
 }
