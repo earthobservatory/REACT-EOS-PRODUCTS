@@ -71,3 +71,8 @@ Crontab to run this periodically is in geoserver in NTU:
 0 */6 * * * source /home/geoserver/miniconda3/etc/profile.d/conda.sh && conda activate isce2 && cd /home/geoserver/REACT-EOS-PRODUCTS/metadata/DATA && rm -rf *km* files && python ../audit-metadata.py -prefix "EOS" >> md-cron.log  2>&1
 ```
 
+Run once command
+```
+source /home/ubuntu/anaconda3/etc/profile.d/conda.sh && conda activate geoserver && cd /home/ubuntu/REACT-EOS-PRODUCTS/metadata/DATA && rm -rf *km* files && python ../audit-metadata.py -prefix "EOS" 2>&1 | tee md-cron.log
+
+```
