@@ -1,24 +1,39 @@
-import ProductsPage from "pages/Products/Products";
-import Error404Page from "pages/Error/E404";
-import LeafletPage from "pages/Leaflet/Leaflet";
-import AboutUsPage from "pages/AboutUs/AboutUs";
-import FAQPage from "pages/FAQ/FAQ";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+
+// Redirect component
+const RedirectComponent = ({ newUrl }) => {
+  useEffect(() => {
+    window.location.href = newUrl;
+  }, [newUrl]);
+
+  return (
+    <div style={{ padding: "20px", textAlign: "center" }}>
+      <p>Redirecting to our new site...</p>
+    </div>
+  );
+};
+
+// Leaflet redirect with dynamic parameter
+const LeafletRedirect = () => {
+  const { event_name } = useParams();
+
+  useEffect(() => {
+    window.location.href = `https://sf.earthobservatory.sg/event/${event_name}`;
+  }, [event_name]);
+
+  return (
+    <div style={{ padding: "20px", textAlign: "center" }}>Redirecting...</div>
+  );
+};
 
 const RoutePaths = [
-  // {
-  //   type: "route",
-  //   name: "Landing Page",
-  //   key: "landing",
-  //   route: "/",
-  //   component: <LandingPage />,
-  // },
-
   {
     type: "route",
     name: "About Us",
     key: "aboutus",
     route: "/about-us",
-    component: <AboutUsPage />,
+    component: <RedirectComponent newUrl="https://sf.earthobservatory.sg" />,
   },
 
   {
@@ -26,7 +41,9 @@ const RoutePaths = [
     name: "FAQ",
     key: "faq",
     route: "/faq",
-    component: <FAQPage />,
+    component: (
+      <RedirectComponent newUrl="https://sf.earthobservatory.sg/faq" />
+    ),
   },
 
   {
@@ -34,7 +51,9 @@ const RoutePaths = [
     name: "Products Page",
     key: "products",
     route: "/",
-    component: <ProductsPage />,
+    component: (
+      <RedirectComponent newUrl="https://sf.earthobservatory.sg/products" />
+    ),
   },
 
   {
@@ -42,17 +61,18 @@ const RoutePaths = [
     name: "Leaflet Page",
     key: "leaflet",
     route: "/leaflet/:event_name",
-    component: <LeafletPage />,
+    component: <LeafletRedirect />,
   },
   {
     type: "route",
     name: "Error 404",
     key: "error404",
     route: "*",
-    component: <Error404Page />,
+    component: <RedirectComponent newUrl="https://sf.earthobservatory.sg" />,
   },
 ];
 
+// Keep these functions unchanged - they're still being used
 export const getRoute = (key) => {
   return RoutePaths.find((element) => {
     return element.key === key;
